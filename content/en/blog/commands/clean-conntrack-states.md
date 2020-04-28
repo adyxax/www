@@ -1,0 +1,17 @@
+---
+title: "Clean conntrack states"
+linkTitle: "Clean conntrack states"
+date: 2018-03-02
+description: >
+  Clean conntrack states
+---
+
+Here is an example of how to clean conntrack states that match a specific query on a linux firewall :
+
+{{< highlight sh >}}
+conntrack -L conntrack -p tcp –orig-dport 65372 | \
+while read _ _ _ _ src dst sport dport _; do
+    conntrack -D conntrack –proto tcp –orig-src ${src#*=} –orig-dst ${dst#*=} \
+              –sport ${sport#*=} –dport ${dport#*=}
+ done
+{{< /highlight >}}

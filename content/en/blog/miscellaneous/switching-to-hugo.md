@@ -1,4 +1,3 @@
-
 ---
 title: "Switching to Hugo"
 linkTitle: "Switching to Hugo"

@@ -1,4 +1,3 @@
-
 ---
 title: "I am back from New Zealand"
 linkTitle: "Back from New Zealand"

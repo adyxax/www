@@ -1,0 +1,45 @@
+---
+title: "Gentoo Kernel Upgrades"
+linkTitle: "Kernel Upgrades"
+weight: 1
+description: >
+  Gentoo kernel upgrades on adyxax.org
+---
+# Gentoo kernel upgrades
+
+## Building on collab-jde
+
+{{< highlight sh >}}
+PREV_VERSION=4.14.78-gentoo
+eselect kernel list
+eselect kernel set 1
+cd /usr/src/linux
+for ARCHI in `ls /srv/gentoo-builder/kernels/`; do
+    make mrproper
+    cp /srv/gentoo-builder/kernels/${ARCHI}/config-${PREV_VERSION} .config
+    echo "~~~~~~~~~~ $ARCHI ~~~~~~~~~~"
+    make oldconfig
+    make -j5
+    INSTALL_MOD_PATH=/srv/gentoo-builder/kernels/${ARCHI}/ make modules_install
+    INSTALL_PATH=/srv/gentoo-builder/kernels/${ARCHI}/ make install
+done
+{{< / highlight >}}
+
+## Deploying on each node :
+
+{{< highlight sh >}}
+export VERSION=5.4.28-gentoo-x86_64
+wget http://packages.adyxax.org/kernels/x86_64/System.map-${VERSION} -O /boot/System.map-${VERSION}
+wget http://packages.adyxax.org/kernels/x86_64/config-${VERSION} -O /boot/config-${VERSION}
+wget http://packages.adyxax.org/kernels/x86_64/vmlinuz-${VERSION} -O /boot/vmlinuz-${VERSION}
+rsync -a --delete collab-jde.nexen.net:/srv/gentoo-builder/kernels/x86_64/lib/modules/${VERSION} /lib/modules/
+eselect kernel set 1
+cd /usr/src/linux
+cp /boot/config-${VERSION} .config
+cp /boot/System.map-${VERSION} System.map
+(cd usr ; make gen_init_cpio)
+make modules_prepare
+emerge @module-rebuild
+genkernel --install initramfs
+grub-mkconfig -o /boot/grub/grub.cfg
+{{< / highlight >}}

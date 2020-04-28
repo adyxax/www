@@ -53,18 +53,19 @@ anchor = "smart"
 
 [languages]
 [languages.en]
-title = "Yet Another SysAdmin Wiki"
-description = "The wiki of yet another sysadmin"
+title = "Yet Another SysAdmin Wiki/Blog"
+description = "The personal space of yet another sysadmin"
 languageName ="English"
 # Weight used for sorting.
 weight = 1
-[languages.fr]
-title = "Encore un wiki d'AdminSys"
-description = "Docsy er operativsystem for skyen"
-languageName ="French"
-contentDir = "content/fr"
-#time_format_default = "02.01.2006"
-#time_format_blog = "02.01.2006"
+
+#[languages.fr]
+#title = "Un wiki/blog d'AdminSys"
+#description = "Le petit bout d'internet d'un adminsys"
+#languageName ="Français"
+#contentDir = "content/fr"
+##time_format_default = "02.01.2006"
+##time_format_blog = "02.01.2006"
 
 [markup]
   [markup.goldmark]
@@ -99,7 +100,7 @@ version_menu = "Releases"
 algolia_docsearch = false
 
 # Enable Lunr.js offline search
-offlineSearch = false
+offlineSearch = true
 
 # User interface configuration
 [params.ui]
