@@ -7,4 +7,4 @@ menu:
     weight: 20
 ---
 
-This is the wiki section of this website. The information is organiser as follows :
+This is the wiki section of this website. The information is organised as follows :
