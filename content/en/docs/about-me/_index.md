@@ -33,4 +33,4 @@ I joined Alterway in October 2016 for a more technical role and a bit of a caree
 
 ## How to get in touch
 
-You can write me an email at julien[dot]dessaux[at]adyxax[dot]org, I will answer.
+You can write me an email at julien -DOT- dessaux -AT- adyxax -DOT- org, I will answer.

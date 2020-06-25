@@ -40,6 +40,6 @@ cp /boot/System.map-${VERSION} System.map
 (cd usr ; make gen_init_cpio)
 make modules_prepare
 emerge @module-rebuild
-genkernel --install initramfs
+genkernel --install initramfs --ssh-host-keys=create-from-host
 grub-mkconfig -o /boot/grub/grub.cfg
 {{< / highlight >}}
