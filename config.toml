@@ -53,7 +53,7 @@ anchor = "smart"
 
 [languages]
 [languages.en]
-title = "Yet Another SysAdmin Wiki/Blog"
+title = "Yet Another SysAdmin Wiki / Blog"
 description = "The personal space of yet another sysadmin"
 languageName ="English"
 # Weight used for sorting.
@@ -86,7 +86,7 @@ copyright = "Julien (Adyxax) Dessaux"
 version_menu = "Releases"
 
 # Repository configuration (URLs for in-page links to opening issues and suggesting changes)
-#github_repo = "https://github.com/google/docsy-example"
+github_repo = "https://git.adyxax.org/adyxax/www"
 # An optional link to a related project repo. For example, the sibling repository where your product code lives.
 #github_project_repo = "https://github.com/google/docsy"
 
