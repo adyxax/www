@@ -1,17 +1,19 @@
 ---
 title: "Ansible custom facts"
-linkTitle: "Ansible custom facts"
 date: 2018-09-25
-description: >
-  How to write custom facte with ansible
+description: How to write custom facts with ansible
+tags:
+  - ansible
 ---
+
+## Introduction
 
 Custom facts are actually quite easy to implement despite the lack of documentation about it.
 
-## How they work
+## How custom facts work
 
 On any Ansible controlled host — that is, the remote machine that is being controlled and not the machine on which the playbook is run — you just need to create a directory at
-`/etc/ansible/facts.d`. Inside this directory, you can place one or more `*.fact` files. These are files that return JSON data, which will then be included in the raft of facts that
+`/etc/ansible/facts.d`. Inside this directory, you can place one or more `*.fact` files. These are files that must return JSON data, which will then be included in the raft of facts that
 Ansible gathers.
 
 The facts will be available to ansible at `hostvars.host.ansible_local.<fact_name>`.
@@ -31,7 +33,7 @@ This will give you the fact `hostvars.host.ansible_local.mysql.password` for thi
 ## A more complex example
 
 A more interesting example is something I use with small webapps. In the container that hosts the frontent I use a small ansible role to generate a mysql password on its first run, and
-provision a database with a user that has access to it on a mysql server. This fact ensures that on subsequent runs we will stay idempotents. Here is how it works.
+provision a database with a user that has access to it on a mysql server. This fact ensures that on subsequent runs we will stay idempotent.
 
 First the fact from before, only slightly modified :
 {{< highlight sh >}}

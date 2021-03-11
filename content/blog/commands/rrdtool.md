@@ -1,9 +1,9 @@
 ---
 title: "rrdtool"
-linkTitle: "rrdtool"
 date: 2018-09-25
-description: >
-  rrdtool
+description: How to graph manually with rrdtool
+tags:
+  - simple utilities
 ---
 
 ## Graph manually

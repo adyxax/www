@@ -1,10 +1,13 @@
 ---
 title: "Force package removal"
-linkTitle: "Force package removal"
 date: 2015-01-27
-description: >
-  Force package removal
+description: How to force the removal of a package
+tags:
+  - debian
+  - linux
 ---
+
+## How to force the removal of a package
 
 Here is how to force package removal when post-uninstall script fails :
 {{< highlight sh >}}

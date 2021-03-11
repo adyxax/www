@@ -1,12 +1,15 @@
 ---
 title: "Migrate a data volume"
-linkTitle: "Migrate a data volume"
 date: 2018-01-30
-description: >
-  How to migrate a data volume
+description: How to migrate a data volume between two hosts
+tags:
+  - docker
+  - linux
 ---
 
-Here is how to migrate a data volume between two of your hosts. A rsync of the proper `/var/lib/docker/volumes` subfolder would work just as well, but is here a fun way to do it with docker and pipes :
+## The command
+
+Here is how to migrate a data volume between two of your hosts. A rsync of the proper `/var/lib/docker/volumes` subfolder would work just as well, but here is a fun way to do it with docker and pipes :
 {{< highlight sh >}}
 export VOLUME=tiddlywiki
 export DEST=10.1.0.242

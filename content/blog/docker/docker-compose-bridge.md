@@ -1,14 +1,19 @@
 ---
 title: "Docker compose predictable bridge"
-linkTitle: "Docker compose predictable bridge"
 date: 2018-09-25
-description: >
-  How to use a predefined bridge with docker compose
+description: How to use a predefined bridge with docker compose
+tags:
+  - docker
+  - linux
 ---
+
+## The problem
 
 By default, docker-compose will create a network with a randomly named bridge. If you are like me using a strict firewall on all your machines, this just cannot work.
 
-You need to put your services in `network_mode: “bridge”` and add a custom `network` entry like :
+## The fix
+
+For example if your bridge is named docbr1, you need to put your services in `network_mode: “bridge”` and add a custom `network` entry like :
 
 {{< highlight yaml >}}
 version: '3.0'
@@ -27,5 +32,5 @@ services:
 networks:
   default:
     external:
-      name: bridge
+      name: docbr1
 {{< /highlight >}}

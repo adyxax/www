@@ -1,10 +1,13 @@
 ---
 title: "Fix the no public key available error"
-linkTitle: "Fix the no public key available error"
 date: 2016-01-27
-description: >
-  Fix the no public key available error
+description: How to fix this common debian error when using non official repositories
+tags:
+  - debian
+  - linux
 ---
+
+## How to fix
 
 Here is how to fix the no public key available error :
 {{< highlight sh >}}

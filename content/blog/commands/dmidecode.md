@@ -1,12 +1,14 @@
 ---
 title: "DMIdecode"
-linkTitle: "DMIdecode"
 date: 2011-02-16
-description: >
-  DMIdecode
+description: Some DMIdecode common flags
+tags:
+  - simple utilities
 ---
 
-DMIdecode to obtain Hardware informations.
+## Introduction
+
+DMIdecode is a tool to obtain Hardware informations.
 
 ## Mose useful commands
 

@@ -1,10 +1,13 @@
 ---
 title: "Error occured during the signature verification"
-linkTitle: "Error occured during the signature verification"
 date: 2015-02-27
-description: >
-  Error occured during the signature verification
+description: Fixing the "Error occured during the signature verification"
+tags:
+  - debian
+  - linux
 ---
+
+## How to fix
 
 Here is how to fix the apt-get “Error occured during the signature verification” :
 {{< highlight sh >}}

@@ -1,10 +1,12 @@
 ---
 title: "Leveraging yaml with cfengine"
-linkTitle: "Leveraging yaml with cfengine"
 date: 2018-09-25
-description: >
-  How to leverage yaml inventory files with cfengine
+description: How to leverage yaml inventory files with cfengine
+tags:
+  - cfengine
 ---
+
+## Introduction
 
 CFEngine has core support for JSON and YAML. You can use this support to read, access, and merge JSON and YAML files and use these to keep policy files internal and simple. You
 access the data using the usual cfengine standard primitives.

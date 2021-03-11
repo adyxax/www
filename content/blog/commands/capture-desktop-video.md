@@ -1,12 +1,14 @@
 ---
 title: "Capture a video of your desktop"
-linkTitle: "Capture a video of your desktop"
 date: 2011-11-20
-description: >
-  Capture a video of your desktop
+description: Capture a video of your desktop
+tags:
+  - ffmpeg
 ---
 
-You can capture a video of your linux desktop with ffmpeg :
+## The command
+
+You can capture a video of your linux desktop very easily with ffmpeg :
 
 {{< highlight sh >}}
 ffmpeg -f x11grab -s xga -r 25 -i :0.0 -sameq /tmp/out.mpg

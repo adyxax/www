@@ -1,9 +1,10 @@
 ---
 title: "Qemu"
-linkTitle: "Qemu"
 date: 2019-06-10
-description: >
-  Qemu
+description: Some simple qemu command usage
+tags:
+  - linux
+  - virtualization
 ---
 
 ## Quickly launch a qemu vm with local qcow as hard drive

@@ -1,9 +1,10 @@
 ---
 title: "mdadm"
-linkTitle: "mdadm"
 date: 2011-11-15
-description: >
-  mdadm
+description: some mdadm command examples
+tags:
+  - linux
+  - simple utilities
 ---
 
 ## Watch the array status
@@ -39,4 +40,3 @@ mdadm --stop /dev/md0
 mdadm --zero-superblock /dev/sda
 mdadm --zero-superblock /dev/sdb
 {{< /highlight >}}
-

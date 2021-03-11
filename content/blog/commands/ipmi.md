@@ -1,11 +1,12 @@
 ---
 title: "ipmitool"
-linkTitle: "ipmitool"
 date: 2018-03-05
-description: >
-  ipmitool
+description: some ipmitool command examples
+tags:
+  - simple utilities
 ---
 
+## Usage examples
 - launch ipmi shell : `ipmitool -H XX.XX.XX.XX -C3 -I lanplus -U <ipmi_user> shell`
 - launch ipmi remote text console : `ipmitool -H XX.XX.XX.XX -C3 -I lanplus -U <ipmi_user> sol activate`
 - Show local ipmi lan configuration : `ipmitool lan print`
@@ -16,4 +17,3 @@ ipmitool lan set 1 ipaddr 10.31.149.39
 ipmitool lan set 1 netmask 255.255.255.0
 mc reset cold
 {{< /highlight >}}
-
