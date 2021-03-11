@@ -1,9 +1,6 @@
 ---
 title: "adyxax.org"
-linkTitle: "adyxax.org"
-weight: 1
-description: >
-  adyxax.org is my personal computer infrastructure. This section details how I built it and why, and how I maintain it.
+description: a set of pages about the computer infrastructure powering this website and other services
 ---
 
 ## What is adyxax.org?

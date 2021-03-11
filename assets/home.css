@@ -1,0 +1,17 @@
+.home-page {
+	min-height: 80vh;
+}
+.home-page h1 {
+	text-align: center;
+	margin-top: 3rem;
+	padding-bottom: 1.5rem;
+	font-size: 3rem;
+	font-weight: 700;
+	line-height: 1.2;
+	margin-bottom: .5rem;
+}
+
+.home-page p {
+	font-size: 1.25rem;
+	font-weight: 300;
+}

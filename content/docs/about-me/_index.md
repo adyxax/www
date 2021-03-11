@@ -1,9 +1,6 @@
 ---
 title: "About me"
-linkTitle: "About me"
-weight: 1
-description: >
-  Information about the author of this website
+description: Information about the author of this website
 ---
 
 ## Who am I?

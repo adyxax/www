@@ -1,0 +1,23 @@
+{{ define "main" }}
+
+{{ with .Content }}
+{{ . }}
+{{ end }}
+
+{{ if .Parent.IsHome }}
+{{ $.Scratch.Set "blog-pages" (where .Site.RegularPages "Section" .Section) }}
+{{ else }}
+{{$.Scratch.Set "blog-pages" .Pages }}
+{{ end }}
+
+{{ $pag := .Paginate (( $.Scratch.Get "blog-pages").GroupByDate "2006")}}
+{{ range $pag.PageGroups }}
+<h2>{{ T "post_posts_in" }} {{ .Key }}</h2>
+<ul>
+	{{ range .Pages }}
+	<li>{{ .PublishDate.Format "2006-01-02" }} - <a href="{{ .RelPermalink }}">{{ .Title }}</a> : {{ .Description }}</li>
+	{{ end }}
+</ul>
+{{ end }}
+{{ partial "pagination.html" . }}
+{{ end }}

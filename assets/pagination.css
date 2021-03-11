@@ -1,0 +1,36 @@
+.pagination {
+	display:-webkit-box;
+	display:-webkit-flex;
+	display:-ms-flexbox;
+	display:flex;
+	list-style:none;
+	border-radius:.25rem;
+}
+.pagination li a {
+	border:1px solid rgba(0,0,0,.1);
+	position:relative;
+	display:block;
+	padding:.5rem .75rem;
+	line-height:1.25;
+	text-decoration: none;
+}
+.pagination li:first-child a {
+	border-top-left-radius:.25rem;
+	border-bottom-left-radius:.25rem
+}
+.pagination li:last-child a {
+	border-top-right-radius:.25rem;
+	border-bottom-right-radius:.25rem
+}
+.pagination li a:hover {
+	color:#1e53a0;
+	background-color:#eee;
+	z-index: 999;
+}
+.pagination-disabled {
+	color: lightgray;
+}
+.pagination-active a {
+	color: white;
+	background-color: #30638e;
+}

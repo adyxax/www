@@ -1,3 +1,0 @@
-(cd ~/git/www; time hugo --minify)
-
-hugo server --bind 0.0.0.0 --minify --disableFastRender

@@ -1,0 +1,19 @@
+<header>
+	<nav>
+		<ul>
+			<li class="nav-menu-title"><a href="/">{{ .Site.Title }}</a></li>
+			{{- $p := . -}}
+			{{- range .Site.Menus.main.ByWeight -}}
+			{{- $active := or ($p.IsMenuCurrent "main" .) ($p.HasMenuCurrent "main" .) -}}
+			{{- with .Page -}}
+			{{- $active = or $active ( $.IsDescendant .)  -}}
+			{{- end -}}
+			{{- $url := urls.Parse .URL -}}
+			{{- $baseurl := urls.Parse $.Site.Params.Baseurl -}}
+			<li>
+				<a class="{{if $active }}nav-menu-active{{end}}" href="{{ with .Page }}{{ .RelPermalink }}{{ else }}{{ .URL | relLangURL }}{{ end }}"{{ if ne $url.Host $baseurl.Host }}target="_blank" {{ end }}>{{ .Name }}</a>
+			</li>
+			{{ end }}
+		</ul>
+	</div>
+</header>

@@ -1,0 +1,26 @@
+* {
+	box-sizing: border-box;
+}
+body {
+	font-family: open sans,-apple-system,BlinkMacSystemFont,segoe ui,Roboto,helvetica neue,Arial,sans-serif,apple color emoji,segoe ui emoji,segoe ui symbol;
+	font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+	display: grid;
+	grid-template-rows: auto 1fr auto;
+}
+main p {
+	text-align: justify;
+}
+nav#TableOfContents ul {
+	padding: 0;
+	list-style-type: none;
+	a + ul {
+		padding-left:1em;
+	}
+}
+@media only screen and (min-width: 60rem) {
+	body {
+		max-width:60rem;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}

@@ -1,0 +1,9 @@
+footer {
+	background-color: #30638e;
+	color: lightgray;
+	text-align: center;
+	padding: 10px;
+}
+footer a {
+	color: lightgray;
+}
