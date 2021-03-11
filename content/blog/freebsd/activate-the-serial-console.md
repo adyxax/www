@@ -1,10 +1,12 @@
 ---
-title: "Activate the serial console"
-linkTitle: "Activate the serial console"
+title: "Activate the serial console on a FreeBSD server"
 date: 2018-01-03
-description: >
-  How to activate the serial console
+description: How to activate the serial console
+tags:
+  - FreeBSD
 ---
+
+## How to do this
 
 Here is how to activate the serial console on a FreeBSD server :
 - Append `console=“comconsole”` to `/boot/loader.conf`

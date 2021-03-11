@@ -1,10 +1,12 @@
 ---
 title: "Change the ip address of a running jail"
-linkTitle: "Change the ip address of a running jail"
 date: 2018-09-25
-description: >
-  How to change the ip address of a running jail
+description: How to change the ip address of a running jail
+tags:
+  - FreeBSD
 ---
+
+## The command
 
 Here is how to change the ip address of a running jail :
 

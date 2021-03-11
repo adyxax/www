@@ -1,10 +1,12 @@
 ---
-title: "Clean install does not boot"
-linkTitle: "Clean install does not boot"
+title: "Clean FreeBSD install does not boot"
 date: 2018-01-02
-description: >
-  How to fix a clean install that refuses to boot
+description: How to fix a clean install that refuses to boot
+tags:
+  - FreeBSD
 ---
+
+## How to fix
 
 I installed a fresh FreeBSD server today, and to my surprise it refused to boot. I had to do the following from my liveUSB :
 
