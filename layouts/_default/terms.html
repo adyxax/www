@@ -7,9 +7,9 @@
 <h1>{{ .Title }}</h1>
 
 <ul>
-{{ range .Data.Terms.Alphabetical }}
-	<li><a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a> - {{ .Count }} posts</li>
-{{ end }}
+	{{ range .Data.Terms.Alphabetical }}
+	<li><a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a> - {{ .Count }} article{{ if (gt .Count 1 ) }}s{{ end }}</li>
+	{{ end }}
 </ul>
 
 {{ end }}
