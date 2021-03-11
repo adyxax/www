@@ -3,8 +3,7 @@ title: "Fix the no public key available error"
 date: 2016-01-27
 description: How to fix this common debian error when using non official repositories
 tags:
-  - debian
-  - linux
+  - Debian
 ---
 
 ## How to fix

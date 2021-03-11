@@ -4,7 +4,6 @@ date: 2018-01-29
 description: How to retrieve storage space by cleaning a docker host
 tags:
   - docker
-  - linux
 ---
 
 ## The command

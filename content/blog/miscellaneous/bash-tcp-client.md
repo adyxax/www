@@ -1,12 +1,14 @@
 ---
 title: "Bash tcp client"
-linkTitle: "Bash tcp client"
 date: 2018-03-21
-description: >
-  Bash tcp client
+description: Bash tcp client
+tags:
+  - simple utilities
 ---
 
-There are somea fun toys in bash. I would not rely on it for a production script, but here is one such things :
+## Having some fun with bash
+
+There are some fun toys in bash. I would not rely on it for a production script, but here is one such things :
 
 {{< highlight sh >}}
 exec 5<>/dev/tcp/10.1.0.254/8080

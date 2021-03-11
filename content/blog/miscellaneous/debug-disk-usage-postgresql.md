@@ -1,9 +1,9 @@
 ---
 title: "Investigate postgresql disk usage"
-linkTitle: "Investigate postgresql disk usage"
 date: 2015-11-24
-description: >
-  Investigate postgresql disk usage
+description: How to investigate postgresql disk usage
+tags:
+  - PostgreSQL
 ---
 
 ## How to debug disk occupation in postgresql

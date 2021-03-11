@@ -4,7 +4,6 @@ date: 2018-01-30
 description: How to migrate a data volume between two hosts
 tags:
   - docker
-  - linux
 ---
 
 ## The command

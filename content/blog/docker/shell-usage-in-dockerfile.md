@@ -4,7 +4,6 @@ date: 2019-02-04
 description: How to use a proper shell in a dockerfile
 tags:
   - docker
-  - linux
 ---
 
 ## The problem

@@ -1,12 +1,14 @@
 ---
 title: "etc-update script for alpine linux"
-linkTitle: "etc-update script for alpine linux"
 date: 2019-04-02
-description: >
-  etc-update script for alpine linux
+description: etc-update script for alpine linux
+tags:
+  - Alpine Linux
 ---
 
-Alpine linux doesn't seem to have a tool to merge pending configuration changes, so I wrote one : 
+## The script
+
+Alpine linux doesn't seem to have a tool to merge pending configuration changes, so I wrote one :
 {{< highlight sh >}}
 #!/bin/sh
 set -eu
@@ -35,4 +37,3 @@ for new_file in $(find /etc -iname '*.apk-new'); do
     done
 done
 {{< /highlight >}}
-

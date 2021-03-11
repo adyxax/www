@@ -3,8 +3,7 @@ title: "Error occured during the signature verification"
 date: 2015-02-27
 description: Fixing the "Error occured during the signature verification"
 tags:
-  - debian
-  - linux
+  - Debian
 ---
 
 ## How to fix

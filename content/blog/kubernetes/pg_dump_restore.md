@@ -1,7 +1,9 @@
 ---
 title: "Dump and restore a postgresql database on kubernetes"
-linkTitle: "Dump and restore a postgresql database"
 date: 2020-06-25
+description: How to dump and restore a postgresql database running on kubernetes
+tags:
+  - kubernetes
 ---
 
 ## Dumping

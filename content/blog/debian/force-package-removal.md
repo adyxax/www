@@ -3,8 +3,7 @@ title: "Force package removal"
 date: 2015-01-27
 description: How to force the removal of a package
 tags:
-  - debian
-  - linux
+  - Debian
 ---
 
 ## How to force the removal of a package

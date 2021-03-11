@@ -1,10 +1,12 @@
 ---
 title: "Some bacula/bareos commands"
-linkTitle: "Some bacula/bareos commands"
 date: 2018-01-10
-description: >
-  Some bacula/bareos commands
+description: some usefull commands when dealing with bacula or bareos
+tags:
+  - backups
 ---
+
+## Introduction
 
 Bacula is a backup software, bareos is a fork of it. Here are some tips and solutions to specific problems.
 

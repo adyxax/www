@@ -1,12 +1,11 @@
 ---
 title: "Building rpm packages"
-linkTitle: "Building rpm packages"
 date: 2016-02-22
-description: >
-  Building rpm packages
+description: How to build locally an rpm package
+tags:
+  - Centos
+  - rhel
 ---
-
-Here is how to build locally an rpm package. Tested at the time on a centos 7.
 
 ## Setup your environment
 

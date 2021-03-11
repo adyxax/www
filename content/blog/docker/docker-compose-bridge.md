@@ -4,7 +4,6 @@ date: 2018-09-25
 description: How to use a predefined bridge with docker compose
 tags:
   - docker
-  - linux
 ---
 
 ## The problem
