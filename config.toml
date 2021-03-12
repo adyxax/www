@@ -5,6 +5,7 @@ description = "The personal space of yet another sysadmin"
 enableRobotsTXT = true
 enableGitInfo = true
 paginate = 32
+rssLimit = 32
 
 # Highlighting config
 pygmentsCodeFences = true
