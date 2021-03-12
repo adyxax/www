@@ -4,7 +4,7 @@ date: 2011-11-15
 description: some mdadm command examples
 tags:
   - linux
-  - simple utilities
+  - toolbox
 ---
 
 ## Watch the array status

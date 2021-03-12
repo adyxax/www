@@ -1,12 +1,14 @@
 ---
-title: "Aggregate images into a video with mencoder"
-linkTitle: "Aggregate images into a video with mencoder"
+title: "Turning images into a video with mencoder"
 date: 2018-04-30
-description: >
-  Aggregate images into a video withmencoder
+description: How to turn images into a video with mencoder
+tags:
+  - toolbox
 ---
 
 ## Aggregate png images into a video
+
+Example command :
 {{< highlight sh >}}
 mencoder mf://*.png -mf w=1400:h=700:fps=1:type=png -ovc lavc -lavcopts vcodec=mpeg4:mbd=2:trell -oac copy -o output.avi
 {{< /highlight >}}

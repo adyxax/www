@@ -1,11 +1,20 @@
 ---
 title: "Installing mssql on centos 7"
-linkTitle: "Installing mssql on centos 7"
 date: 2019-07-09
-description: >
-  Installing mssql on centos 7
+description: How to install mssql on centos 7
+tags:
+  - Centos
+  - rhel
+  - toolbox
 ---
 
+## Disclaimer
+
+I had to do this in order to help a friend, I do not think I would ever willingly put mssql in production unless I went crazy.
+
+## Procedure
+
+Here is how to setup mssql on a fresh centos 7
 {{< highlight sh >}}
 vi /etc/sysconfig/network-scripts/ifcfg-eth0
 vi /etc/resolv.conf
@@ -26,4 +35,3 @@ rm -f /etc/localtime
 ln -s /usr/share/zoneinfo/Europe/Paris /etc/localtime
 /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -p
 {{< /highlight >}}
-

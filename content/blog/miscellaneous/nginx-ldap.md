@@ -1,10 +1,12 @@
 ---
 title: "LDAP auth with nginx"
-linkTitle: "LDAP auth with nginx"
 date: 2018-03-05
-description: >
-  LDAP auth with nginx
+description: How to setup LDAP authentication with nginx
+tags:
+  - nginx
 ---
+
+## How to
 
 {{< highlight sh >}}
 ldap_server ldap {
@@ -22,4 +24,3 @@ ldap_server ldap {
     #require group "cn=admins,ou=groups,dc=adyxax,dc=org";
 }
 {{< /highlight >}}
-

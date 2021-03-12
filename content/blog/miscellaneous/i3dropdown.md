@@ -1,10 +1,12 @@
 ---
 title: "i3dropdown"
-linkTitle: "i3dropdown"
 date: 2020-01-23
-description: >
-  i3dropdown
+description: How to use i3dropdown to pump up your graphical environment
+tags:
+  - toolbox
 ---
+
+## Introduction
 
 i3dropdown is a tool to make any X application drop down from the top of the screen, in the famous quake console style back in the day.
 
@@ -29,4 +31,3 @@ bindsym Mod4+shift+p exec /home/julien/bin/i3dropdown -W 90 -H 50 pavucontrol pa
 
 To work properly, i3dropdown needs to have the path to the i3 socket. Because the command to get the socketpath from i3 is a little slow, it is best to cache it somewhere. By default
 i3dropdown recognises `/tmp/i3wm-socket-path`. Then each window managed by i3dropdown needs to be floating. The last line bind a key to invoke or mask the app.
-

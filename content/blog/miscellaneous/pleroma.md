@@ -1,14 +1,17 @@
 ---
 title: "Pleroma installation notes"
-linkTitle: "Pleroma installation notes"
 date: 2018-11-16
-description: >
-  Pleroma installation notes
+description: How to install pleroma
+tags:
+  - toolbox
 ---
+
+## Introduction
 
 This article is about my installation of pleroma in a standard alpine linux lxd container.
 
 ## Installation notes
+
 {{< highlight sh >}}
 apk add elixir nginx postgresql postgresql-contrib git sudo erlang-ssl erlang-xmerl erlang-parsetools erlang-runtime-tools make gcc build-base vim vimdiff htop curl
 /etc/init.d/postgresql start
@@ -46,6 +49,7 @@ curl http://localhost:4000/api/v1/instance
 
 If this works, you can shut it down with two C-c and we can configure nginx. This article doesn't really cover my setup since my nginx doesn't run there, and I am using letsencrypt wildcard certificates fetched somewhere else unrelated, so to simplify I only paste the vhost part of the configuration :
 {{< highlight sh >}}
+
 ### in nginx.conf inside the container ###
 # {{{ pleroma
 proxy_cache_path /tmp/pleroma-media-cache levels=1:2 keys_zone=pleroma_media_cache:10m max_size=500m inactive=200m use_temp_path=off;

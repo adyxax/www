@@ -3,7 +3,7 @@ title: "DMIdecode"
 date: 2011-02-16
 description: Some DMIdecode common flags
 tags:
-  - simple utilities
+  - toolbox
 ---
 
 ## Introduction

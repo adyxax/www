@@ -1,11 +1,14 @@
 ---
 title: "Change owner on a postgresql database and all tables"
-linkTitle: "Change owner on a postgresql database and all tables"
 date: 2012-04-20
-description: >
-  Change owner on a postgresql database and all tables
+description: How to change owner on a postgresql database and all tables
+tags:
+  - PostgreSQL
 ---
 
+## The solution
+
+Here is the sequence of commande that will change the owner of all objects in a database from a user named "support" to another named "test-support":
 {{< highlight sh >}}
 ALTER DATABASE name OWNER TO new_owner
 for tbl in `psql -qAt -c "select tablename from pg_tables where schemaname = 'public';" YOUR_DB` ; do  psql -c "alter table $tbl owner to NEW_OWNER" YOUR_DB ; done

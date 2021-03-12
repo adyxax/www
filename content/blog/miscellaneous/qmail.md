@@ -1,9 +1,9 @@
 ---
 title: "Qmail"
-linkTitle: "Qmail"
 date: 2018-03-05
-description: >
-  Qmail
+description: Some qmail commands
+tags:
+  - toolbox
 ---
 
 ## Commands
@@ -18,4 +18,3 @@ description: >
 - http://www.lifewithqmail.org/lwq.html
 - http://www.fileformat.info/tip/linux/qmailnow.htm
 - https://www.hivelocity.net/kb/how-to-change-queue-lifetime-for-qmail/
-

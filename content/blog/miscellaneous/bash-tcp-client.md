@@ -3,7 +3,7 @@ title: "Bash tcp client"
 date: 2018-03-21
 description: Bash tcp client
 tags:
-  - simple utilities
+  - toolbox
 ---
 
 ## Having some fun with bash

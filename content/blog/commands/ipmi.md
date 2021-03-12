@@ -3,7 +3,7 @@ title: "ipmitool"
 date: 2018-03-05
 description: some ipmitool command examples
 tags:
-  - simple utilities
+  - toolbox
 ---
 
 ## Usage examples

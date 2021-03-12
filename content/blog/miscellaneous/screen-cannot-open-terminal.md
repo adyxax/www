@@ -1,17 +1,24 @@
 ---
 title: "Screen cannot open terminal error"
-linkTitle: "Screen cannot open terminal error"
 date: 2018-07-03
-description: >
-  Screen cannot open terminal error
+description: How to fix a "Screen cannot open terminal" error
+tags:
+  - toolbox
+  - unix
 ---
 
-If you encounter :
+## The problem
+
+At my current workplace there are die hard screen fanatics that refuse to upgrade to tmux. Sometimes I get the following error :
 {{< highlight sh >}}
 Cannot open your terminal '/dev/pts/0' - please check.
 {{< /highlight >}}
 
-Then you did not open the shell with the user you logged in with. You can make screen happy by running : 
+## The solution
+
+This error means that you did not open the shell with the user you logged in with. You can make screen happy by running : 
 {{< highlight sh >}}
 script /dev/null
 {{< /highlight >}}
+
+In this new environment your screen commands will work normally.

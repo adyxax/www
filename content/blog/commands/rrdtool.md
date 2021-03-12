@@ -3,7 +3,7 @@ title: "rrdtool"
 date: 2018-09-25
 description: How to graph manually with rrdtool
 tags:
-  - simple utilities
+  - toolbox
 ---
 
 ## Graph manually

@@ -1,12 +1,18 @@
 ---
 title: "OpenStreetMap overlay example"
-linkTitle: "OpenStreetMap overlay example"
 date: 2020-05-19
-description: >
-  An example of how to query things visually on OpenStreetMap
+description: An example of how to query things visually on OpenStreetMap
+tags:
+  - toolbox
 ---
 
-http://overpass-turbo.eu/
+## The problem
+
+OpenStreetMap is a great resource and there is a lot more information stored there than you can easily see.
+
+## The solution
+
+Go to http://overpass-turbo.eu/ and enter a filter script similar to the following :
 {{< highlight html >}}
 <osm-script>
   <query type="node">
@@ -17,3 +23,5 @@ http://overpass-turbo.eu/
   <print mode="body"/>
 </osm-script>
 {{< /highlight >}}
+
+This example will highlight the recycling points near a target location. From there you can build almost any filter you can think of!

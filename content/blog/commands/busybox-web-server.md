@@ -4,7 +4,7 @@ date: 2019-04-16
 description: How to serve static files from only busybox
 tags:
   - linux
-  - simple utilities
+  - toolbox
 ---
 
 ## The command

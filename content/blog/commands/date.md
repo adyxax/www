@@ -3,7 +3,7 @@ title: "Convert unix timestamp to readable date"
 date: 2011-01-06
 description: the -d flag of the date command combined with @timestamp
 tags:
-  - simple utilities
+  - toolbox
 ---
 
 ## The trick
