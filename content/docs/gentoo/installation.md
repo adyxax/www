@@ -1,10 +1,11 @@
 ---
 title: "Installation"
-linkTitle: "installation"
-weight: 1
-description: >
-  Installation of a gentoo system
+description: Installation of a gentoo system
 ---
+
+## Introduction
+
+When installing a gentoo system for the first time, please refer to the wonderfull [gentoo handbook](https://wiki.gentoo.org/wiki/Handbook:AMD64). This page is just installation notes shorthand when you know exactly what you are doing.
 
 ## Installation media
 
@@ -16,6 +17,8 @@ Once you boot on the installation media, you can start sshd and set a temporary 
 /etc/init.d/sshd start
 passwd
 {{< /highlight >}}
+
+Don't forget to either run `dhcpcd` or manually set an ip and gateway to the machine.
 
 ## Partitionning
 
@@ -49,6 +52,8 @@ mkfs.ext4 /dev/sda3
 mkfs.fat -F 32 -n efi-boot /dev/sda2
 mount /dev/sda3 /mnt/gentoo
 {{< /highlight >}}
+
+Make sure you do not repeat the mistake I too often make by mounting something to /mnt while using the liveusb/livecd. You will lose your shell if you do this and will need to reboot!
 
 ## Get the stage3 and chroot into it
 
@@ -178,6 +183,7 @@ scp root@collab-jde.nexen.net:/etc/hosts /etc/
 
 ### root account access
 
+I switched to an ed25512 ssh key some time ago but left this here for posterity :
 {{< highlight sh >}}
 mkdir -p /root/.ssh
 echo 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDN1ha6PFKgxF3MSWUlDaruVVpj3UzoiN4IJEvDrCnDbIW8xu+TclbeGJSRXXBbqRKeUfhX0GDA7cvSUIAz2U7AGK7wq5tbzJKagVYtxcSHBSi6dZR9KGb3eoshnrCeFzem1jWXG02PZJGvjB+ml3QhUguyAqm9q0n/NL6zzKhGoKiELO+tQghGIY8jafRv4rE4yyXZnwuCu8JI9P8ldGhKgOPeOdKIVTIVezUmKILWgAF+Hg7O72rQqUua9sdoK1mEYme/wgu0bQbvN26owGgBAgS3uc2nngLD01TZToG/wC1wH9A3KxT6+3akjRlPfLOY0BuK4OBGEGm6e0KZrIMhUr8fHQ8nmTmBqw7puI0gIXYB2EjhpsQ7TijYVqLYXbyxaXYyqisgY0QRWC7Te5Io6TSgorfXzi7zrcQGgWByHkhxTylf36LYSKWEheIQIRqytOdGqeXagFMz2ptLFKk4dA61LS5fPXIJucdghvnmLPml8cO9/9VHQ7gq7DxQu7sIwt/W13yTTUyI9DSHwxeHUwECzxAb5pOVL6pRjTMH8q1/eAMl35TFSh6s5tGvvHGz9+gMlE9A2Pv8CyXDBmXV6srrwxTSlglnmgdq6c9w3VtBKu572/z0cS6vqZMgEno4rIiwyhqNWdjbMXYw/U0q/w5XC9zCcSuluxvaY14qqQ== adyxax

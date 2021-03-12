@@ -1,10 +1,13 @@
 ---
 title: "LXD"
-linkTitle: "LXD"
-weight: 1
-description: >
-  How to setup a LXD server
+description: How to setup a LXD server on gentoo
 ---
+
+## Introduction
+
+I have used LXD for many years successfully, I was never satisfied with the docker way of doing container images pulling who knows what from who knows where. Until recently I managed full machine containers running Alpine Linux and was very happy with the simplicity of it.
+
+## Installation
 
 {{< highlight sh >}}
 touch /etc{/subuid,/subgid}
@@ -14,6 +17,8 @@ emerge -q app-emulation/lxd
 /etc/init.d/lxd start
 rc-update add lxd default
 {{< /highlight >}}
+
+## Initial configuration
 
 {{< highlight sh >}}
 myth /etc/init.d # lxd init

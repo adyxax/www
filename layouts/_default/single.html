@@ -2,7 +2,7 @@
 
 <h1>{{ .Title }}</h1>
 
-{{ .PublishDate.Format "2006-01-02" }} - {{ .Description }}
+{{ if ne .PublishDate.Year 1 }}{{ .PublishDate.Format "2006-01-02" }} - {{ end }}{{ .Description }}
 
 {{ partial "toc.html" . }}
 

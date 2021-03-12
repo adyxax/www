@@ -1,11 +1,19 @@
 ---
 title: "Gentoo Kernel Upgrades"
-linkTitle: "Kernel Upgrades"
-weight: 1
-description: >
-  Gentoo kernel upgrades on adyxax.org
+description: Gentoo kernel upgrades on adyxax.org
 ---
-# Gentoo kernel upgrades
+
+## Introduction
+
+Now that I am mostly running OpenBSD servers I just use genkernel to build my custom configuration on each node with :
+{{< highlight sh >}}
+eselect kernel list
+eselect kernel set 1
+genkernel all  --kernel-config=/proc/config.gz --menuconfig
+nvim --diff /proc/config.gz /usr/src/linux/.config
+{{< / highlight >}}
+
+Bellow you will find how I did things previously when centralising the build of all kernels on a collab-jde machine, and distributing them all afterwards. Local nodes would only rebuild local modules and get on with their life.
 
 ## Building on collab-jde
 

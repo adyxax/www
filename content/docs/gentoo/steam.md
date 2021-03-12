@@ -1,10 +1,9 @@
 ---
 title: "Steam"
-linkTitle: "Steam"
-weight: 1
-description: >
-  How to make steam work seamlessly on gentoo with a chroot
+description: How to make steam work seamlessly on gentoo with a chroot
 ---
+
+## Introduction
 
 I am not using a multilib profile on gentoo (I use amd64 only everywhere), so when the time came to install steam I had to get a little creative. Overall I believe this is the perfect
 way to install and use steam as it self contains it cleanly while not limiting the functionalities. In particular sound works, as does the hardware acceleration in games. I tried to

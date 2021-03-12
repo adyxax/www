@@ -1,8 +1,6 @@
 ---
 title: "Gentoo"
-linkTitle: "Gentoo"
-weight: 1
-description: >
-  Gentoo related articles
+description: Gentoo related articles
 ---
 
+I am a long time gentoo user, my first installation dating back to something like 2004.

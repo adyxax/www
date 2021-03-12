@@ -15,7 +15,7 @@ stories while having a drink... and that's it!
 
 ## Professional Career
 
-I'm currently employed as a System and Network Architect at an awesome company named AlterWay, 3 years and counting. Before that I worked for 7 years at another awesome company named Intersec where I lead the IT team.
+I'm currently employed as a System and Network Architect at an awesome company named AlterWay, 4 years and counting. Before that I worked for 7 years at another awesome company named Intersec where I lead the IT team.
 
 ### Intersec
 
