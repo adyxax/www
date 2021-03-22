@@ -10,7 +10,7 @@ This is the website you are currently reading. It is a static website built usin
 installed hugo, how I initialised this website and how I manage it. I often refer to it as wiki.adyxax.org because I hosted a unique dokuwiki for a long
 time as my main website (and a pmwiki before that), but with hugo it has become more than that. It is now a mix of wiki, blog and showcase of my work and interests.
 
-For a log of how I made the initial setup, see [this blog article.]({{< relref "/blog/miscellaneous/switching-to-hugo.md" >}})
+For a log of how I made the initial setup, see [this blog article.]({{< relref "/blog/hugo/switching-to-hugo.md" >}})
 
 ## Installing hugo
 
