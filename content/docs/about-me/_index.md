@@ -5,7 +5,7 @@ description: Information about the author of this website
 
 ## Who am I?
 
-Hello, and thanks for asking! My name is Julien Dessaux, and I am a 34 years old guy working in IT. Adyxax is the nickname I use on IRC, github, etc.
+Hello, and thanks for asking! My name is Julien Dessaux, and I am a {{< age >}} years old guy working in IT. Adyxax is the nickname I use on IRC, github, etc.
 
 ## Online presence
 
