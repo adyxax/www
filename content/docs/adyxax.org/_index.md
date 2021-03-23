@@ -20,5 +20,5 @@ As a system and network administrator I believe I have a deep understanding of l
 
 On a personal note I also believe there are way too many blogs that focus on the hello world aspects and quick and dirty deployments that show up in google results, I will try to change that a bit. Writing about the choices I made will also help me reflect on them as this infrastructure evolves and grows.
 
-## Subsections
+## Services
 

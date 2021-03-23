@@ -1,20 +1,21 @@
 ---
 title: "git"
-weight: 1
-description: >
-  adyxax.org git server
+description: adyxax.org git server
 ---
 
-git.adyxax.org is a gitea instance. For about 10 years I used a gitolite installation but I finally went for a gui instead in order to host repositories for non tech people.
+## Introduction
+
+git.adyxax.org is a [gitea](https://gitea.io/) instance. For about 10 years I used a gitolite installation but I finally went for a gui instead in order to host repositories for non tech people.
 
 ## Preparing the postgresql database
 
-I am currently hosting this gitea instance on an OpenBSD server. Obviously postgresql is packaged on this system so the installation is as simple as :
+I am currently hosting this instance on an OpenBSD server. Obviously postgresql is packaged on this system so the installation is as simple as :
 {{< highlight sh >}}
 pkg_add postgresql-server
 su - __postgresql
 mkdir /var/postgresql/data
 initdb -D /var/postgresql/data -U postgres -A scram-sha-256 -E UTF8 -W
+exit
 rcctl enable postgresql
 rcctl start postgresql
 su - ___postgresql
@@ -35,8 +36,9 @@ rcctl enable gitea
 rcctl start gitea
 {{< /highlight >}}
 
-## TODO Serving the website
+## Serving the website
 
+TODO
 {{< highlight sh >}}
 nvim /etc/h2o/h2o.conf
 {{< /highlight >}}

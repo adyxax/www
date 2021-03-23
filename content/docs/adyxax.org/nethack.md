@@ -1,10 +1,11 @@
 ---
 title: "nethack"
-linkTitle: "nethack"
-weight: 1
-description: >
-  nethack
+description: nethack.adyxax.org game server
 ---
+
+## Introduction
+
+I am hosting a private nethack game server accessible via ssh for anyone who will send me a ssh public key. It all runs chrooted on an OpenBSD server.
 
 ## dgamelaunch
 
@@ -53,4 +54,3 @@ mount -R /dev /opt/nethack/dev
 gdb chroot
 run --userspec=nethack:games /opt/nethack/ /dgamelaunch
 {{< /highlight >}}
-
