@@ -1,0 +1,13 @@
+<p>
+{{ if ne .Parent nil }}
+{{ if ne .Parent.Parent nil }}
+{{ if ne .Parent.Parent.Parent nil }}
+<a href="{{ .Parent.Parent.Parent.Permalink }}">{{ .Parent.Parent.Parent.Title }}</a> &gt;
+{{ end }}
+<a href="{{ .Parent.Parent.Permalink }}">{{ .Parent.Parent.Title }}</a> &gt;
+{{ end }}
+<a href="{{ .Parent.Permalink }}">{{ .Parent.Title }}</a> &gt;
+{{ end }}
+<strong>{{ .Title }}</strong><br/>
+{{ .Description }}
+</p>
