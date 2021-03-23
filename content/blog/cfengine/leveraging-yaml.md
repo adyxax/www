@@ -83,7 +83,9 @@ bundle agent openvpn
                 classes => if_repaired("tunnel_$(tunnels)_service_repaired");
     commands:
         any::
-            "/usr/sbin/service openvpn@$(tunnels) restart" classes => if_repaired("tunnel_$(tunnels)_service_repaired"), ifvarclass => "openvpn_common_key_repaired";
+            "/usr/sbin/service openvpn@$(tunnels) restart"
+                classes => if_repaired("tunnel_$(tunnels)_service_repaired"),
+                ifvarclass => "openvpn_common_key_repaired";
     reports:
         any::
             "$(this.bundle): common.key repaired" ifvarclass => "openvpn_common_key_repaired";
@@ -94,7 +96,8 @@ bundle agent openvpn_tunnel(tunnel)
 {
     classes:
         any::
-            "has_remote" and => { isvariable("g.host_data[tunnels][$(tunnel)][remote_host]"), isvariable("g.host_data[tunnels][$(tunnel)][remote_port]") };
+            "has_remote" and => { isvariable("g.host_data[tunnels][$(tunnel)][remote_host]"),
+                                  isvariable("g.host_data[tunnels][$(tunnel)][remote_port]") };
     files:
         any::
             "/etc/openvpn/$(tunnel).conf"
@@ -106,7 +109,9 @@ bundle agent openvpn_tunnel(tunnel)
                 classes => if_repaired("openvpn_$(tunnel)_conf_repaired");
     commands:
         any::
-            "/usr/sbin/service openvpn@$(tunnel) restart" classes => if_repaired("tunnel_$(tunnel)_service_repaired"), ifvarclass => "openvpn_$(tunnel)_conf_repaired";
+            "/usr/sbin/service openvpn@$(tunnel) restart"
+                classes => if_repaired("tunnel_$(tunnel)_service_repaired"),
+                ifvarclass => "openvpn_$(tunnel)_conf_repaired";
     reports:
         any::
             "$(this.bundle): $(tunnel).conf repaired" ifvarclass => "openvpn_$(tunnel)_conf_repaired";

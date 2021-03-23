@@ -14,7 +14,8 @@ In this example I am using the docker0 bridge because I do not want to have to m
 ip tuntap add tap0 mode tap
 brctl addif docker0 tap0
 qemu-img create -f qcow2 obsd.qcow2 10G
-qemu-system-x86_64 -curses -drive file=install65.fs,format=raw -drive file=obsd.qcow2 -net nic,model=virtio,macaddr=00:00:00:00:00:01 -net tap,ifname=tap0
+qemu-system-x86_64 -curses -drive file=install65.fs,format=raw -drive file=obsd.qcow2 \
+  -net nic,model=virtio,macaddr=00:00:00:00:00:01 -net tap,ifname=tap0
 qemu-system-x86_64 -curses -drive file=obsd.qcow2 -net nic,model=virtio,macaddr=00:00:00:00:00:01 -net tap,ifname=tap0
 {{< /highlight >}}
 

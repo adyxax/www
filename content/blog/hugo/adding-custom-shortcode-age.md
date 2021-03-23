@@ -1,7 +1,7 @@
 ---
-title: "Adding a custom hugo markdown shortcode to calculate an age"
+title: Custom hugo markdown shortcode
 date: 2021-03-22
-description: An example of custom hugo shortcode
+description: An example of custom hugo shortcode to calculate automatically something
 tags:
   - hugo
 ---
