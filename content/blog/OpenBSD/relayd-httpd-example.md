@@ -8,7 +8,7 @@ tags:
 
 ## Introduction
 
-[Someone on reddit had trouble](https://www.reddit.com/r/openbsd/comments/lh4yl9/relaydhttpd_reverse_proxy_for_synapse_with/) with how `relayd` and `httpd` work together on OpenBSD. Those are two great components of the OpenBSD base system that take a different approach than the traditional web servers like `Nginx` or `Apache`, I wrote a complete example adapted from my own working configurations.
+[Someone on reddit had trouble](https://www.reddit.com/r/openbsd/comments/lh4yl9/relaydhttpd_reverse_proxy_for_synapse_with/) with how `relayd` and `httpd` work together on OpenBSD. Those are two great components of the OpenBSD base system that take a different approach than the traditional web servers like `Nginx` or `Apache`. I wrote an answer with a complete example adapted from my own working configurations.
 
 The goal was to have a relayd configuration that would serve urls like `https://example.com/` with the static website content from httpd, and proxy traffic to urls like https://chat.example.com/ to a synapse server running on `localhost:8008`. Hopefully my working example can provide a better understanding of the idea behind the couple relayd/httpd.
 
