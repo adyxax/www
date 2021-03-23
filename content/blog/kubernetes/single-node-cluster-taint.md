@@ -1,6 +1,6 @@
 ---
 title: kubernetes single node cluster taint
-date: 2021-01-06
+date: 2020-12-06
 description: How to schedule worker pods on your control plane node
 tags:
   - kubernetes

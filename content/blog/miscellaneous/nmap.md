@@ -1,6 +1,6 @@
 ---
 title: "Some nmap common usages"
-date: 2021-03-19
+date: 2020-03-19
 description: nmap command examples
 tags:
   - toolbox
