@@ -8,7 +8,7 @@ tags:
 
 ## Introduction
 
-I felt a need for minimalism. I felt uneasy at the thought of 11 requests totalling about 750KB of minified files just to display a home page without any images, all that because of the docsy theme I went with when I [switched to hugo]({{< relref "/blog/hugo/switching-to-hugo" >}}) two years ago.
+I felt a need for minimalism. I felt uneasy at the thought of 11 requests totalling about 750KB of minified files just to display a home page without any images, all that because of the docsy theme I went with when I [switched to hugo]({{< ref "switching-to-hugo" >}}) two years ago.
 
 I am not complaining about the theme which served me well when I needed to switch and was so focused on manually importing 10 years worth of wiki articles, but this uneasiness prevented me from updating this blog as often as I wanted. I was a bit ashamed about how heavy it was, and in some way prevented me from adding content to this website.
 

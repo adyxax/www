@@ -3,7 +3,7 @@ title: "Qemu"
 date: 2019-06-10
 description: Some simple qemu command usage
 tags:
-  - linux
+  - Linux
   - virtualization
 ---
 

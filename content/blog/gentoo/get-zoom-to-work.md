@@ -3,7 +3,7 @@ title: "Get zoom to work"
 date: 2018-01-02
 description: How to get the zoom video conferencing tool to work on gentoo
 tags:
-  - gentoo
+  - Gentoo
 ---
 
 ## The problem

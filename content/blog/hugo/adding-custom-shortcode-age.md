@@ -8,7 +8,7 @@ tags:
 
 ## Introduction
 
-On the [about-me]({{< relref "/docs/about-me/_index.md" >}}) page I had hardcoded my age. I wanted a way to calculate it automatically when building the site, here is how to do this.
+On the [about-me]({{< ref "about-me" >}}) page I had hardcoded my age. I wanted a way to calculate it automatically when building the site, here is how to do this.
 
 ## Adding the shortcode
 
