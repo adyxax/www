@@ -1,0 +1,12 @@
+{{ define "main" }}
+
+<h1>{{ .Title }}</h1>
+
+<p>
+<u>Author:</u> {{ .Description }}<br/>
+<u>Finished reading on:</u> {{ .PublishDate.Format "2006-01-02" }}
+</p>
+
+{{ .Content }}
+
+{{ end }}
