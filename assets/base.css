@@ -13,9 +13,15 @@ main p {
 nav#TableOfContents ul {
 	padding: 0;
 	list-style-type: none;
-	a + ul {
-		padding-left:1em;
-	}
+}
+nav#TableOfContents ul li ul {
+	padding-left:1em;
+}
+nav#TableOfContents ul li ul li ul {
+	padding-left:2em;
+}
+nav#TableOfContents ul li ul li ul li ul {
+	padding-left:3em;
 }
 @media only screen and (min-width: 60rem) {
 	body {
