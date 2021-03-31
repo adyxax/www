@@ -13,7 +13,7 @@ Hello, and thanks for asking! My name is Julien Dessaux and Adyxax is my nicknam
 
 alter way is a web hosting company.
 
-I joined Alterway in October 2016 for a more technical role and a bit of a career shift towards networking and infrastructure. There I had the opportunity to rework many core systems and processes that helped the company grow in many ways.
+I joined alter way in October 2016 for a more technical role and a bit of a career shift towards networking and infrastructure. There I had the opportunity to rework many core systems and processes that helped the company grow in many ways.
 
 On the networking side I helped put in production and operate our anti-ddos systems and reworked then maintained our bgp configurations for that purpose. I also lead the upgrade project of our core network to 100G and implemented a virtualized pre-production of all the core devices. This allowed the industrialization of the configuration management by implementing a custom tool for generating and deploying the configurations.
 
@@ -27,7 +27,7 @@ Intersec is a software company in the telecommunication sector.
 
 I joined Intersec as a trainee in April 2009, then as the company's first full time system administrator in September 2009. At the time Intersec was a startup of just about 15 people. When I left in June 2016 it had grown up to more than 112 people with branch offices in three countries, and I am glad I was along for the ride.
 
-Intersec gave me opportunity of working as the head of IT for about 5 years (not counting the first year and a half when I was learning the ropes), participating in Intersec's growth by scaling the infrastructure, deploying new services (Remote access, self hosted email, backups, monitoring, wifi, etc.), recruiting and then managing my team (2 people for a many years, 3 the last year). I also designed the high availability platforms we deployed Intersec's products on.
+Intersec gave me the opportunity of working as the head of IT for about 5 years (not counting the first year and a half when I was learning the ropes), participating in Intersec's growth by scaling the infrastructure, deploying new services (Remote access, self hosted email, backups, monitoring, wifi, etc.), recruiting and then managing my team (2 people for many years, 3 the last year). I also designed the high availability platforms we deployed Intersec's products on.
 
 I left Intersec looking for new challenges and for a new life away from the capital. Paris is one of the best cities on earth, but I needed a change and left for Lyon.
 
@@ -47,7 +47,7 @@ I maintain this website to showcase some of my works and interests. You can also
 
 ## Other interests
 
-When I am not doing all the above, I like running, biking, hiking, skiing, reading and crafting model airplanes
+When I am not doing all the above, I like running, biking, hiking, skiing, reading and crafting model airplanes.
 
 ## How to get in touch
 
