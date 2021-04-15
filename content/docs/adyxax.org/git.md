@@ -12,13 +12,13 @@ git.adyxax.org is a [gitea](https://gitea.io/) instance. For about 10 years I us
 I am currently hosting this instance on an OpenBSD server. Obviously postgresql is packaged on this system so the installation is as simple as :
 {{< highlight sh >}}
 pkg_add postgresql-server
-su - __postgresql
+su - _postgresql
 mkdir /var/postgresql/data
 initdb -D /var/postgresql/data -U postgres -A scram-sha-256 -E UTF8 -W
 exit
 rcctl enable postgresql
 rcctl start postgresql
-su - ___postgresql
+su - _postgresql
 psql -U postgresql
 CREATE ROLE gitea WITH LOGIN PASSWORD 'XXXXX';
 CREATE DATABASE gitea WITH OWNER gitea TEMPLATE template0 ENCODING UTF8 LC_COLLATE 'en_US.UTF-8' LC_CTYPE 'en_US.UTF-8';
