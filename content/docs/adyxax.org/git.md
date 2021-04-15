@@ -15,11 +15,15 @@ pkg_add postgresql-server
 su - _postgresql
 mkdir /var/postgresql/data
 initdb -D /var/postgresql/data -U postgres -A scram-sha-256 -E UTF8 -W
-exit
+{{< /highlight >}}
+
+At this point you have to specify the postgres user password. Once done, exit the _postgresql users' shell and run as root :
+
+{{< highlight sh >}}
 rcctl enable postgresql
 rcctl start postgresql
 su - _postgresql
-psql -U postgresql
+psql -U postgres
 CREATE ROLE gitea WITH LOGIN PASSWORD 'XXXXX';
 CREATE DATABASE gitea WITH OWNER gitea TEMPLATE template0 ENCODING UTF8 LC_COLLATE 'en_US.UTF-8' LC_CTYPE 'en_US.UTF-8';
 {{< /highlight >}}
