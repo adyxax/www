@@ -8,7 +8,7 @@ tags:
 
 ## How to
 
-{{< highlight sh >}}
+{{< highlight nginx >}}
 ldap_server ldap {
     auth_ldap_cache_enabled on;
     auth_ldap_cache_expiration_time 10000;

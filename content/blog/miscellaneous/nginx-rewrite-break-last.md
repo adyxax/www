@@ -13,7 +13,7 @@ Today I was called in escalation to debug why a set of rewrites was suddenly mis
 ## Outside a location block
 
 When used outside a location block, these keywords stop the rules evaluation and then evaluate to a location. Consider the following example :
-{{< highlight conf >}}
+{{< highlight nginx >}}
 server {
 	[...]
 	location / {
@@ -48,7 +48,7 @@ configs  # we hit the rewrite to /configs/test.cfg, which is then reevaluated an
 When used inside a location block a rewrite rule flagged last will eventually trigger a location change (it is reevaluated based on the new url) but this does not happen when break is used.
 
 Consider the following example :
-{{< highlight conf >}}
+{{< highlight nginx >}}
 server {
 	[...]
 	location / {
