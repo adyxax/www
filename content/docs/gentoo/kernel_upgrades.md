@@ -13,7 +13,7 @@ genkernel all  --kernel-config=/proc/config.gz --menuconfig
 nvim --diff /proc/config.gz /usr/src/linux/.config
 {{< / highlight >}}
 
-Bellow you will find how I did things previously when centralising the build of all kernels on a collab-jde machine, and distributing them all afterwards. Local nodes would only rebuild local modules and get on with their life.
+Bellow you will find how I did things previously when centralising the build of all kernels on a collab-jde machine, and distributing them all afterwards. Local nodes would only rebuild local modules and get on with their lives.
 
 ## Building on collab-jde
 
