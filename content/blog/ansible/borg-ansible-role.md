@@ -11,7 +11,7 @@ tags:
 
 I have been managing my personal infrastructure with ansible for a few years and used borg to backup my servers for many more.
 
-My ansible git repository is not published for privacy and confidentiality reasons but this week-end I decided to finally take the take to cleanup the code and publish this role. Thanks to `git filter-branch --subdirectory-filter roles/borg --prune-empty -- --all` I managed to extract the folder of my ansible repository and turn it into a submodule.
+My ansible git repository is not published for privacy and confidentiality reasons but this week-end I decided to finally take the time to cleanup the code and publish this role. Thanks to `git filter-branch --subdirectory-filter roles/borg --prune-empty -- --all` I managed to extract the folder of my ansible repository and turn it into a submodule.
 
 I wanted a role to easily manage my backups and did not find an existing one that satisfied me. A mandatory feature for me was the ability to configure a client in only one place without having to configure a server : the server configuration will be derived from the clients that need to use it as a backup target. Another mandatory feature is the validation of host_vars which virtually no role in the wild ever does... So I wrote [mine](https://git.adyxax.org/adyxax/borg-ansible-role).
 
@@ -53,7 +53,7 @@ julien@yen:~/git/adyxax/ansible$ cat setup.yml
 ## Configuration
 
 First of all you only need to configure hosts that are backup clients. There are several `host_vars` you can define to this effect :
-- `borg_server`: a string that contains a borg servers hostname.
+- `borg_server`: a string that contains a hostname.
 - `borg_jobs`: a list of dict, one item per job with the following keys:
   - `name`: the name of the borg job, an alphanumeric string.
   - `path`: an optional path containing the files to backup.
