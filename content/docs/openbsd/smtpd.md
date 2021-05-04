@@ -58,3 +58,34 @@ match  from local   for local action "local_mail"
 match from any   auth  for any action "outbound"
 match from mail-from "root+phoenix@adyxax.org" for any action "outbound"  # if you need to relay emails from another machine to the internet like I do
 {{< /highlight >}}
+
+## Secondary mx
+
+Here is my secondary mx configuration as a sample :
+```conf
+pki adyxax.org cert "/etc/ssl/myth.adyxax.org.crt"
+pki adyxax.org key  "/etc/ssl/private/myth.adyxax.org.key"
+
+
+filter "dkimsign"   proc-exec "filter-dkimsign -d adyxax.eu -d adyxax.org -s 2020111301 -k /etc/mail/dkim/private.key" user _dkimsign group _dkimsign
+filter check_dyndns phase connect match rdns     regex { '.*\.dyn\..*', '.*\.dsl\..*' }  disconnect "550 no residential connections"
+filter check_rdns   phase connect match !rdns    disconnect "550 no rDNS is so 80s"
+filter check_fcrdns phase connect match !fcrdns  disconnect "550 no FCrDNS is so 80s"
+
+
+table aliases  file:/etc/mail/aliases
+table domains  file:/etc/mail/domains
+
+
+listen on egress tls   pki adyxax.org  filter { check_dyndns, check_rdns, check_fcrdns }
+listen on socket filter dkimsign
+listen on lo0 filter dkimsign
+
+
+action "local_mail" mbox alias <aliases>
+action "relay_to_yen" relay backup tls
+
+
+match  from any     for domain <domains> action "relay_to_yen"
+match  from local   for local action "local_mail"
+```
