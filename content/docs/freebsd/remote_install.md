@@ -11,7 +11,8 @@ This article explains a simple method to install FreeBSD when all you have is a 
 
 First login as root on the linux you want to reinstall as Freebsd. Identify the disk device you want to install on, update the url below to the latest release you want and run :
 ```sh
-wget https://download.freebsd.org/ftp/releases/VM-IMAGES/13.0-RELEASE/amd64/Latest/FreeBSD-13.0-RELEASE-amd64.raw.xz -O - | xz -dc | dd of=/dev/vda bs=1M conv=fdatasync
+wget https://download.freebsd.org/ftp/releases/VM-IMAGES/13.0-RELEASE/amd64/Latest/FreeBSD-13.0-RELEASE-amd64.raw.xz \
+     -O - | xz -dc | dd of=/dev/vda bs=1M conv=fdatasync
 ```
 
 When all is done, force a reboot of your machine and connect to the remote console. Your FreeBSD system should boot and leave you with an authentication prompt. Just type in root (it will not ask for a password) and go through this post installation checklist :
