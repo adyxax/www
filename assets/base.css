@@ -30,7 +30,7 @@ nav#TableOfContents ul li ul li ul li ul {
 	padding-left:3em;
 }
 h1, h2, h3, h4, h5 {
-	font-family: open;
+	font-family: open, serif;
 }
 @media only screen and (min-width: 60rem) {
 	body {
