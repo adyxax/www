@@ -125,7 +125,10 @@ gcc -### -march=native /usr/include/stdlib.h
 
 {{< highlight sh >}}
 emerge --quiet -e @world
-emerge --quiet dosfstools app-admin/logrotate app-admin/syslog-ng app-portage/gentoolkit dev-vcs/git bird openvpn htop net-analyzer/tcpdump net-misc/bridge-utils sys-apps/i2c-tools sys-apps/pciutils sys-apps/usbutils sys-boot/grub sys-fs/ncdu sys-process/lsof
+emerge --quiet dosfstools app-admin/logrotate app-admin/syslog-ng app-portage/gentoolkit \
+       dev-vcs/git bird openvpn htop net-analyzer/tcpdump net-misc/bridge-utils \
+       sys-apps/i2c-tools sys-apps/pciutils sys-apps/usbutils sys-boot/grub sys-fs/ncdu \
+       sys-process/lsof
 {{< /highlight >}}
 
 ## Grab a working kernel
@@ -183,11 +186,9 @@ scp root@collab-jde.nexen.net:/etc/hosts /etc/
 
 ### root account access
 
-I switched to an ed25512 ssh key some time ago but left this here for posterity :
 {{< highlight sh >}}
 mkdir -p /root/.ssh
-echo 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDN1ha6PFKgxF3MSWUlDaruVVpj3UzoiN4IJEvDrCnDbIW8xu+TclbeGJSRXXBbqRKeUfhX0GDA7cvSUIAz2U7AGK7wq5tbzJKagVYtxcSHBSi6dZR9KGb3eoshnrCeFzem1jWXG02PZJGvjB+ml3QhUguyAqm9q0n/NL6zzKhGoKiELO+tQghGIY8jafRv4rE4yyXZnwuCu8JI9P8ldGhKgOPeOdKIVTIVezUmKILWgAF+Hg7O72rQqUua9sdoK1mEYme/wgu0bQbvN26owGgBAgS3uc2nngLD01TZToG/wC1wH9A3KxT6+3akjRlPfLOY0BuK4OBGEGm6e0KZrIMhUr8fHQ8nmTmBqw7puI0gIXYB2EjhpsQ7TijYVqLYXbyxaXYyqisgY0QRWC7Te5Io6TSgorfXzi7zrcQGgWByHkhxTylf36LYSKWEheIQIRqytOdGqeXagFMz2ptLFKk4dA61LS5fPXIJucdghvnmLPml8cO9/9VHQ7gq7DxQu7sIwt/W13yTTUyI9DSHwxeHUwECzxAb5pOVL6pRjTMH8q1/eAMl35TFSh6s5tGvvHGz9+gMlE9A2Pv8CyXDBmXV6srrwxTSlglnmgdq6c9w3VtBKu572/z0cS6vqZMgEno4rIiwyhqNWdjbMXYw/U0q/w5XC9zCcSuluxvaY14qqQ== adyxax
-ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDMdBAFjENiPMTtq90GT3+NZ68nfGxQiRExaYYnLzm1ecmulCvsuA4AOpeLY6f+FWe+ludiw7nhrXzssDdsKBy0QL+XQyvjjjW4X+k9MYhP1gAWXEOGJnjJ/1ovEsMt++6fLyNKLUTA46kErbEehDs22r+rIiEKatrn0BNrJcRI94H44oEL1/ImzVam0cSBL0tPiaJxe60sBs7M76zfyFtVdMGkeuBpS7ee+FLA58fsS3/sEZmkas8MT0QdvZz1y/66MknXYbIaqDSOUACXGF4yVKpogLRRJ1SgNo1Ujo/U3VOR1O4CiQczsZOcbSdjgl0x3fJb7BaIxrZy9iW2I7G/L/chfTvRws+x1s1y5FNZOOiXMCdZjhgLaRwb6p5gMsMVn9sJbhDjmejcAkBKQDkzbvxxhfVkH225FoVXA9YF0msWLyOEyZQYbA8autLDJsAOT5RDfw/G82DQBufAPEBR/bPby0Hl5kjqW75bpSVxDvzmKwt3EpITg9iuYEhvYZ/Zq5qC1UJ54ZfOvaf0PsTUzFePty6ve/JzfxCV1XgFQ+B8l4NSz11loDfNXSUngf7lL4qu5X4aN6WmLFO1YbyFlfpvt3K1CekJmWVeE5mV9EFTUJ4ParVWRGiA4W+zaCOsHgRkcGkp4eYGyWW8gOR/lVxYU2IFl9mbMrC9bkdRbQ== hurricane' > /root/.ssh/authorized_keys
+echo ' ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILOJV391WFRYgCVA2plFB8W8sF9LfbzXZOrxqaOrrwco  hurricane' > /root/.ssh/authorized_keys
 passwd
 {{< /highlight >}}
 
