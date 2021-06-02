@@ -76,7 +76,7 @@ We prepare the local language of the system :
 {{< highlight sh >}}
 env-update && source /etc/profile
 echo 'LANG="en_US.utf8"' > /etc/env.d/02locale
-sed '/#en_US.UTF-8/s/#//' -i /etc/locale.gen
+echo 'en_US.UTF-8 UTF-8' >> /etc/locale.gen
 locale-gen
 source /etc/profile
 {{< /highlight >}}
@@ -128,7 +128,8 @@ emerge --quiet -e @world
 emerge --quiet dosfstools app-admin/logrotate app-admin/syslog-ng app-portage/gentoolkit \
        dev-vcs/git bird openvpn htop net-analyzer/tcpdump net-misc/bridge-utils \
        sys-apps/i2c-tools sys-apps/pciutils sys-apps/usbutils sys-boot/grub sys-fs/ncdu \
-       sys-process/lsof
+       sys-process/lsof net-vpn/wireguard-tools
+emerge --unmerge nano -q
 {{< /highlight >}}
 
 ## Grab a working kernel
@@ -175,8 +176,12 @@ rc-update add net.eth0 boot
 ### Grub
 
 TODO especially the conf in /etc/default/grub when using an encrypted /
-{{< highlight sh >}}
-{{< /highlight >}}
+
+In the case of UEFI use something like :
+```sh
+grub-install --efi-directory=/boot/ /dev/nvme1n1
+grub-mkconfig -o /boot/grub/grub.cfg
+```
 
 ### /etc/hosts
 
