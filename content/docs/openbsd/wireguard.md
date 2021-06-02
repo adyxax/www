@@ -21,6 +21,11 @@ wgpeer 'vNNic3jvXfbBahF8XFKnAv9+Cef/iQ6nWxXeOBtehgc=' wgaip 10.1.2.6/32
 
 Your private key goes on the first line as argument to `wgkey`, the other keys are public keys for each peer.
 
+To re-read the interface configuration, use :
+```sh
+sh /etc/netstart wg0
+```
+
 ## Administration
 
 Private keys can be generated with the following command :
