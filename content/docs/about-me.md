@@ -47,7 +47,7 @@ I maintain this website to showcase some of my works and interests. You can also
 
 ## Other interests
 
-When I am not doing all the above, I like running, biking, hiking, skiing, reading and crafting model airplanes.
+When I am not doing all the above, I like running, biking, hiking, skiing and reading.
 
 ## How to get in touch
 
