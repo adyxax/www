@@ -1,8 +1,10 @@
 footer {
 	background-color: #30638e;
+	padding: 10px;
+}
+footer p {
 	color: lightgray;
 	text-align: center;
-	padding: 10px;
 }
 footer a {
 	color: lightgray;
