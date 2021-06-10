@@ -56,9 +56,8 @@ bastille service postgresql postgresql start
 
 Let's say we want to allow a gitea jail running from 10.0.0.4 to a gitea database using a gitea user :
 ```
-echo "CREATE ROLE gitea WITH LOGIN PASSWORD 'secret';" \
-    | bastille cmd postgresql su - postgres -c psql
-echo "CREATE DATABASE gitea WITH OWNER gitea TEMPLATE template0 ENCODING UTF8 LC_COLLATE 'en_US.UTF-8' LC_CTYPE 'en_US.UTF-8';" \
+echo "CREATE ROLE gitea WITH LOGIN PASSWORD 'secret';
+      CREATE DATABASE gitea WITH OWNER gitea TEMPLATE template0 ENCODING UTF8 LC_COLLATE 'en_US.UTF-8' LC_CTYPE 'en_US.UTF-8';" \
     | bastille cmd postgresql su - postgres -c psql
 echo "host     gitea     gitea    10.0.0.4/32    scram-sha-256"
     | bastille cmd postgresql tee -a /var/db/postgres/data13/pg_hba.conf
