@@ -20,7 +20,8 @@ cd /usr/local/steam
 wget http://distfiles.gentoo.org/releases/amd64/autobuilds/current-stage3-amd64/stage3-amd64-20190122T214501Z.tar.xz
 tar -xvpf stage3*
 rm stage3*
-cp -L /etc/resolv.conf etc
+cp -L /etc/resolv.conf etc/
+cp -L /etc/locale.gen etc/
 mkdir usr/portage
 mkdir -p srv/gentoo-distfiles
 mount -R /dev dev
@@ -32,14 +33,13 @@ mount -R /srv/gentoo-distfiles/ srv/gentoo-distfiles/
 mount -R /run run
 cp /etc/portage/make.conf etc/portage/
 sed -e '/LLVM_TARGETS/d' -e '/getbinpkg/d' -i etc/portage/make.conf
-rm -rf etc/portage/package.use
-cp /etc/portage/package.use etc/portage/
-cp /etc/portage/package.accept_keywords etc/portage/
-chroot . 
+chroot .
+locale-gen
 env-update && source /etc/profile
+eselect profile set default/linux/amd64/17.1
+emerge dev-vcs/git -q
 wget -P /etc/portage/repos.conf/ https://raw.githubusercontent.com/anyc/steam-overlay/master/steam-overlay.conf
 emaint sync --repo steam-overlay
-emerge dev-vcs/git -q
 emerge --ask games-util/steam-launcher
 useradd -m -G audio,video steam
 {{< /highlight >}}
