@@ -37,10 +37,39 @@ chroot .
 locale-gen
 env-update && source /etc/profile
 eselect profile set default/linux/amd64/17.1
+mkdir /etc/portage/package.accept_keywords
+echo "games-util/steam-launcher  ~amd64
+games-util/game-device-udev-rules  ~amd64" > /etc/portage/package.accept_keywords/steam
+mkdir /etc/portage/package.use
+echo "x11-libs/libX11 abi_x86_32
+x11-libs/libXau abi_x86_32
+x11-libs/libxcb abi_x86_32
+x11-libs/libXdmcp abi_x86_32
+x11-base/xcb-proto abi_x86_32
+virtual/opengl abi_x86_32
+x11-libs/cairo X
+media-libs/libglvnd X
+media-libs/mesa  abi_x86_32
+dev-libs/expat abi_x86_32
+media-libs/libglvnd abi_x86_32
+sys-libs/zlib abi_x86_32
+x11-libs/libdrm abi_x86_32
+x11-libs/libxshmfence abi_x86_32
+x11-libs/libXext abi_x86_32
+x11-libs/libXxf86vm abi_x86_32
+x11-libs/libXfixes abi_x86_32
+app-arch/zstd abi_x86_32
+sys-devel/llvm abi_x86_32
+x11-libs/libXrandr abi_x86_32
+x11-libs/libXrender abi_x86_32
+dev-libs/libffi abi_x86_32
+sys-libs/ncurses abi_x86_32
+x11-libs/libpciaccess abi_x86_32" > /etc/portage/package.use/steam
+emerge world -uDNq
 emerge dev-vcs/git -q
 wget -P /etc/portage/repos.conf/ https://raw.githubusercontent.com/anyc/steam-overlay/master/steam-overlay.conf
 emaint sync --repo steam-overlay
-emerge --ask games-util/steam-launcher
+emerge games-util/steam-launcher -q
 useradd -m -G audio,video steam
 {{< /highlight >}}
 
@@ -57,7 +86,7 @@ mount -t proc proc proc
 mount -R /usr/portage usr/portage
 mount -R /usr/src usr/src
 mount -R /run run
-chroot . 
+chroot .
 env-update && source /etc/profile
 su steam
 steam
