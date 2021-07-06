@@ -66,7 +66,7 @@ dev-libs/libffi abi_x86_32
 sys-libs/ncurses abi_x86_32
 x11-libs/libpciaccess abi_x86_32" > /etc/portage/package.use/steam
 emerge world -uDNq
-emerge dev-vcs/git media-sound/pavucontrol -q
+emerge dev-vcs/git media-sound/pavucontrol media-libs/openal x11-base/xorg-drivers x11-terms/xterm -q
 wget -P /etc/portage/repos.conf/ https://raw.githubusercontent.com/anyc/steam-overlay/master/steam-overlay.conf
 emaint sync --repo steam-overlay
 emerge games-util/steam-launcher -q
