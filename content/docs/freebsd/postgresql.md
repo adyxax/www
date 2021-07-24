@@ -58,7 +58,7 @@ Let's say we want to allow a gitea jail running from 10.0.0.4 to a gitea databas
 ```
 echo "CREATE ROLE gitea WITH LOGIN PASSWORD 'secret';
       CREATE DATABASE gitea WITH OWNER gitea TEMPLATE template0 ENCODING UTF8 LC_COLLATE 'en_US.UTF-8' LC_CTYPE 'en_US.UTF-8';" \
-    | bastille cmd postgresql su - postgres -c psql
+    | bastille cmd postgresql psql -U postgres
 echo "host     gitea     gitea    10.0.0.4/32    scram-sha-256"
     | bastille cmd postgresql tee -a /var/db/postgres/data13/pg_hba.conf
 bastille service postgresql postgresql reload
