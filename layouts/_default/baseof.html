@@ -5,6 +5,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="icon" href="/static/favicon.ico">
 
 		{{ template "_internal/opengraph.html" . }}
 
@@ -13,7 +14,7 @@
 		{{- $home := resources.Get "home.css" -}}
 		{{- $pagination := resources.Get "pagination.css" -}}
 		{{- $footer := resources.Get "footer.css" -}}
-		{{- $allCss := slice $base $header $home $pagination $footer | resources.Concat "css/all.css" | fingerprint | minify -}}
+		{{- $allCss := slice $base $header $home $pagination $footer | resources.Concat "static/all.css" | fingerprint | minify -}}
 		<link rel="stylesheet" href="{{ $allCss.Permalink }}">
 
 		{{ range .AlternativeOutputFormats -}}
