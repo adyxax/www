@@ -6,7 +6,6 @@ build: ## make build  # builds an optimized version of the website in $(DESTDIR)
 	@echo "----- Generating site -----"
 	hugo --gc --minify --cleanDestinationDir -d $(DESTDIR) --cacheDir $(CACHEDIR)
 
-
 .PHONY: clean
 clean: ## make clean  # removed all $(DESTDIR) contents
 	@echo "----- Cleaning old build -----"
