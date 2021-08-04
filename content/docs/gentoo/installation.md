@@ -156,7 +156,7 @@ emerge gentoo-sources genkernel -q
 # /etc/fstab: static file system information.
 #
 #<fs>         <mountpoint>  <type>  <opts>              <dump/pass>
-/dev/vda3     /             ext4    noatime             0  1
+/dev/vda3     /             ext4    noatime,discard     0  1
 /dev/vda2     /boot         vfat    noatime             1  2
 /portage.img  /usr/portage  ext2    noatime,nodev,loop  0  0
 {{< /highlight >}}
