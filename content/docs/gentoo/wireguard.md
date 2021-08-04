@@ -28,7 +28,7 @@ Your private key goes on the first line as argument to `wgkey`, the other keys a
 To activate the interface configuration, use :
 ```sh
 cd /etc/init.d
-ln -s ln -s wg-quick wg-quick.wg0
+ln -s wg-quick wg-quick.wg0
 rc-update add wg-quick.wg0 default
 /etc/init.d/wg-quick.wg0 start
 ```
