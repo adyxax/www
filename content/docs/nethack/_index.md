@@ -8,9 +8,9 @@ layout: single
 
 I have been an on and off [nethack](https://en.wikipedia.org/wiki/NetHack) player since about 2008, and even though I am biased by this fact I will say that Nethack is just the best game one could ever play in its computer gaming life. Almost ten years later, I finally won my first game, after countless stupid deaths and so so many hours of fun.
 
-- first_ascension : a lawful human Valkyrie ascended to demigodhood in december 2017.
-- second_ascension : a lawful human Samourai ascended to demigodhood in june 2018.
-- third_ascension : a chaotic elf ranger ascended to demigodhood in june 2019.
+- [first_ascension]({{< ref "first_ascension" >}}) : a lawful human Valkyrie ascended to demigodhood in december 2017.
+- [second_ascension]({{< ref "second_ascension" >}}) : a lawful human Samourai ascended to demigodhood in june 2018.
+- [third_ascension]({{< ref "third_ascension" >}}) : a chaotic elf ranger ascended to demigodhood in june 2019.
 
 ## Stupid deaths
 
