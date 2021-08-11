@@ -25,31 +25,15 @@ Don't forget to either run `dhcpcd` or manually set an ip and gateway to the mac
 There are several options depending on wether you need soft raid, full disk encryption or a simple root device with no additional complications. It will also differ if you are using a virtual machine or a physical one.
 
 {{< highlight sh >}}
-fdisk /dev/sda
-g
-n
-1
-2048
-+2M
-t
-4
-
-n
-2
-6144
-+512M
-t
-2
-1
-
-n
-3
-1054720
-
-w
-mkfs.ext4 /dev/sda3
-mkfs.fat -F 32 -n efi-boot /dev/sda2
+tmux
+blkdiscard /dev/nvme0n1
+sgdisk -n1:0:+2M -t1:EF02 /dev/nvme0n1
+sgdisk -n2:0:+512M -t2:EF00 /dev/nvme0n1
+sgdisk -n3:0:0 -t3:8300 /dev/nvme0n1
+mkfs.fat -F 32 -n efi-boot /dev/nvme0n1p2
+mkfs.xfs /dev/nvme0n1p3
 mount /dev/sda3 /mnt/gentoo
+cd /mnt/gentoo
 {{< /highlight >}}
 
 Make sure you do not repeat the mistake I too often make by mounting something to /mnt while using the liveusb/livecd. You will lose your shell if you do this and will need to reboot!
@@ -61,11 +45,10 @@ Get the stage 3 installation file from https://www.gentoo.org/downloads/. I pers
 Put the archive on the server in /mnt/gentoo (you can simply wget it from there), then extract it :
 {{< highlight sh >}}
 tar xpf stage3-*.tar.xz --xattrs-include='*.*' --numeric-owner
-mount /dev/sda2 boot
-mount -t proc none proc
-mount -t sysfs none sys
-mount -o rbind /dev dev
-cp /etc/resolv.conf etc/
+mount /dev/nvme0n1p2 boot
+mount -R /proc proc
+mount -R /sys sys
+mount -R /dev dev
 chroot .
 {{< /highlight >}}
 
@@ -73,11 +56,11 @@ chroot .
 
 We prepare the local language of the system :
 {{< highlight sh >}}
-env-update && source /etc/profile
 echo 'LANG="en_US.utf8"' > /etc/env.d/02locale
 echo 'en_US.UTF-8 UTF-8' >> /etc/locale.gen
 locale-gen
-source /etc/profile
+env-update && source /etc/profile
+echo 'nameserver 1.1.1.1' > /etc/resolv.conf
 {{< /highlight >}}
 
 We set a loop device to hold the portage tree. It will be formatted with optimisation for the many small files that compose it :
