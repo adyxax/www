@@ -5,16 +5,16 @@ body {
 	display: grid;
 	grid-template-rows: auto 1fr auto;
 
-	font-family: open sans,-apple-system,BlinkMacSystemFont,segoe ui,Roboto,helvetica neue,Arial,sans-serif,apple color emoji,segoe ui emoji,segoe ui symbol;
-	font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+	font-family: BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 
+	font-feature-settings: "kern" 1;
+	font-kerning: normal;
 }
 p {
 	text-align: justify;
 	hyphens: auto;
-	hyphenate-limit-lines: 2;
 	text-justify: inter-character;
-	word-break: break-word;
+	overflow-wrap: anywhere;
 }
 nav#TableOfContents ul {
 	padding: 0;

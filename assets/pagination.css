@@ -1,7 +1,4 @@
 .pagination {
-	display:-webkit-box;
-	display:-webkit-flex;
-	display:-ms-flexbox;
 	display:flex;
 	list-style:none;
 	border-radius:.25rem;
