@@ -2,7 +2,7 @@ html {
 	background-color: #002b36;
 	color: #839496;
 }
-body {
+body, main {
 	background-color: #073642;
 }
 code {
