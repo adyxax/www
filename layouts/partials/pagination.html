@@ -7,7 +7,7 @@
 	</li>
 	{{ end -}}
 	{{- range $pag.Pagers -}}
-	<li{{ if eq . $pag }} class="pagination-active"{{ end }}>
+	<li {{ if eq . $pag }}class="pagination-active"{{ else }}class="pagination-enabled"{{ end }}>
 		<a href="{{ .URL }}">{{ .PageNumber }}</a>
 	</li>
 	{{- end }}
