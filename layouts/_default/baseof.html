@@ -14,7 +14,8 @@
 		{{- $home := resources.Get "home.css" -}}
 		{{- $pagination := resources.Get "pagination.css" -}}
 		{{- $footer := resources.Get "footer.css" -}}
-		{{- $allCss := slice $base $header $home $pagination $footer | resources.Concat "static/all.css" | fingerprint | minify -}}
+		{{- $solarized := resources.Get "solarized.css" -}}
+		{{- $allCss := slice $base $header $home $pagination $footer $solarized | resources.Concat "static/all.css" | fingerprint | minify -}}
 		<link rel="stylesheet" href="{{ $allCss.Permalink }}">
 
 		{{ range .AlternativeOutputFormats -}}

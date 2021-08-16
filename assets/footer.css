@@ -1,11 +1,11 @@
 footer {
-	background-color: #30638e;
+	background-color: #002b36;
 	padding: 10px;
 }
 footer p {
-	color: lightgray;
+	color: #859900;
 	text-align: center;
 }
 footer a {
-	color: lightgray;
+	color: #859900;
 }

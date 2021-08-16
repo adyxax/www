@@ -2,7 +2,7 @@
 {{- if gt $pag.TotalPages 1 -}}
 <ul class="pagination">
 	{{ with $pag.First -}}
-	<li{{ if not $pag.HasPrev }} class="pagination-disabled"{{ end }}>
+	<li {{ if $pag.HasPrev }}class="pagination-enabled"{{ else }}class="pagination-disabled"{{ end }}>
 		<a {{ if $pag.HasPrev }}href="{{ .URL }}"{{ end }} aria-label="First"><span aria-hidden="true">&laquo;</span></a>
 	</li>
 	{{ end -}}
@@ -12,7 +12,7 @@
 	</li>
 	{{- end }}
 	{{- with $pag.Last }}
-	<li{{ if not $pag.HasNext }} class="pagination-disabled"{{ end }}>
+	<li {{ if $pag.HasNext }}class="pagination-enabled"{{ else }}class="pagination-disabled"{{ end }}>
 		<a {{ if $pag.HasNext }}href="{{ .URL }}"{{ end }} aria-label="Last"><span aria-hidden="true">&raquo;</span></a>
 	</li>
 	{{- end }}
