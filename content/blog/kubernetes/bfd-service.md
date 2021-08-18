@@ -8,11 +8,11 @@ tags:
 
 ## Introduction
 
-I am currently playing with metallb for a baremetal setup of mine that sits behind a router/firewall that I cannot reconfigure with kubernetes. I am therefore planning to have it do a static mapping of public ips to virtual ips configured with metallb, a great piece of software made just for this kind of situation.
+I am currently playing with metallb for a baremetal setup of mine that sits behind a router/firewall that I cannot reconfigure with kubernetes. I am therefore planning to have it do a static mapping of public ips to virtual ips configured with metallb, a kubernetes service made just for this kind of situation.
 
-Metallb has two ways of handling virtual ips. The first one is the layer2 mode and is unsatisfactory to me because metallb does not speak vrrp, therefore the nodes advertise their virtual ips with their own mac addresses. Because of that, failing over when a node fails (even if you drain it gracefully) takes a long time and there is no way to speed it up.
+Metallb has two ways of advertising its virtual ips to the world. The first one is the layer2 mode and is unsatisfactory to me because metallb does not speak vrrp, therefore the nodes advertise their virtual ips with their own mac addresses. Because of that, failing over when a node fails (even if you drain it gracefully) takes a long time and there is no way to speed it up.
 
-That leaves me with the bgp way of doing this, which works fine as long as their is no abrupt failure of the node the router/firewall is currently routing to. When an abrupt failure happens you get to wait the bgp session timeout before the router/firewall converges. Draining a node works because the bgp session gets properly closed, only abrupt failures are a problem in this mode.
+That leaves me with the bgp way of doing this, which works fine as long as there is no abrupt failure of the node the router/firewall is currently routing to. When an abrupt failure happens you get to wait the bgp session timeout before the router/firewall converges. Draining a node works because the bgp session gets properly closed, only abrupt failures are a problem in this mode.
 
 This problem is well known and usually solved with bfd, but according to https://github.com/metallb/metallb/issues/396 it is neither supported nor planned.
 
