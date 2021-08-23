@@ -29,6 +29,9 @@ resampleFilter = "CatmullRom"
 quality = 75
 anchor = "smart"
 
+[outputs]
+home = ["HTML", "RSS", "JSON"]
+
 [params]
 copyright = "Julien (Adyxax) Dessaux"
 github_repo = "https://git.adyxax.org/adyxax/www"
