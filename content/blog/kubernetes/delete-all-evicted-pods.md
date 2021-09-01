@@ -2,6 +2,8 @@
 title: How to delete all evicted pods in kubernetes
 description: A quick note for future reference
 date: 2021-09-01
+tags:
+  - kubernetes
 ---
 
 ## Introduction
