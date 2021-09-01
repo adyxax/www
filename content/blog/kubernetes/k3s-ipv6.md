@@ -211,9 +211,9 @@ Give it some time, then check that the two controller services each get the ipv4
 ```sh
 kubectl -n ingress-nginx get pods,svc
 NAME                                            READY   STATUS      RESTARTS   AGE
-pod/ingress-nginx-admission-create-hcgdm        0/1     Completed   0          36s
-pod/ingress-nginx-admission-patch-hl2vw         0/1     Completed   1          36s
-pod/ingress-nginx-controller-5cb8d9c6dd-5692s   0/1     Running     0          36s
+pod/ingress-nginx-admission-create-hcgdm        0/1     Completed   0          52s
+pod/ingress-nginx-admission-patch-hl2vw         0/1     Completed   1          52s
+pod/ingress-nginx-controller-5cb8d9c6dd-5692s   1/1     Running     0          52s
 
 NAME                                         TYPE           CLUSTER-IP      EXTERNAL-IP               PORT(S)                      AGE
 service/ingress-nginx-controller-admission   ClusterIP      10.43.244.41    <none>                    443/TCP                      37s
