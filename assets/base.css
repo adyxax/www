@@ -10,6 +10,10 @@ body {
 	font-feature-settings: "kern" 1;
 	font-kerning: normal;
 }
+#main {
+       padding-left:1em;
+       padding-right:1em;
+}
 p {
 	text-align: justify;
 	hyphens: auto;
