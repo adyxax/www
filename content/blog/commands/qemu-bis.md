@@ -17,16 +17,22 @@ I know I already blogged about it in 2019 in [this article]({{< ref "qemu.md" >}
 qemu-img create -f raw alpine.raw 16G
 qemu-system-x86_64 -drive file=alpine.raw,format=raw,cache=writeback \
                    -cdrom Downloads/alpine-virt-3.14.0-x86_64.iso \
-                   -net user -boot d -machine type=q35,accel=kvm \
-                   -cpu host -smp 2 -m 1024 -vnc :0
+                   -boot d -machine type=q35,accel=kvm \
+                   -cpu host -smp 2 -m 1024 -vnc :0 \
+                   -device virtio-net,netdev=vmnic -netdev user,id=vmnic
 ```
 
-Connect to the console with a `vncviewer localhost`.
+Connect to the console with a `vncviewer :0`.
 
 ## Afterwards
 
 ```sh
 qemu-system-x86_64 -drive file=alpine.raw,format=raw,cache=writeback \
-                   -net user -machine type=q35,accel=kvm \
-                   -cpu host -smp 2 -m 1024 -vnc :0
+                   -boot c -machine type=q35,accel=kvm \
+                   -cpu host -smp 2 -m 1024 -vnc :0 \
+                   -device virtio-net,netdev=vmnic -netdev user,id=vmnic
 ```
+
+## References
+
+  * https://wiki.gentoo.org/wiki/QEMU/Options#Networking
