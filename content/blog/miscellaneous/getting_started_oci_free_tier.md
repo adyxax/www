@@ -126,7 +126,7 @@ resource "oci_core_subnet" "adyxax-production" {
 
 ### Instances
 
-Here is how to create the two always free tier instances. The tricky part was to understand how ipv6 addresses are like second class citizens on oracle cloud :
+Here is how to create the two always free tier instances, each in a different fault domain. The tricky part was to understand how ipv6 addresses are like second class citizens on oracle cloud :
 ```hcl
 data "oci_identity_availability_domains" "ads" {
   compartment_id = var.oracle_tenancy_ocid
