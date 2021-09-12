@@ -1,3 +1,4 @@
 .*.swp
 public/
 resources/
+search/index.html search/index.json search/search
