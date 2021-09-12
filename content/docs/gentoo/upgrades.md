@@ -15,14 +15,9 @@ The news have to be reviewed carefully and if I cannot act on it immediately I c
 
 ## The upgrade process
 
-I run the upgrade process in two steps. The first one is a straightforward upgrade that will stop upon any error to let you asses the situation :
+I run the upgrade process in steps, the first one asking you to validate the upgrade path. You will also be prompted to validate before cleaning :
 {{< highlight sh >}}
-emerge --update --newuse --deep --with-bdeps=y @world -q
-{{< /highlight >}}
-
-If all went well we can get to the cleaning pass :
-{{< highlight sh >}}
-unset ld_library_path && unset e_src && emerge -qaavutdn world --verbose-conflicts --keep-going && emerge --depclean -a && revdep-rebuild -i -- -q --keep-going; eclean distfiles
+emerge -qAavutDN world --verbose-conflicts --keep-going --with-bdeps=y && emerge --depclean -a && revdep-rebuild -i -- -q --keep-going; eclean --deep distfiles && eclean --deep packages && date
 {{< /highlight >}}
 
 After all this completes it is time to evaluate configuration changes :
