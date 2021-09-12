@@ -1,7 +1,7 @@
 ---
-title: "Investigate postgresql disk usage"
+title: "Investigate PostgreSQL disk usage"
 date: 2015-11-24
-description: How to investigate postgresql disk usage
+description: A simple how to
 tags:
   - PostgreSQL
 ---

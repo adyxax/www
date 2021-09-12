@@ -1,6 +1,8 @@
 ---
 title: Third ascension
 description: a chaotic elf ranger ascended to demigodhood in june 2019
+tags:
+- nethack
 ---
 
 ```

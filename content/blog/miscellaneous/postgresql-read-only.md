@@ -1,7 +1,7 @@
 ---
-title: "Grant postgresql read only access"
+title: "Grant PostgreSQL read only access"
 date: 2015-11-24
-description: How to grant read only access to a postgresql user
+description: How to grant read only access to a PostgreSQL user
 tags:
   - PostgreSQL
 ---

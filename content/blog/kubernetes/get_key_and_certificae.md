@@ -3,6 +3,7 @@ title: "Get tls certificate and key from a kubernetes secret"
 date: 2020-08-06
 description: How to extract a tls certificate and keys from a kubernetes secret
 tags:
+  - k3s
   - kubernetes
 ---
 

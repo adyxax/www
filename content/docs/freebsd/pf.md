@@ -1,6 +1,10 @@
 ---
 title: pf.conf
 description: The template I use on new installations
+tags:
+- FreeBSD
+- firewall
+- pf
 ---
 
 ## pf.conf

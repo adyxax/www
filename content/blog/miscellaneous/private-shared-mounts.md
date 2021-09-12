@@ -3,7 +3,7 @@ title: Private and shared mounts
 date: 2021-07-30
 description: Shared mount subtrees in Linux are a thing and I did not know it
 tags:
-  - Alpine Linux
+  - Alpine
   - kubernetes
   - linux
   - toolbox

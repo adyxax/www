@@ -3,7 +3,7 @@ title: "Simple qemu vm"
 date: 2021-06-16
 description: How to start a simple qemu vm, no gui!
 tags:
-  - Linux
+  - linux
   - virtualization
 ---
 

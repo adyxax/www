@@ -3,7 +3,8 @@ title: "etc-update script for alpine linux"
 date: 2019-04-02
 description: etc-update script for alpine linux
 tags:
-  - Alpine Linux
+- Alpine
+- linux
 ---
 
 ## The script

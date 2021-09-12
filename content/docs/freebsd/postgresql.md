@@ -1,6 +1,10 @@
 ---
 title: Postgresql jail with bastille
 description: How to install a PostgreSQL jail with bastille
+tags:
+- FreeBSD
+- jails
+- PostgreSQL
 ---
 
 ## Jail initialization

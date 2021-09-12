@@ -1,6 +1,8 @@
 ---
 title: Second ascension
 description: a lawful human Samourai ascended to demigodhood in june 2018
+tags:
+- nethack
 ---
 
 ```

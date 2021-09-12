@@ -3,6 +3,7 @@ title: "Screen cannot open terminal error"
 date: 2018-07-03
 description: How to fix a "Screen cannot open terminal" error
 tags:
+  - linux
   - toolbox
   - unix
 ---

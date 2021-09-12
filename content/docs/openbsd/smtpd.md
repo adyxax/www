@@ -1,6 +1,8 @@
 ---
 title: smtpd.conf
 description: OpenSMTPD templates
+tags:
+- OpenBSD
 ---
 
 ## Simple relay

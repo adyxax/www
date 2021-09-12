@@ -1,6 +1,9 @@
 ---
 title: Install Alpine from another Linux rescue
 description: How to install Alpine Linux at hosting providers that do not support it
+tags:
+- Alpine
+- linux
 ---
 
 ## Introduction

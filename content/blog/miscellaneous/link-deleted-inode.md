@@ -3,7 +3,8 @@ title: "Link to a deleted inode"
 date: 2018-03-05
 description: How to restore a hardlink to a deleted inode
 tags:
-  - unix
+- linux
+- unix
 ---
 
 ## The problem

@@ -3,6 +3,7 @@ title: "Seti@Home"
 date: 2018-03-05
 description: Getting back into Seti@Home 15 years later
 tags:
+  - linux
   - toolbox
 ---
 

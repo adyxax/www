@@ -1,6 +1,8 @@
 ---
 title: First ascension
 description: a lawful human Valkyrie ascended to demigodhood in december 2017
+tags:
+- nethack
 ---
 
 

@@ -1,6 +1,10 @@
 ---
 title: Wireguard
 description: How to configure a wireguard endpoint on Alpine
+tags:
+- Alpine
+- linux
+- vpn
 ---
 
 ## Introduction

@@ -2,6 +2,8 @@
 title: Writing golang REST client to query netapp API
 description: I needed a tool to migrate all network interfaces quickly
 date: 2021-06-23
+tags:
+- golang
 ---
 
 ## Introduction

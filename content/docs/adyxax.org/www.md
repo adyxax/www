@@ -1,6 +1,9 @@
 ---
 title: "www"
 description: adyxax.org main website. www.adyxax.org, wiki.adyxax.org and blog.adyxax.org all point here.
+tags:
+- hugo
+- OpenBSD
 ---
 
 ## Introduction

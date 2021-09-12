@@ -1,6 +1,9 @@
 ---
 title: "LXD"
 description: How to setup a LXD server on gentoo
+tags:
+- gentoo
+- linux
 ---
 
 ## Introduction

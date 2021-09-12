@@ -1,6 +1,9 @@
 ---
 title: "Gentoo Kernel Upgrades"
 description: Gentoo kernel upgrades on adyxax.org
+tags:
+- gentoo
+- linux
 ---
 
 ## Introduction

@@ -3,6 +3,7 @@ title: "i3dropdown"
 date: 2020-01-23
 description: How to use i3dropdown to pump up your graphical environment
 tags:
+  - linux
   - toolbox
 ---
 

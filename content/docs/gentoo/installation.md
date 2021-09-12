@@ -1,6 +1,9 @@
 ---
 title: "Installation"
 description: Installation of a gentoo system
+tags:
+- gentoo
+- linux
 ---
 
 ## Introduction

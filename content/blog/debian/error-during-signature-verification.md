@@ -1,7 +1,7 @@
 ---
 title: "Error occured during the signature verification"
 date: 2015-02-27
-description: Fixing the "Error occured during the signature verification"
+description: Fixing the "Error occured during the signature verification" on Debian
 tags:
   - Debian
 ---

@@ -1,6 +1,9 @@
 ---
 title: "Steam"
 description: How to make steam work seamlessly on gentoo with a chroot
+tags:
+- gentoo
+- linux
 ---
 
 ## Introduction

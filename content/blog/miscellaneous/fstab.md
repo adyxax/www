@@ -3,6 +3,7 @@ title: "Use spaces in fstab"
 date: 2011-09-29
 description: How to use spaces in a folder name in fstab
 tags:
+  - linux
   - unix
 ---
 

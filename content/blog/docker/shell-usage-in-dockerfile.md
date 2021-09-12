@@ -19,4 +19,5 @@ SHELL ["/bin/bash", "-eux", "-o", "pipefail", "-c"]
 {{< /highlight >}}
 
 ## References
+
 - https://bearstech.com/societe/blog/securiser-et-optimiser-notre-liste-des-bonnes-pratiques-liees-aux-dockerfiles/

@@ -1,6 +1,8 @@
 ---
 title: .nethackrc
 description: my nethack configuration file
+tags:
+- nethack
 ---
 
 ## .nethackrc

@@ -3,6 +3,7 @@ title: How to run the BFD protocol on kubernetes for fast BGP convergence
 description: Metallb does not support it yet
 date: 2021-08-18
 tags:
+  - k3s
   - kubernetes
 ---
 

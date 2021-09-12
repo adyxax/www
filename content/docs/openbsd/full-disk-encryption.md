@@ -1,6 +1,8 @@
 ---
 title: Full Disk Encryption on OpenBSD
 description: How to configure full disk encryption for a new OpenBSD install
+tags:
+- OpenBSD
 ---
 
 ## Introduction

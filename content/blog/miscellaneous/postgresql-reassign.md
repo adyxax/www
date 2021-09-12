@@ -1,7 +1,7 @@
 ---
-title: "Change owner on a postgresql database and all tables"
+title: "Change owner on a PostgreSQL database and all tables"
 date: 2012-04-20
-description: How to change owner on a postgresql database and all tables
+description: How to change owner on a PostgreSQL database and all tables
 tags:
   - PostgreSQL
 ---

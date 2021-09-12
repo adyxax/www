@@ -1,7 +1,7 @@
 ---
-title: "Sqlite pretty print"
+title: "SQLite pretty print"
 date: 2019-06-19
-description: How to pretty print your Sqlite output
+description: How to pretty print your SQLite output
 tags:
   - SQLite
 ---

@@ -1,6 +1,9 @@
 ---
 title: "Gentoo Packages Upgrades"
 description: Gentoo packages upgrades on adyxax.org
+tags:
+- gentoo
+- linux
 ---
 
 ## Introduction

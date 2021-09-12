@@ -1,6 +1,8 @@
 ---
 title: Switch from quarterly to latest
 description: How to switch your FreeBSD install from the quarterly release cycle to latest
+tags:
+- FreeBSD
 ---
 
 ## Introduction

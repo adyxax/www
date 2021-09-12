@@ -4,6 +4,7 @@ date: 2021-08-04
 description: How to discard ssd partitions, and not just mounted devices
 tags:
   - linux
+  - toolbox
 ---
 
 ## Introduction

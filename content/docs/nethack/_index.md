@@ -2,6 +2,8 @@
 title: Nethack
 description: The dungeon crawler game
 layout: single
+tags:
+- nethack
 ---
 
 ## Nethack

@@ -1,6 +1,9 @@
 ---
 title: pf.conf
 description: The template I use on new installations
+tags:
+- OpenBSD
+- pf
 ---
 
 ## pf.conf

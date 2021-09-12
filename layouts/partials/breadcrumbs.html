@@ -16,4 +16,5 @@
 {{ end }}
 <strong>{{ .Title }}</strong><br/>
 {{ .Description }}
+{{ if (isset .Params "tags") }}{{ if ge (len .Params.tags) 1 }}<br/>Tag{{ if ge (len .Params.tags) 2 }}s{{ end }}: {{ range .Params.tags }}<a href="/tags/{{ . }}">{{ . }}</a> {{ end }}{{ end }}{{ end }}
 </p>

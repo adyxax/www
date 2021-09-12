@@ -3,7 +3,9 @@ title: "Dump and restore a postgresql database on kubernetes"
 date: 2020-06-25
 description: How to dump and restore a postgresql database running on kubernetes
 tags:
+  - k3s
   - kubernetes
+  - PostgreSQL
 ---
 
 ## Dumping

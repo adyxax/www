@@ -28,7 +28,12 @@ With this `layouts/shortcodes/age.html` file I can just add the following in a p
 {{< print "{{% age %}}" >}}
 {{< / highlight >}}
 
-And if you are wondering how I am able to display a shortcode code inside this page without having it render, it is because I defined another shortcode that does exactly that [here](https://git.adyxax.org/adyxax/www/src/branch/master/layouts/shortcodes/print.html)! Hugo really is a powerful static website generator, it is amazing.
+And if you are wondering how I am able to display a shortcode code inside this page without having it render, it is because I defined another shortcode that does exactly like this :
+{{< highlight html >}}
+{{< print "{{ index .Params 0 }}" >}}
+{{< / highlight >}}
+
+You can find these examples [here](https://git.adyxax.org/adyxax/www/src/branch/master/layouts/shortcodes/)! Hugo really is a powerful static website generator, it is amazing.
 
 ## References
 

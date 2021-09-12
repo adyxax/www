@@ -1,5 +1,5 @@
 ---
-title: "Convert unix timestamp to readable date"
+title: "Convert a unix timestamp to a readable date"
 date: 2011-01-06
 description: the -d flag of the date command combined with @timestamp
 tags:
