@@ -28,4 +28,12 @@ header nav ul li a:hover {
 	float: left;
 	text-transform: uppercase;
 	font-weight: 700;
+	margin-right: 4px;
+}
+.nav-menu-margin-left {
+	margin-left: 4px;
+}
+.nav-menu-margins-left-and-right {
+	margin-left: 4px;
+	margin-right: 4px;
 }

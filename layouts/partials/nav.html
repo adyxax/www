@@ -3,14 +3,27 @@
 		<ul>
 			<li class="nav-menu-title"><a href="/">{{ .Site.Title }}</a></li>
 			{{- $p := . -}}
-			{{- range .Site.Menus.main.ByWeight -}}
+
+			{{- range first 1 .Site.Menus.main.ByWeight -}}
 			{{- $active := or ($p.IsMenuCurrent "main" .) ($p.HasMenuCurrent "main" .) -}}
 			{{- with .Page -}}
 			{{- $active = or $active ( $.IsDescendant .)  -}}
 			{{- end -}}
 			{{- $url := urls.Parse .URL -}}
 			{{- $baseurl := urls.Parse $.Site.Params.Baseurl -}}
-			<li{{if $active }} class="nav-menu-active"{{end}}>
+			<li class="nav-menu-margin-left{{if $active }} nav-menu-active{{end}}">
+				<a href="{{ with .Page }}{{ .RelPermalink }}{{ else }}{{ .URL | relLangURL }}{{ end }}"{{ if ne $url.Host $baseurl.Host }}target="_blank" {{ end }}>{{ .Name }}</a>
+			</li>
+			{{ end }}
+
+			{{- range after 1 .Site.Menus.main.ByWeight -}}
+			{{- $active := or ($p.IsMenuCurrent "main" .) ($p.HasMenuCurrent "main" .) -}}
+			{{- with .Page -}}
+			{{- $active = or $active ( $.IsDescendant .)  -}}
+			{{- end -}}
+			{{- $url := urls.Parse .URL -}}
+			{{- $baseurl := urls.Parse $.Site.Params.Baseurl -}}
+			<li class="nav-menu-margins-left-and-right{{if $active }} nav-menu-active{{end}}">
 				<a href="{{ with .Page }}{{ .RelPermalink }}{{ else }}{{ .URL | relLangURL }}{{ end }}"{{ if ne $url.Host $baseurl.Host }}target="_blank" {{ end }}>{{ .Name }}</a>
 			</li>
 			{{ end }}

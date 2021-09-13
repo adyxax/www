@@ -23,7 +23,7 @@
 		{{ end -}}
 
 		<title>{{ $title }}</title>
-		<meta name="description" content="">
+		<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}">
 	</head>
 	<body>
 		{{- partial "nav.html" . -}}
