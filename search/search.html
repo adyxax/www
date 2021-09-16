@@ -1,6 +1,6 @@
 {{ define "search" }}
 <form action="/search/" method="post">
-	<input class="fullwidth" type="text" placeholder="Enter your search terms here" name="query" value="{{ .Query }}" required autofocus><br>
+	<input class="fullwidth" type="text" placeholder="Enter your search terms here" name="query" value="{{ .Query }}" minlength="3" maxlength="64" required autofocus><br>
 	<input type="checkbox" id="searchTitle" name="searchTitle" value="true"{{ if .SearchTitle }} checked{{ end }}><label for="searchTitle">Titles</label>
 	<input type="checkbox" id="searchTags" name="searchTags" value="true"{{ if .SearchTags }} checked{{ end }}><label for="searchTags">Tags</label>
 	<input type="checkbox" id="searchDescription" name="searchDescription" value="true"{{ if .SearchDescription }} checked{{ end }}><label for="searchDescription">Descriptions</label>

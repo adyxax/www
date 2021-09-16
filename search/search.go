@@ -102,9 +102,9 @@ type SearchPage struct {
 // The search handler of the webui
 func searchHandler(w http.ResponseWriter, r *http.Request) error {
 	p := SearchPage{
-		Query: strings.ToLower(r.FormValue("query")),
+		Query: r.FormValue("query"),
 	}
-	if p.Query != "" {
+	if p.Query != "" && len(p.Query) >= 3 && len(p.Query) <= 64 {
 		log.Printf("searching for: %s", p.Query)
 		// First we reset the search options status
 		p.SearchTitle = r.FormValue("searchTitle") == "true"
@@ -112,7 +112,7 @@ func searchHandler(w http.ResponseWriter, r *http.Request) error {
 		p.SearchDescription = r.FormValue("searchDescription") == "true"
 		p.SearchContent = r.FormValue("searchContent") == "true"
 		// Then we walk the index
-		words := normalizeWords(strings.Fields(p.Query))
+		words := normalizeWords(strings.Fields(strings.ToLower(p.Query)))
 		scores := make(Pairs, 0)
 		for i := 0; i < len(jsonIndex); i++ {
 			score := 0
