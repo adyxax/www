@@ -61,6 +61,7 @@ func normalizeWords(words []string) (result []string) {
 			continue
 		}
 		result = append(result, word)
+		lastword = word
 	}
 	return
 }
