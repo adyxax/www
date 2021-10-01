@@ -18,7 +18,7 @@ The space character is special in the sense that the funge space is supposed inf
 
 Resizing the funge space means reallocating things in order to properly handle the wrapping of the instruction pointer, which is one a the most fun things in Funge-98! This instruction pointer that can travel in any direction on the grid space? It can really travel in any directions, left right up down but also diagonals or any vector really. And if the instruction pointer would leave the grid because of its travel it wraps around. Wrapping aound is intuitive when talking about cardinal directions, but not so much for an arbitrary vector.
 
-I was also trapped by the line feed character handling, which is only used in Trifunge to process the z coordinate. The spec was not clear but in order to pass the mycology test suite you need to ignore this character if found in the input file, much like you would handle a carriage return in Onefunge.
+I was also trapped by the form feed character handling, which is only used in Trifunge to process the z coordinate. The spec was not clear but in order to pass the mycology test suite you need to ignore this character if found in the input file, much like you would handle a carriage return in Onefunge.
 
 ## Conclusion
 
