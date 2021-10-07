@@ -1,16 +1,12 @@
 ---
-title: "Installation"
-description: Installation notes of miniflux.adyxax.org on k3s
-tags:
-- k3s
-- kubernetes
-- miniflux
-- postgresql
+title: Documenting my miniflux installation
+description: miniflux is a rss feed reader and aggregator
+date: 2021-10-07
 ---
 
 ## Introduction
 
-Please refer to [the official website](https://miniflux.app/) documentation's for an up to date installation guide. This page only lists what I had to do at the time to setup miniflux and adapt it to my particular setup. I updated these instructions after migrating from a traditional hosting to kubernetes.
+miniflux.adyxax.org is a [miniflux](https://miniflux.app/) instance that I have been using for about 5 years. It is a rss feed reader and aggregator written as a golang web application. It is a reliable piece of software and I never encountered any issue with it. I just migrated my setup from a standard hosting to my [k3s ipv6 test setup]({{< ref "k3s-ipv6" >}}) and took the opportunity to document the setup.
 
 ## Preparing the postgresql database
 
@@ -272,3 +268,9 @@ acme.sh --config-home "$HOME/.acme.sh" --server letsencrypt --dns dns_cf --issue
 kubectl -n miniflux create secret tls wildcard-adyxax-org --cert=$HOME/.acme.sh/adyxax.org/fullchain.cer \
   --key=$HOME/.acme.sh/adyxax.org/adyxax.org.key -o yaml --save-config --dry-run=client | kubectl apply -f -
 ```
+
+## Conclusion
+
+I am not a fan of terraform for managing kubernetes resources. I committed to testing this path so I went all the way, but looking back I do not really like how it looks. So much boilerplate and so little value or abstractions! Miniflux is well maintained and updates are not so frequent that managing it this way becomes too much a pain, but I will find something better.
+
+If you have something clean to recommend do not hesitate to email me about it!

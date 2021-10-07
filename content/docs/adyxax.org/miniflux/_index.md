@@ -9,6 +9,6 @@ miniflux.adyxax.org is a [miniflux](https://miniflux.app/) instance that I have 
 
 ## Captain's log
 
-- 2021-10-05 : migrated this instance to myth.adyxax.org
+- 2021-10-05 : migrated this instance to k3s on myth.adyxax.org
 
 ## Docs
