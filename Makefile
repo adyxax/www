@@ -1,5 +1,6 @@
 CACHEDIR=/tmp/hugo-cache-$(USER)
 DESTDIR=public/
+HOSTNAME=$(shell hostname)
 
 .PHONY: build
 build: ## make build  # builds an optimized version of the website in $(DESTDIR)
@@ -17,7 +18,7 @@ clean: ## make clean  # removed all $(DESTDIR) contents
 
 .PHONY: serve
 serve: ## make serve  # hugo web server development mode
-	hugo serve --disableFastRender --noHTTPCache --cacheDir $(CACHEDIR)
+	hugo serve --disableFastRender --noHTTPCache --cacheDir $(CACHEDIR) --bind 0.0.0.0 --port 1313 -b http://$(HOSTNAME):1313/
 
 help:
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
