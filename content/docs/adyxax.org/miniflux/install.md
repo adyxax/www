@@ -10,7 +10,7 @@ tags:
 
 ## Introduction
 
-Please refer to [the official website](https://miniflux.app/) documentation's for an up to date installation guide. This page only lists what I had to do at the time to setup miniflux and adapt it to my particular setup. I updated these instructions after migrating from a traditional hosting to kubernetes.
+Please refer to [the official website](https://miniflux.app/) documentation for an up to date installation guide. This page only lists what I had to do at the time to setup miniflux and adapt it to my particular setup. I updated these instructions after migrating from a traditional hosting to kubernetes.
 
 ## Preparing the postgresql database
 
