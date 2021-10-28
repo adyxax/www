@@ -14,7 +14,7 @@ build: ## make build  # builds an optimized version of the website in $(DESTDIR)
 clean: ## make clean  # removed all $(DESTDIR) contents
 	@echo "----- Cleaning old build -----"
 	rm -f search/index.html search/index.json search/search
-	cd $(DESTDIR) && rm -rf *
+	rm -rf $(DESTDIR)
 
 .PHONY: serve
 serve: ## make serve  # hugo web server development mode
