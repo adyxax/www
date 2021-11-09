@@ -5,7 +5,7 @@
 <p>
 {{ if ne .PublishDate.Year 1 }}{{ .PublishDate.Format "2006-01-02" }} - {{ end }}{{ .Description }}
 
-{{ if (isset .Params "tags") }}{{ if ge (len .Params.tags) 1 }}<br/>Tag{{ if ge (len .Params.tags) 2 }}s{{ end }}: {{ range .Params.tags }}<a href="/tags/{{ . }}">{{ . }}</a> {{ end }}{{ end }}{{ end }}
+{{ if (isset .Params "tags") }}{{ if ge (len .Params.tags) 1 }}<br/>Tag{{ if ge (len .Params.tags) 2 }}s{{ end }}: {{ range .Params.tags }}{{ with $.Site.GetPage (printf "/%s/%s" "tags" .) }}<a href="{{ .Permalink }}">{{ .Title }}</a> {{ end }}{{ end }}{{ end }}{{ end }}
 </p>
 
 {{ partial "toc.html" . }}
