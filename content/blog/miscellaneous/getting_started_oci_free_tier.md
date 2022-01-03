@@ -144,8 +144,10 @@ resource "oci_core_instance" "amd64-vms" {
   count                = length(var.oracle_amd64_instances_names)
   compartment_id       = var.oracle_tenancy_ocid
   availability_domain  = data.oci_identity_availability_domains.ads.availability_domains[0].name
-  fault_domain         = data.oci_identity_fault_domains.fd.fault_domains[count.index % length(data.oci_identity_fault_domains.fd.fault_domains)].name
-  display_name         = var.oracle_amd64_instances_names[count.index % length(var.oracle_amd64_instances_names)]
+  fault_domain         = data.oci_identity_fault_domains.fd.fault_domains[
+    count.index % length(data.oci_identity_fault_domains.fd.fault_domains)].name
+  display_name         = var.oracle_amd64_instances_names[
+    count.index % length(var.oracle_amd64_instances_names)]
   shape                = "VM.Standard.E2.1.Micro"
   preserve_boot_volume = true
   create_vnic_details {
