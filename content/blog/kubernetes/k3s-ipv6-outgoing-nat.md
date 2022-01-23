@@ -11,7 +11,7 @@ tags:
 
 If you followed my [Making dual stack ipv6 work with k3s]({{< ref k3s-ipv6.md >}}) article a few months ago, you ended up with a setup where outgoing ipv6 traffic does not work. I only needed to have my pods reachable from the internet and did not try to generate ipv6 traffic originating from the cluster so never encountered the problem.
 
-One of my kind readers did and reached out to me about the issue : thank your Mo!
+One of my kind readers did and reached out to me about the issue : thank you Mo!
 
 ## The problem
 
