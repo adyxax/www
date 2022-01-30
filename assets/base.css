@@ -6,14 +6,17 @@ body {
 	display: grid;
 	grid-template-rows: auto 1fr auto;
 
-	font-family: BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+	font-family: -apple-system, BlinkMacSystemFont,
+	"Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+	"Fira Sans", "Droid Sans", "Helvetica Neue",
+	sans-serif;
 
 	font-feature-settings: "kern" 1;
 	font-kerning: normal;
 }
 #main {
-       padding-left:1em;
-       padding-right:1em;
+	padding-left:1em;
+	padding-right:1em;
 }
 p {
 	text-align: justify;
