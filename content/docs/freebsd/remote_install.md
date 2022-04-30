@@ -18,7 +18,7 @@ wget https://download.freebsd.org/ftp/releases/VM-IMAGES/13.0-RELEASE/amd64/Late
 ```
 
 When all is done, force a reboot of your machine and connect to the remote console. Your FreeBSD system should boot and leave you with an authentication prompt. Just type in root (it will not ask for a password) and go through this post installation checklist :
-- run `freebsd-update fetch install`
+- run `freebsd-update fetch install` then reboot
 - set a root password with `passwd`
 - add a user account with `adduser`, put it in the `wheel` group
 - add a ssh authorized_keys for your new user

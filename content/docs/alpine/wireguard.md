@@ -9,11 +9,27 @@ tags:
 
 ## Introduction
 
-This article explains how to configure wireguard on Alpine.
+This article explains how to configure wireguard on Alpine Linux.
 
-## Configuration example
+## Installation
 
-Here is a `/etc/wireguard/wg0.conf` configuration example to create a tunnel listening on udp port 342 and a remote peers :
+```sh
+apk add wireguard-tools
+```
+
+## Generating keys
+
+The private and public keys for a host can be generated with the following commands:
+```sh
+PRIVATE_KEY=`wg genkey`
+PUBLIC_KEY=`printf $PRIVATE_KEY|wg pubkey`
+echo private_key: $PRIVATE_KEY
+echo public_key: $PUBLIC_KEY
+```
+
+## Configuration
+
+Here is a configuration example of my `/etc/wireguard/wg0.conf` that creates a tunnel listening on udp port 342 and has one remote peer:
 ```cfg
 [Interface]
 PrivateKey = MzrfXLmSfTaCpkJWKwNlCSD20eDq7fo18aJ3Dl1D0gA=
@@ -26,9 +42,11 @@ AllowedIPs = 10.1.2.9/32
 PersistentKeepalive = 60
 ```
 
-Note that there is no ip address in the Interface section, contrary to other operating systems. Putting one here is invalid and wg will fail with an error.
+Note that there is no ip address in the Interface section, contrary to other operating systems using the `wg-quick` tool. Putting one here is invalid and wg will fail with an error.
 
-Your private key goes on the first line as argument to `wgkey`, the other keys are public keys for each peer. In this example I setup a client that can be hidden behind nat therefore I configure a `PersistentKeepalive`. If your host has a public IP this line is not needed.
+To implement this example you will need to generate two sets of keys. The configuration for the first server will feature the first server's private key in the `[Interface]` section and the second server's public key in the `[Peer]` section, and vice versa for the configuration of the second server.
+
+This example is from a machine that can be hidden behind nat therefore I configure a `PersistentKeepalive`. If your host has a public IP this line is not needed.
 
 To activate the interface configuration, edit `/etc/network/interfaces` :
 ```sh
@@ -42,11 +60,6 @@ address 10.1.2.3/24
 Then run `ifup wg0`.
 
 ## Administration
-
-Private keys can be generated with the following command :
-{{< highlight sh >}}
-openssl rand -base64 32
-{{< /highlight >}}
 
 The tunnel can be managed with the `wg` command:
 ```sh
