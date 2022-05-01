@@ -8,11 +8,36 @@ tags:
 
 ## Introduction
 
+This article explains how to configure wireguard on OpenBSD.
+
+## Installation
+
 OpenBSD does things elegantly as usual : where linux distributions have a service, OpenBSD has a simple `/etc/hostname.wg0` file. The interface is therefore managed without any tool other than the standard ifconfig, it's so simple and elegant!
 
-## Configuration example
+You can still install the usual tooling with:
+```sh
+pkg_add wireguard-tools
+```
 
-Here is a configuration example to create a tunnel listening on udp port 342 and several peers :
+## Generating keys
+
+The private and public keys for a host can be generated with the following commands:
+```sh
+PRIVATE_KEY=`wg genkey`
+PUBLIC_KEY=`printf $PRIVATE_KEY|wg pubkey`
+echo private_key: $PRIVATE_KEY
+echo public_key: $PUBLIC_KEY
+```
+
+Private keys can also be generated with the following command if you do not wish to use the `wg` tool:
+{{< highlight sh >}}
+openssl rand -base64 32
+{{< /highlight >}}
+
+
+## Configuration
+
+Here is a configuration example of my `/etc/hostname.wg0` that creates a tunnel listening on udp port 342 and several peers :
 {{< highlight cfg >}}
 wgport 342 wgkey '4J7O3IN7+MnyoBpxqDbDZyAQ3LUzmcR2tHLdN0MgnH8='
 10.1.2.1/24
@@ -30,11 +55,6 @@ sh /etc/netstart wg0
 ```
 
 ## Administration
-
-Private keys can be generated with the following command :
-{{< highlight sh >}}
-openssl rand -base64 32
-{{< /highlight >}}
 
 The tunnel can be managed with the standard `ifconfig` command:
 {{< highlight sh >}}
@@ -66,3 +86,5 @@ wg0: flags=80c3<UP,BROADCAST,RUNNING,NOARP,MULTICAST> mtu 1420
         groups: wg
         inet 10.1.2.1 netmask 0xffffff00 broadcast 10.1.2.255
 {{< /highlight >}}
+
+Alternatively you can also use the `wg` tool if you installed it.
