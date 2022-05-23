@@ -4,3 +4,4 @@ resources/
 search/index.html
 search/index.json
 search/search
+.hugo_build.lock
