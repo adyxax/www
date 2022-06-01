@@ -33,7 +33,7 @@ And if you are wondering how I am able to display a shortcode code inside this p
 {{< print "{{ index .Params 0 }}" >}}
 {{< / highlight >}}
 
-You can find these examples [here](https://git.adyxax.org/adyxax/www/src/branch/master/layouts/shortcodes/)! Hugo really is a powerful static website generator, it is amazing.
+You can find these examples [here](https://git.adyxax.org/adyxax/www/tree/layouts/shortcodes)! Hugo really is a powerful static website generator, it is amazing.
 
 ## References
 

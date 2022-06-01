@@ -8,7 +8,7 @@ date: 2021-09-27
 
 [Funge-98](https://github.com/catseye/Funge-98/blob/master/doc/funge98.markdown) is an esoteric programming language that like most [esolangs](https://esolangs.org/) is designed to be fun, without any particular use, and in particular impossible to compile. I like Funge-98 for its indecipherable two-dimensional grid of instructions and data mixed together, where execution can proceed in any direction of that grid and wrap around if is would leave the grid.
 
-I began implementing this interpreter about two weeks ago when trying to resurrect [my Funge-98 IRC bot](https://git.adyxax.org/adyxax/b98/src/branch/master/bot.b98). I had trouble compiling [Fungi](https://github.com/thomaseding/fungi) the haskell Funge-98 interpreter that I used at that time and while I managed to use [Cfunge](https://github.com/VorpalBlade/cfunge) to replace it that was too late : I was already tempted by the idea to write my own interpreter and could not resist.
+I began implementing this interpreter about two weeks ago when trying to resurrect [my Funge-98 IRC bot](https://git.adyxax.org/adyxax/b98/tree/bot.b98). I had trouble compiling [Fungi](https://github.com/thomaseding/fungi) the haskell Funge-98 interpreter that I used at that time and while I managed to use [Cfunge](https://github.com/VorpalBlade/cfunge) to replace it that was too late : I was already tempted by the idea to write my own interpreter and could not resist.
 
 ## Some interesting challenges
 
