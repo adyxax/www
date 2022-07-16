@@ -24,6 +24,9 @@ p {
 	text-justify: inter-character;
 	overflow-wrap: anywhere;
 }
+pre,code {
+	white-space: pre-wrap;
+}
 nav#TableOfContents ul {
 	padding: 0;
 	list-style-type: none;
