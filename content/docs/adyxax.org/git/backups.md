@@ -5,8 +5,7 @@ description: Backups of git.adyxax.org
 
 ## Documentation
 
-Backups are configured with borg on `dalinar.adyxax.org` to `yen.adyxax.org`.
+Backups are run with borg and stored on `yen.adyxax.org`.
 
-There are two jobs :
-- a filesystem backup of `/srv/gitea-data`
-- a `VACUUM INTO` backup job of gitea's SQLite database
+There is only one job :
+- a filesystem backup of `/srv/git`
