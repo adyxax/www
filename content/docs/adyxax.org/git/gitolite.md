@@ -56,12 +56,20 @@ In order to customize the cgit frontend, I needed to allow some git configuratio
 GIT_CONFIG_KEYS => 'cgit.desc cgit.extra-head-content cgit.homepage cgit.hide cgit.ignore cgit.owner cgit.section',
 ```
 
-These keys allow me to specify repositories like this:
+Sadly, the html meta tag we need to add contains `<` and `>` characters, which can have a special meaning in regular expressions. Because of that these characters are banned from values by gitolite, but we have a workaround if we add the following bellow our `GIT_CONFIG_KEYS` line:
+```perl
+SAFE_CONFIG => {
+    LT => '<',
+    GT => '>',
+},
+```
+
+Thanks to this translation table, we can now specify a go repository like this:
 ```perl
 repo adyxax/bareos-zabbix-check
         RW+ = adyxax
         config cgit.desc = A Zabbix check for bareos backups
-        config cgit.extra-head-content=<meta name="go-import" content="git.adyxax.org/adyxax/bareos-zabbix-check git https://git.adyxax.org/adyxax/bareos-zabbix-check">
+        config cgit.extra-head-content = %LTmeta name='go-import' content='git.adyxax.org/adyxax/bareos-zabbix-check git https://git.adyxax.org/adyxax/bareos-zabbix-check'/%GT
         config cgit.owner = Julien Dessaux
         config cgit.section = Active
 ```

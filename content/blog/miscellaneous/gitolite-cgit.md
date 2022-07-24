@@ -2,6 +2,9 @@
 title: Migrating from gitea to gitolite and cgit
 description: A quest for simplicity
 date: 2022-07-15
+tags:
+  - FreeBSD
+  - git
 ---
 
 ## Introduction
@@ -27,4 +30,4 @@ The main challenge I encountered was how to make `go get` or `go install` work w
 
 I solved that issue of injecting this header by:
 - setting a `cgit.extra-head-content` in the gitconfig of my go repositories
-- configuring gitolite to accept such header by customizing its `GIT_CONFIG_KEYS`
+- configuring gitolite to accept such header by customizing its `GIT_CONFIG_KEYS` and working around regex character checks
