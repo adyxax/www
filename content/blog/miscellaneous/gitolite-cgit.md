@@ -19,7 +19,7 @@ The installation is documented in the following docs articles on this website:
 - [gitolite]({{< ref "gitolite" >}})
 - [cgit]({{< ref "cgit" >}})
 
-If you are following these installation notes as a guide, there is one important thing to know: I wanted to keep gitea links mostly working (at least redirecting to the correct repository), so I create all my publicly available repositories under an `adyxax` folder. This shows mostly in the cgit and nginx configurations.
+If you are following these installation notes as a guide, there is one important thing to know: I wanted to keep gitea links mostly working (at least redirecting to the correct repository), so I created all my publicly available repositories under an `adyxax` folder. This shows mostly in the cgit and nginx configurations.
 
 ## Challenges
 
