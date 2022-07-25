@@ -28,4 +28,6 @@ I chose to run OpenWRT on these two access points in order to do the following c
 
 Roaming wifi is fantastic once you experience it: never again will your network go down for a few seconds when disconnecting from an access point and reconnecting another. You always have the best signal and your connection never loses a packet!
 
-Having your wifi network bridged with your lan is very comfortable if you need to ssh from your workstation to your wifi devices like laptops or phones, especially coupled with the roaming. But devices like TVs, sound bar or game consoles need to go onto an isolated network. It allows me to hide devices from each others on wifi, run dns adblocking on it and ban some weird spying traffic all these "smart" devices do.
+On top of that, having your wifi network bridged with your lan is very comfortable if like me you need to move around with your laptop and occasionally sit down and plug-in your rj45 cable. With bridging, you just configure the same static ip on both your wired and wireless interfaces and you are good to go! Never again will your ssh connections hang or terminate while moving around.
+
+Devices like TVs, sound bar or game consoles need to go onto an isolated network. It allows me to hide devices from each others on wifi, run dns adblocking on it and ban some weird spying traffic all these "smart" devices do.
