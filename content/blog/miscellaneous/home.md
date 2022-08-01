@@ -30,4 +30,4 @@ Roaming wifi is fantastic once you experience it: never again will your network 
 
 On top of that, having your wifi network bridged with your lan is very comfortable if like me you need to move around with your laptop and occasionally sit down and plug-in your rj45 cable. With bridging, you just configure the same static ip on both your wired and wireless interfaces and you are good to go! Never again will your ssh connections hang or terminate while moving around.
 
-Devices like TVs, sound bar or game consoles need to go onto an isolated network. It allows me to hide devices from each others on wifi, run dns adblocking on it and ban some weird spying traffic all these "smart" devices do.
+Devices like TVs, sound bar or game consoles need to go onto an isolated network. It allows me to hide devices from each others on wifi, run dns adblocking on it and ban some weird spying traffic all these "smart" devices do. It is also useful for cheap devices that do not support modern features like my kobo reader or my neato vacuum cleaner: no 5GHz wifi, no WPA3...
