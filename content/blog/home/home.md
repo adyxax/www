@@ -2,6 +2,8 @@
 title: My home network
 description: wifi setup with transparent roaming
 date: 2022-07-24
+tags:
+  - OpenWRT
 ---
 
 ## Introduction
