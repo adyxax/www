@@ -18,13 +18,13 @@ What i found not so simple to learn is the idioms regarding the usage of `anytyp
 
 I took a lot of satisfaction writing code in zig. The language is really great, compilation is on the slow side compared to nim and go but faster than c or c++ (and should improve a lot in the next release), debugging with gdb is so simple... You can iterate on your code very quickly and it is such a breeze.
 
-Having wrote a Funge-98 interpreter in go then in nim recently, I did the logical thing and wrote one in zig to have an objective comparison of the three languages : https://git.adyxax.org/adyxax/zigfunge98. The code ends up shorter and executes faster than its go and nim counterparts. IT is a little less expressive than nim, but being a simpler language I find it all more elegant and easier to find my way again in the code in a few years.
+Since I wrote a Funge-98 interpreter in go then in nim recently, I did the logical thing and wrote one in zig to have an objective comparison of the three languages : https://git.adyxax.org/adyxax/zigfunge98. The code ended up shorter and executes faster than its go and nim counterparts. IT is a little less expressive than nim, but being a simpler language I find it all more elegant. I trust it will be easier to find my way again in the code in a few years.
 
-I have also tested the C integration which is absolutely stellar. I wrote a little tool around the libssh for a non trivial test and was very impressed. I might pick this up and start writing the configuration management tool I have been dreaming about for the last decade : https://git.adyxax.org/adyxax/zigod/
+I have also tested the C integration and it is absolutely stellar. I wrote a little tool around the libssh for a non trivial test and was very impressed. Just look at [this beauty](https://git.adyxax.org/adyxax/zigod/tree/src/ssh.zig#n2) on the second line: with this you can then use your C objects transparently in zig! I might pick this up and start writing the configuration management tool I have been dreaming about for the last decade : https://git.adyxax.org/adyxax/zigod/
 
-Next I wanted to write something I had not attempted before and settle on a little game. It is a game played in the terminal with ascii graphics, a pong like thing that could remind you of volleyball : https://git.adyxax.org/adyxax/grenade-brothers/
+Next I wanted to write something I had not attempted before and decided on a little game. I chose ascii graphics for simplicity and began writing a pong like thing that could remind you of volleyball : https://git.adyxax.org/adyxax/grenade-brothers/
 
-I have not dabble yet into a web project but it is next on my todo list.
+I have not dabbled into a web project yet but it is next on my todolist.
 
 ## Conclusion
 
