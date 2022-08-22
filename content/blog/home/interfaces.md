@@ -24,19 +24,23 @@ For my setup I first need to re-address the lan interface of OpenWRT since by de
 
 In order to readdress the lan interface, I cannot be connected to it. Therefore our first step is to setup the wan interface and reconnect to the webui with it:
 - edit the wan interface from the `network/interfaces` menu and set a temporary subnet on it, something we won't need to use later for example `172.16.0.1/30`.
-- edit the firewall to allow INPUT traffic on the wan interface
+- edit the firewall from the `network/firewall` menu to allow INPUT traffic on the wan interface
+- save and apply your changes
 - unplug your RJ45 cable from its lan port and plug it in the wan port
 - configure a static ip on the same subnet you just used for example `172.16.0.2/30`
 - you should be able to reconnect to [the webui](http://172.16.0.1/) with these new addresses
 
 Now we can reconfigure the lan interface:
 - edit the lan interface and configure its final subnet: I use `192.168.10.1/24`
+- save and apply your changes
 - unplug your RJ45 cable from the wan port and reconnect it in a lan port
 - you should be able to reconnect to [the webui](http://192.168.10.1/) with these new addresses
 
 And finally reconfigure the wan interface:
 - edit the wan interface and configure its final subnet: I use `192.168.1.5/24` to address the router with `192.168.1.1` as gateway (the address of my FAI's router on my LAN)
-- I will leave the INPUT traffic allowed on my firewall because I intend to access my router from my LAN, which means through this interface named wan.
+- Save and apply your changes
+
+I leave the INPUT traffic allowed on my firewall because I intend to access my router from my LAN, which means through this interface named wan
 
 ## System configuration
 
@@ -51,4 +55,3 @@ opkg list-upgradable | cut -f 1 -d ' ' | xargs -r opkg upgrade
 ```
 
 If critical components got upgraded (like busybox or openssl), it is a good idea to reboot the router.
-
