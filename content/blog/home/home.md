@@ -8,7 +8,9 @@ tags:
 
 ## Introduction
 
-This week I have upgraded my OpenWRT access points. The new release had non compatible changes so I had to wipe the routers and reconfigure everything from scratch. I took the opportunity to document the process and will write at least two blog articles about this. This first one describes my network and the design choices, the second one will be about the OpenWRT configuration to implement these choices.
+This week I have upgraded my OpenWRT access points. The new release had non compatible changes so I had to wipe the routers and reconfigure everything from scratch. I took the opportunity to document the process and will write a series of blog articles about this. This first one describes my network and the design choices, the following will be about the OpenWRT configuration to implement these choices.
+- [part two: My OpenWRT Routers initial configuration]({{< ref "blog/home/interfaces.md" >}})
+- [part three: Bridging and roaming on my home wifi]({{< ref "blog/home/wifi.md" >}})
 
 ## My home network
 

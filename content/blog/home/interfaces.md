@@ -8,7 +8,9 @@ tags:
 
 ## Introduction
 
-This article is the continuation of [the previous one]({{< ref "blog/home/home.md" >}}). Since posting I updated the last two paragraphs because I forgot two reasons for my design choices. You might want to read it again since the following articles implement those choices.
+This article is the second one in a series about my home network:
+- [part one: My home network]({{< ref "blog/home/home.md" >}})
+- [part three: Bridging and roaming on my home wifi]({{< ref "blog/home/wifi.md" >}})
 
 If you try to follow this as a guide and something is not clear do not hesitate to shoot me an email asking for clarifications or screenshots!
 
@@ -38,7 +40,7 @@ Now we can reconfigure the lan interface:
 
 And finally reconfigure the wan interface:
 - edit the wan interface and configure its final subnet: I use `192.168.1.5/24` to address the router with `192.168.1.1` as gateway (the address of my FAI's router on my LAN)
-- Save and apply your changes
+- save and apply your changes
 
 I leave the INPUT traffic allowed on my firewall because I intend to access my router from my LAN, which means through this interface named wan
 
