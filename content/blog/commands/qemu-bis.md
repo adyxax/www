@@ -19,10 +19,10 @@ qemu-system-x86_64 -drive file=alpine.raw,format=raw,cache=writeback \
                    -cdrom Downloads/alpine-virt-3.14.0-x86_64.iso \
                    -boot d -machine type=q35,accel=kvm \
                    -cpu host -smp 2 -m 1024 -vnc :0 \
-                   -device virtio-net,netdev=vmnic -netdev user,id=vmnic
+                   -device virtio-net,netdev=vmnic -netdev user,id=vmnic,hostfwd=tcp::10022-:22
 ```
 
-Connect to the console with a `vncviewer :0`.
+Connect to the console with a `vncviewer :0`, or if an ssh server is running, use `ssh -p10022 root@localhost`.
 
 ## Afterwards
 
@@ -30,7 +30,7 @@ Connect to the console with a `vncviewer :0`.
 qemu-system-x86_64 -drive file=alpine.raw,format=raw,cache=writeback \
                    -boot c -machine type=q35,accel=kvm \
                    -cpu host -smp 2 -m 1024 -vnc :0 \
-                   -device virtio-net,netdev=vmnic -netdev user,id=vmnic
+                   -device virtio-net,netdev=vmnic -netdev user,id=vmnic,hostfwd=tcp::10022-:22
 ```
 
 ## References
