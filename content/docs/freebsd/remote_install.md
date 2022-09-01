@@ -9,7 +9,7 @@ tags:
 
 This article explains a simple method to install FreeBSD when all you have is a linux and a remote console.
 
-## How to
+## Option 1: from an official pre-built vm image
 
 First login as root on the linux you want to reinstall as Freebsd. Identify the disk device you want to install on, update the url below to the latest release you want and run :
 ```sh
@@ -28,3 +28,21 @@ When all is done, force a reboot of your machine and connect to the remote conso
 - don't forget to configure ipv6 too
 - configure your `resolv.conf`
 - install python3 for your first ansible run
+
+## Option 2: from a custom vm image
+
+This method is necessary if you need control over the partitioning, like root on zfs.
+
+Execute a standard installation from a virtual machine on your workstation or another server, I use [qemu]({{< ref "qemu-bis.md" >}}) for that. With you have your image ready, boot the linux server you want to convert to freebsd and run something like:
+```sh
+ssh myth.adyxax.org "dd if=freebsd.raw" | dd of=/dev/sda
+```
+The goal of this command is to connect a server hosting your image and `dd` it to the hard drive the server you want to convert. Don't forget to `sync` your disks!
+
+Upon rebooting, you should have your freebsd running. Resize your drive with something like:
+```sh
+gpart show
+gpart recover da0
+gpart resize -i 3 da0
+zpool online -e zroot da0p3
+```
