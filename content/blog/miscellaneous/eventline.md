@@ -12,7 +12,7 @@ For the last few weeks I have been using more and more [eventline](https://www.e
 
 ## My use case for eventline
 
-After 13 years as a sysadmin I have accumulated a lot of experiencing scripting and glueing things together. Before eventline I was deploying said scripts first with cfengine3 and more recently with ansible. These were of course versioned with git and lived in custom ansible roles that needed them. Some other more complex scripts lived in my gitolite-admin repository and were deployed as git hooks, forming a barebones ci/cd. I was content with this because I did not know of an open source solution to do better and I did not imagined there could be.
+After 13 years as a sysadmin I have accumulated a lot of experience scripting and glueing things together. Before eventline I was deploying said scripts first with cfengine3 and more recently with ansible. These were of course versioned with git and lived in custom ansible roles that needed them. Some other more complex scripts lived in my gitolite-admin repository and were deployed as git hooks, forming a barebones ci/cd. I was content with this because I did not know of an open source solution to do better and I did not imagined there could be.
 
 With eventline I have been able to bring all these scripts in a single place and create what eventline calls jobs from them. My git hooks became calls to evcli, the cli tool that interacts with eventline. There is a webui, but I find myself using mostly the cli.
 

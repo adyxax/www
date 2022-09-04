@@ -57,4 +57,4 @@ From the `network/wireless` menu:
 - save and apply your changes
 - click the `enable` button under `radio1`
 
-If all went as stated, you should be able to connect wirelessly with your phone and laptop.
+If all went as expected, you should be able to connect wirelessly with your phone and laptop.
