@@ -10,6 +10,10 @@ build: ## make build  # builds an optimized version of the website in $(DESTDIR)
 	cp public/search/index.html search/
 	(cd search && CGO_ENABLED=0 go build -ldflags '-s -w -extldflags "-static"' ./search.go)
 
+.PHONY: buildah
+buildah: ## make buildah  # builds the container images
+	deploy/build-image.sh
+
 .PHONY: clean
 clean: ## make clean  # removed all $(DESTDIR) contents
 	@echo "----- Cleaning old build -----"
