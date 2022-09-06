@@ -1,6 +1,7 @@
 CACHEDIR=/tmp/hugo-cache-$(USER)
 DESTDIR=public/
 HOSTNAME=$(shell hostname)
+REVISION=$(shell git rev-parse HEAD)
 
 .PHONY: build
 build: ## make build  # builds an optimized version of the website in $(DESTDIR)
@@ -13,6 +14,11 @@ build: ## make build  # builds an optimized version of the website in $(DESTDIR)
 .PHONY: buildah
 buildah: ## make buildah  # builds the container images
 	deploy/build-image.sh
+
+.PHONY: push
+push: ## make push  # push the built images to quay.io
+	buildah push adyxax/www quay.io/adyxax/www:$(REVISION)
+	buildah push adyxax/www-search quay.io/adyxax/www-search:$(REVISION)
 
 .PHONY: clean
 clean: ## make clean  # removed all $(DESTDIR) contents
