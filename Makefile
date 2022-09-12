@@ -21,6 +21,11 @@ clean: ## make clean  # removed all $(DESTDIR) contents
 	rm -f search/index.html search/index.json search/search
 	rm -rf $(DESTDIR)
 
+.PHONY: deploy
+deploy: ## make deploy  # deploy the website the active kubernetes context
+	sed -i deploy/www.yaml -e 's/^\(\s*image:[^:]*:\).*$$/\1$(REVISION)/'
+	kubectl apply -f deploy/www.yaml
+
 .PHONY: push
 push: ## make push  # push the built images to quay.io
 	buildah push adyxax/www quay.io/adyxax/www:$(REVISION)
