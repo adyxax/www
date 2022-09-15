@@ -3,7 +3,7 @@ title: Testing eventline
 description: An open source platform to manage all your scripts and schedule jobs
 date: 2022-09-03
 tags:
-- toolbox
+- Eventline
 ---
 
 ## Introduction
