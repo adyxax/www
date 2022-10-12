@@ -1,6 +1,5 @@
 * {
 	box-sizing: border-box;
-	scrollbar-gutter: stable both-edges;
 }
 body {
 	display: grid;
@@ -17,6 +16,7 @@ body {
 #main {
 	padding-left:1em;
 	padding-right:1em;
+	scrollbar-gutter: stable both-edges;
 }
 p {
 	text-align: justify;
