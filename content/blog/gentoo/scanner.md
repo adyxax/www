@@ -26,11 +26,15 @@ gpasswd -a <username> scanner
 gpasswd -a <username> usb
 ```
 
+If you needed to add your user to these groups, you should close your X session and log in again. An alternative would be to run `newgrp -` in a terminal to make an environment with the correct permissions and then launch your scanning utility with `DISPLAY=:0 simple-scan` from there.
+
 A `fujitsu` `SANE_BACKEND` exists, but it is a trap, you really need the `epjitsu` one. Simple-scan is a simple gnome application which is very simple to use. I first tried xsane but it was not user friendly at all!
 
 ## The tricky part
 
-Nothing worked at this stage, the scanner was not detected by neither `simple-scan` nor `scanimage -L`, but `sane-find-scanner` could see it just fine. That is because we are missing a firmware which can be found on the [web archive](https://web.archive.org/web/20190217094259if_/https://www.josharcher.uk/static/files/2016/10/1300i_0D12.nal). Download this file then put it as root in `/usr/share/sane/epjitsu/`:
+Nothing worked at this stage, the scanner was not detected by neither `simple-scan` nor `scanimage -L`, but `sane-find-scanner` could see it just fine. That is because we are missing a firmware which can be found on the [web archive](https://web.archive.org/web/20190217094259if_/https://www.josharcher.uk/static/files/2016/10/1300i_0D12.nal). That's right you have got to live dangerously... Here is the sha1 of the file you should end up with if that can reassure you a bit: cde2a967d5048ca4301f5c3ad48397dac4a02dad.
+
+Download this file then put it as root in `/usr/share/sane/epjitsu/`:
 ```sh
 mkdir -p /usr/share/sane/epjitsu/
 mv  /home/julien/Downloads/1300i_0D12.nal  /usr/share/sane/epjitsu/1300i_0D12.nal
