@@ -1,7 +1,7 @@
 <header>
 	<nav>
 		<ul>
-			<li class="nav-menu-title"><a href="/">{{ .Site.Title }}</a></li>
+			<li class="nav-menu-title{{if .IsHome}} nav-menu-active{{end}}"><a href="/">{{ .Site.Title }}</a></li>
 			{{- $p := . -}}
 
 			{{- range first 1 .Site.Menus.main.ByWeight -}}

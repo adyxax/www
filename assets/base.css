@@ -13,7 +13,7 @@ body {
 	font-feature-settings: "kern" 1;
 	font-kerning: normal;
 }
-#main {
+main {
 	padding-left:1em;
 	padding-right:1em;
 	scrollbar-gutter: stable both-edges;
