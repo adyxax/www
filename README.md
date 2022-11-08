@@ -19,6 +19,7 @@ Have a good time!
 ## Dependencies
 
 go is required for the search feature. Only go version >= 1.17 on linux amd64 (Gentoo) is being regularly tested.
+
 hugo is required in order to build the website html pages. Only hugo >= 0.99.1 is being regularly tested.
 
 buildah is optionally required in order to build the container images with my deploy script.
@@ -30,12 +31,13 @@ There is a makefile with everything you need, just type `make help` (or `gmake h
 ## Hugo
 
 Contrary to popular usage, I do not use a theme with hugo. I decided to simplify write my own in order to keep it light and simple. Here is a breakdown of each folder's contents:
+
 - assets/: css files, which will be compiled into a single minified file.
 - content/: markdown files
-  - blog/: blog section of this website.
-  - books/: a log of simple reviews of books I read.
-  - docs/: wiki like section, where information is not sorted just chronologically like in the blog section.
-  - search/: dummy section I need for the search feature.
+    - blog/: blog section of this website.
+    - books/: a log of simple reviews of books I read.
+    - docs/: wiki like section, where information is not sorted just chronologically like in the blog section.
+    - search/: dummy section I need for the search feature.
 - deploy/: container images building script.
 - layouts/: html, json and rss templates. Also some useful hugo shortcodes.
 - search: the go program that powers the search feature.
