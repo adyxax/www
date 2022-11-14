@@ -2,6 +2,10 @@
 title: Running a Factorio server in a linux jail, on FreeBSD
 description: How to setup a linux jail on FreeBSD using vanilla tools
 date: 2022-11-13
+tags:
+- Factorio
+- FreeBSD
+- jail
 ---
 
 ## Introduction
@@ -14,7 +18,7 @@ I had been meaning to test linux jails for quite some time but never had a good 
 
 ### Linux subsystem
 
-Normally FreeBSD 13 has all you need from the get go, we just need to load a few kernel modules and prepare some mount points. All this as abstracted away with:
+Normally FreeBSD 13 has all you need from the get go, we just need to load a few kernel modules and prepare some mount points. All this is abstracted away with:
 ```sh
 service linux enable
 service linux start
@@ -28,7 +32,7 @@ echo "cloned_interfaces=\"lo1\"" >> /etc/rc.conf
 service netif cloneup
 ```
 
-Many jail tutorials will tell you to configure the jail ips in `/etc/rc.conf` too, this is not what I do. It is difficult to automate and I find that having those ips in the jails.conf file is a lot more useful, see bellow.
+Many jail tutorials will tell you to configure the jail ips in `/etc/rc.conf` too, this is not what I do. It is difficult to automate and I find that having those ips in the jails.conf file is a lot more flexible.
 
 ### pf firewall
 
@@ -63,7 +67,7 @@ pass in on wg0 from <private> to <private>
 pass out on wg0 from <private> to <private>
 ```
 
-The important lines are the one about the persistent `jails` table and the first two basic rules to `nat` and process the `rdr-anchor`.
+The important lines are the one about the persistent `jails` table and the first two basic rules to `nat` egress jail traffic and process the `rdr-anchor` that will allow the ingress traffic.
 
 ## Bootstrapping the jail
 
@@ -100,10 +104,10 @@ pwd_mkdb -p -d /jails/factorio/etc /jails/factorio/etc/master.passwd
 
 ## Installing factorio
 
-You will need to login to [factorio](https://www.factorio.com/) and download the headless serveur tar.gz. Scp it to the server and decompress it into `/jails/factorio/home/factorio`
+The following downloads the factorio headless server and decompress it into `/jails/factorio/home/factorio`
 ```sh
-wget https://dl.factorio.com/releases/factorio_headless_x64_1.1.70.tar.xz?secure=NmmeJ2O-iFtRuVc6c3aPzw,1668383018
-(cd /jails/factorio/home/factorio/; tar xf /root/factorio_headless_x64_1.1.70.tar.xz*)
+wget https://dl.factorio.com/releases/factorio_headless_x64_1.1.70.tar.xz
+(cd /jails/factorio/home/factorio/; tar xf /root/factorio_headless_x64_1.1.70.tar.xz)
 mkdir /jails/factorio/home/factorio/factorio/saves/
 ```
 
@@ -149,8 +153,9 @@ factorio {
 
 Make sure you substitute `mysave.zip` with the name of your save file!
 
-
 As you can see, I use the `prestart` and `poststop` steps to handle the network configuration using `ifconfig`, the jails' pf table and the rdr port forwarding. These are all setup when starting the jail and cleaned when stopping.
+
+## Final step
 
 Now if all went according to plan, the following should be enough to start your factorio server in the jail:
 ```sh
@@ -158,6 +163,6 @@ service jail enable
 service jail start factorio
 ```
 
-Check that factorio is running using `top -j factorio`. If something goes wrong, you should be able to check `/jails/factorio/home/factorio/factorio/factorio-current.log` for clues.
+Check that factorio is running using `top -j factorio`. If something goes wrong, you should be able to check `/jails/factorio/home/factorio/factorio/factorio-current.log` for clues. If this file was not created check the permissions on the facorio folders.
 
-If everything is running, you should be able to connect your dedicated server using the hostname of your server!
+If everything is running, you should be able to connect to your dedicated server using the hostname of your server!
