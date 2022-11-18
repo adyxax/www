@@ -2,6 +2,9 @@
 title: Going Social
 description: an ActivityPub server experiment (aka joining mastodon with a self hosted instance)
 date: 2022-11-11
+tags:
+- kubernetes
+- terraform
 ---
 
 ## Introduction
