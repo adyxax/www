@@ -41,9 +41,9 @@ I am a French native speaker and consider myself fluent in English (I scored 920
 
 ## Online presence
 
-I have a [Linkedin](https://www.linkedin.com/in/julien-dessaux-2124bb1b/) and a [twitter](https://twitter.com/adyxax) accounts that I don't use and that's it, you will not find me on other social networks. I just never saw the appeal.
+I have an activity pub account at [@adyxax@adyxax.org](https://fedi.adyxax.org/@adyxax) (a mastodon compatible self hosted instance). I also have a [Linkedin](https://www.linkedin.com/in/julien-dessaux-2124bb1b/) and a [twitter](https://twitter.com/adyxax) accounts that I do not use.
 
-I maintain this website to showcase some of my works and interests. You can also look at my [personal git server](https://git.adyxax.org/adyxax) or my [github](https://github.com/adyxax) which mirrors most of my repositories. I can usually be found on freenode's IRC servers.
+I maintain this website to showcase some of my works and interests. You can also look at my [personal git server](https://git.adyxax.org/adyxax) or my [github](https://github.com/adyxax) which mirrors most of my repositories. I can usually be found on oftc or libera IRC servers.
 
 ## Other interests
 
@@ -51,4 +51,4 @@ When I am not doing all the above, I like running, biking, hiking, skiing and re
 
 ## How to get in touch
 
-You can write me an email at julien -DOT- dessaux -AT- adyxax -DOT- org, I will answer.
+You can write me an email at `julien -DOT- dessaux -AT- adyxax -DOT- org`, I will answer. I will also respond on activity pub at `-AT- adyxax -AT- adyxax.org`.
