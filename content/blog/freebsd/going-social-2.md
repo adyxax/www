@@ -21,7 +21,7 @@ These keys could theoretically be exported and reused in another software stack,
 
 A reminder if needed be to be very mindful of your backups!
 
-The only viable way to migrate is to change your domain name and start from scratch on a brand new one. I took the opportunity to learn about webfinger and setup this new instance directly on adyxax.org which I find cleaner.
+The only viable way to migrate is to change your domain name and start from scratch on a brand new one. I took the opportunity to learn about webfinger and other `/well-known` subpaths to setup this new instance directly on adyxax.org instead of fedi.adyxax.org which I find cleaner.
 
 ## gotosocial
 
@@ -134,6 +134,12 @@ server {
 
 ### adyxax.org redirections
 
+Now comes the part about the `/.well-known` redirections that allow my instance to be hosted on fedi.adyxax.org while my user is known as being on adyxax.org. Pretty neat!
+
+These mechanisms come from OpenID. A remote instance inquiring about my user will make http requests to https://adyxax.org/.well-known/webfinger?resource=acct:@adyxax@adyxax.org and get the aliasing to fedi.adyxax.org in response.
+
+The gotosocial documentation only listed that redirections of `/.well-known/webfinger` and `/.well-known/nodeinfo` were necessary, but to successfully federate with a pleroma instance I needed other paths like `/.well-known/host-meta` so decided to proxy the whole `/.well-known` folder for now. I will see my logs in a few days and maybe restrict that a little.
+
 The host my adyxax.org domain points to now has the following nginx configuration:
 ```cfg
 server {
@@ -162,11 +168,9 @@ server {
 }
 ```
 
-The `/.well-known` redirections allow my instance to be hosted on fedi.adyxax.org while my user is known as being on adyxax.org, neat! The gotosocial documentation only listed that `/.well-known/webfinger` and `/.well-known/nodeinfo` were necessary, but to successfully federate with a pleroma instance I needed other paths so decided to proxy the whole `/.well-known` folder for now.
-
 ### Recompiling
 
-When debugging my pleroma federation issues, I fetched the gotosocial repository and build a bleeding edge version. It worked easily but here I my notes anyway:
+When debugging my pleroma federation issues, I fetched the gotosocial repository and built a bleeding edge version. It worked easily but here I my notes anyway:
 ```sh
 git clone https://github.com/superseriousbusiness/gotosocial
 cd gotosocial
