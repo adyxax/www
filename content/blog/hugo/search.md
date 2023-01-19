@@ -81,7 +81,7 @@ The `search` template just need to be written accordingly, and the http templati
 
 ### The golang webservice
 
-The webservice lives in a folder of my hugo repository and can be found [here](https://git.adyxax.org/adyxax/www/src/branch/master/search). The website's makefile first builds the hugo website, then copies the HTML template and the json index in the search folder. It then builds the golang binary and embeds these.
+The webservice lives in a folder of my hugo repository and can be found [here](https://git.adyxax.org/adyxax/www/tree/search). The website's makefile first builds the hugo website, then copies the HTML template and the json index in the search folder. It then builds the golang binary and embeds these.
 
 When the webservice starts, it parses the JSON index and generates separate lists of unique words found in titles, descriptions, tags and page content. These lists each have a weight that factors in the results when the searched words are found in the list via a simple `string.Contains` match.
 
