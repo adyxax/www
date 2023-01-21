@@ -9,14 +9,14 @@ tags:
 
 ## Introduction
 
-I have been using [syncthing](https://syncthing.net/) for some time now. It is a tool to handle bidirectional synchronisation of data. For example I use it on my personal infrastructure to synchronise:
+I have been using [syncthing](https://syncthing.net/) for some time now. It is a tool to handle bidirectional synchronization of data. For example I use it on my personal infrastructure to synchronize:
 - org-mode files between my workstation, laptop, a server and my phone (I need those everywhere!)
 - pictures from my phone and my nas
 - my music collection between my phone and my nas
 
-It is very useful, but by default the configuration leave a few things to be desired like telemetry or information leaks. If you want maximum privacy you need to disable the autodiscovery and the default nat traversal features.
+It is very useful, but by default the configuration leave a few things to be desired like telemetry or information leaks. If you want maximum privacy you need to disable the auto discovery and the default nat traversal features.
 
-Also provisioning is easy, but deleting or unsharing stuff would require to remember what is shared where and go manage each device individualy from syncthing's web interface. I automated all that with ansible (well except for my phone which I cannot manage with ansible, its syncthing configuration will remain manual... for now).
+Also provisioning is easy, but deleting or unsharing stuff would require to remember what is shared where and go manage each device individually from syncthing's web interface. I automated all that with ansible (well except for my phone which I cannot manage with ansible, its syncthing configuration will remain manual... for now).
 
 ## Why another ansible role
 
@@ -32,8 +32,8 @@ There is a single variable to specify in the `host_vars` of your hosts: `syncthi
 - address: optional string to specify how to connect to the server, must match the format `tcp://<hostname>` or `tcp://<ip>`. Default value is *dynamic* which means a passive host.
 - shared: a mandatory dict describing the directories this host shares, which can contain the following keys:
   - name: a mandatory string to name the share in the configuration. It must match on all devices that share this folder.
-  - path: the path of the folder on the device. This can difer on each device sharing this data.
-  - peers: a list a strings. Each item should be either the ansible_hostname of another device, or a hostname from the `syncthing_data.yaml` file
+  - path: the path of the folder on the device. This can differ on each device sharing this data.
+  - peers: a list a strings. Each item should be either the `ansible_hostname` of another device, or a hostname from the `syncthing_data.yaml` file
 
 Configuring a host through its `host_vars` looks like this:
 ```yaml
