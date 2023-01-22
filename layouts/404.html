@@ -10,12 +10,13 @@
 
 
 		{{ $base := resources.Get "base.css" -}}
+		{{- $code := resources.Get "code.css" -}}
+		{{- $footer := resources.Get "footer.css" -}}
 		{{- $header := resources.Get "header.css" -}}
 		{{- $home := resources.Get "home.css" -}}
 		{{- $pagination := resources.Get "pagination.css" -}}
-		{{- $footer := resources.Get "footer.css" -}}
-		{{- $solarized := resources.Get "solarized.css" -}}
-		{{- $allCss := slice $base $header $home $pagination $footer $solarized | resources.Concat "static/all.css" | fingerprint | minify -}}
+		{{- $selenized := resources.Get "selenized.css" -}}
+		{{- $allCss := slice $base $code $footer $header $home $pagination $selenized | resources.Concat "static/all.css" | fingerprint | minify -}}
 		<link rel="stylesheet" href="{{ $allCss.Permalink }}">
 
 		{{ range .AlternativeOutputFormats -}}

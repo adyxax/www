@@ -4,7 +4,7 @@
 	border-radius:.25rem;
 }
 .pagination li {
-	background-color: #002b36;
+	background-color: #181818;
 }
 .pagination li a {
 	border:1px solid rgba(0,0,0,.1);
@@ -23,16 +23,16 @@
 	border-bottom-right-radius:.25rem
 }
 .pagination .pagination-enabled a:hover {
-	background-color: #073642;
+	background-color: #252525;
 	z-index: 999;
 }
 .pagination-disabled a {
-	color: #839496;
+	color: #dedede;
 }
 .pagination-disabled a:hover {
-	color: #839496;
+	color: #dedede;
 }
 .pagination-active a {
-	color: white;
-	background-color: #073642;
+	color: b9b9b9;
+	background-color: #252525;
 }

@@ -1,0 +1,28 @@
+html {
+	background-color: #181818;
+	color: #b9b9b9;
+}
+body, main {
+	background-color: #252525;
+}
+a {
+	color: #dbb32d;
+}
+a:visited {
+	color: #e67f43;
+}
+a:hover {
+	color: #ed4a46;
+}
+h1,
+body header nav ul li a,
+body header nav ul li a:visited {
+	color: #ed4a46;
+}
+h2, h3, h4, h5, h6 {
+	color: #70b443;
+}
+pre, code {
+	background-color: #181818;
+	color: #b9b9b9;
+}
