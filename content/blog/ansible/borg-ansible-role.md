@@ -5,6 +5,7 @@ description: The ansible role I wrote to manage my borg backups
 tags:
   - ansible
   - backups
+  - borg
 ---
 
 ## Introduction

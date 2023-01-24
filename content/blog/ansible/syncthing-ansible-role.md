@@ -26,6 +26,15 @@ I wanted a role to install and configure syncthing for me and did not find an ex
 - the validation of host_vars which virtually no role in the wild ever does
 - the ability to manage an additional inventory file for devices which ansible cannot manage (like my phone)
 
+## Dependencies
+
+This role relies on `doas` being installed and configured so that your ansible user can run the syncthing cli as the syncthing user.
+
+Here is an example of a `doas.conf` that works for the ansible user:
+```yaml
+permit  nopass  ansible  as  syncthing
+```
+
 ## Role variables
 
 There is a single variable to specify in the `host_vars` of your hosts: `syncthing`. This is a dict that can contain the following keys:
