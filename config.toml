@@ -18,7 +18,6 @@ lineNoStart = 1
 lineNos = false
 lineNumbersInTable = true
 noClasses = false
-style = 'solarized-dark'
 tabWidth = 2
 
 [permalinks]

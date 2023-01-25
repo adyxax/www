@@ -1,7 +1,7 @@
 {{ $title := print .Title " | " .Site.Title }}
 {{ if .IsHome }}{{ $title = .Site.Title }}{{ end }}
 <!doctype html>
-<html class="no-js" lang="en">
+<html class="black-theme" lang="en">
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,8 +15,7 @@
 		{{- $header := resources.Get "header.css" -}}
 		{{- $home := resources.Get "home.css" -}}
 		{{- $pagination := resources.Get "pagination.css" -}}
-		{{- $selenized := resources.Get "selenized.css" -}}
-		{{- $allCss := slice $base $code $footer $header $home $pagination $selenized | resources.Concat "static/all.css" | fingerprint | minify -}}
+		{{- $allCss := slice $base $code $footer $header $home $pagination | resources.Concat "static/all.css" | fingerprint | minify -}}
 		<link rel="stylesheet" href="{{ $allCss.Permalink }}">
 
 		{{ range .AlternativeOutputFormats -}}
@@ -32,5 +31,6 @@
 			{{- block "main" . }}{{ end -}}
 		</main>
 		{{- partial "footer.html" . -}}
+		{{- partial "themeSwitcher.html" . -}}
 	</body>
 </html>

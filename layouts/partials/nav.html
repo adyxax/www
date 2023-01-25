@@ -2,6 +2,13 @@
 	<nav>
 		<ul>
 			<li class="nav-menu-title{{if .IsHome}} nav-menu-active{{end}}"><a href="/">{{ .Site.Title }}</a></li>
+			<li>
+				<select id="themes" class="nav-menu-magin-left" onchange="setTheme()">
+					<option value="black-theme">Black</option>
+					<option value="dark-theme">Dark</option>
+					<option value="light-theme">Light</option>
+				</select>
+			</li>
 			{{- $p := . -}}
 
 			{{- range first 1 .Site.Menus.main.ByWeight -}}

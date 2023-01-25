@@ -1,0 +1,14 @@
+<script>
+	function setTheme() {
+		const themeName = document.getElementById('themes').value;
+		localStorage.setItem('theme', themeName);
+		document.documentElement.className = themeName;
+	}
+	(function () {  // Set the theme on page load
+		const themeName = localStorage.getItem('theme');
+		if (themeName) {
+			document.documentElement.className = themeName;
+			document.getElementById('themes').value = themeName;
+		}
+	})();
+</script>

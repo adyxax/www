@@ -15,8 +15,7 @@
 		{{- $header := resources.Get "header.css" -}}
 		{{- $home := resources.Get "home.css" -}}
 		{{- $pagination := resources.Get "pagination.css" -}}
-		{{- $selenized := resources.Get "selenized.css" -}}
-		{{- $allCss := slice $base $code $footer $header $home $pagination $selenized | resources.Concat "static/all.css" | fingerprint | minify -}}
+		{{- $allCss := slice $base $code $footer $header $home $pagination | resources.Concat "static/all.css" | fingerprint | minify -}}
 		<link rel="stylesheet" href="{{ $allCss.Permalink }}">
 
 		{{ range .AlternativeOutputFormats -}}
@@ -33,5 +32,6 @@
 			<p>Sorry, but the page you were trying to view does not exist. Please refer to the menu above to resume your navigation.</p>
 		</main>
 		{{- partial "footer.html" . -}}
+		{{- partial "themeSwitcher.html" . -}}
 	</body>
 </html>
