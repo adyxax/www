@@ -3,7 +3,7 @@
 <ul class="pagination">
 	{{ with $pag.First -}}
 	<li {{ if $pag.HasPrev }}class="pagination-enabled"{{ else }}class="pagination-disabled"{{ end }}>
-		<a {{ if $pag.HasPrev }}href="{{ .URL }}"{{ end }} aria-label="First"><span aria-hidden="true">&laquo;</span></a>
+		<a {{ if $pag.HasPrev }}href="{{ .URL }}"{{ end }}>&laquo;</a>
 	</li>
 	{{ end -}}
 	{{- range $pag.Pagers -}}
@@ -13,7 +13,7 @@
 	{{- end }}
 	{{- with $pag.Last }}
 	<li {{ if $pag.HasNext }}class="pagination-enabled"{{ else }}class="pagination-disabled"{{ end }}>
-		<a {{ if $pag.HasNext }}href="{{ .URL }}"{{ end }} aria-label="Last"><span aria-hidden="true">&raquo;</span></a>
+		<a {{ if $pag.HasNext }}href="{{ .URL }}"{{ end }}>&raquo;</a>
 	</li>
 	{{- end }}
 </ul>
