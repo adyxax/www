@@ -132,6 +132,9 @@ nav#TableOfContents ul li ul li ul {
 nav#TableOfContents ul li ul li ul li ul {
 	padding-left:3em;
 }
+ul li {
+	margin-bottom: 4px;
+}
 h1, h2, h3, h4, h5 {
 	font-family: open, serif;
 }
