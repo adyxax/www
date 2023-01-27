@@ -74,14 +74,6 @@
 	--br_violet: #825dc0;
 }
 
-#themes {
-	background-color: var(--bg-0);
-	border: none;
-	color: var(--fg-1);
-	font-size: 0.9em;
-	padding: 14px 16px;
-}
-
 * {
 	box-sizing: border-box;
 }
@@ -138,13 +130,6 @@ ul li {
 h1, h2, h3, h4, h5 {
 	font-family: open, serif;
 }
-@media only screen and (min-width: 60rem) {
-	body {
-		max-width:60rem;
-		margin-left: auto;
-		margin-right: auto;
-	}
-}
 .fullwidth {
 	width: 100%;
 }
@@ -159,12 +144,10 @@ a {
 a:visited {
 	color: var(--orange);
 }
-a:hover {
-	color: var(--red);
-}
 h1,
 body header nav ul li a,
-body header nav ul li a:visited {
+body header nav ul li a:visited,
+a:hover {
 	color: var(--red);
 }
 h2, h3, h4, h5, h6 {

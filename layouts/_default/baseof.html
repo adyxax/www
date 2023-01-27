@@ -15,7 +15,8 @@
 		{{- $header := resources.Get "header.css" -}}
 		{{- $home := resources.Get "home.css" -}}
 		{{- $pagination := resources.Get "pagination.css" -}}
-		{{- $allCss := slice $base $code $footer $header $home $pagination | resources.Concat "static/all.css" | fingerprint | minify -}}
+		{{- $responsive := resources.Get "responsive.css" -}}
+		{{- $allCss := slice $base $code $footer $header $home $pagination $responsive | resources.Concat "static/all.css" | fingerprint | minify -}}
 		<link rel="stylesheet" href="{{ $allCss.Permalink }}">
 
 		{{ range .AlternativeOutputFormats -}}

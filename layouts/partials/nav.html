@@ -1,29 +1,13 @@
 <header>
 	<nav>
-		<ul>
-			<li class="nav-menu-title{{if .IsHome}} nav-menu-active{{end}}"><a href="/">{{ .Site.Title }}</a></li>
-			<li>
-				<select id="themes" class="nav-menu-magin-left" onchange="setTheme()">
-					<option value="black-theme">Black</option>
-					<option value="dark-theme">Dark</option>
-					<option value="light-theme">Light</option>
-				</select>
+		<ol>
+			<li id="title"{{if .IsHome}} class="nav-menu-active"{{end}}>
+				<a href="/">{{ .Site.Title }}</a>
 			</li>
+		</ol>
+		<ol id="nav-menu">
 			{{- $p := . -}}
-
-			{{- range first 1 .Site.Menus.main.ByWeight -}}
-			{{- $active := or ($p.IsMenuCurrent "main" .) ($p.HasMenuCurrent "main" .) -}}
-			{{- with .Page -}}
-			{{- $active = or $active ( $.IsDescendant .)  -}}
-			{{- end -}}
-			{{- $url := urls.Parse .URL -}}
-			{{- $baseurl := urls.Parse $.Site.Params.Baseurl -}}
-			<li class="nav-menu-margin-left{{if $active }} nav-menu-active{{end}}">
-				<a href="{{ with .Page }}{{ .RelPermalink }}{{ else }}{{ .URL | relLangURL }}{{ end }}"{{ if ne $url.Host $baseurl.Host }}target="_blank" {{ end }}>{{ .Name }}</a>
-			</li>
-			{{ end }}
-
-			{{- range after 1 .Site.Menus.main.ByWeight -}}
+			{{- range .Site.Menus.main.ByWeight -}}
 			{{- $active := or ($p.IsMenuCurrent "main" .) ($p.HasMenuCurrent "main" .) -}}
 			{{- with .Page -}}
 			{{- $active = or $active ( $.IsDescendant .)  -}}
@@ -34,6 +18,13 @@
 				<a href="{{ with .Page }}{{ .RelPermalink }}{{ else }}{{ .URL | relLangURL }}{{ end }}"{{ if ne $url.Host $baseurl.Host }}target="_blank" {{ end }}>{{ .Name }}</a>
 			</li>
 			{{ end }}
-		</ul>
+			<li>
+				<select id="themes" class="nav-menu-magin-left" onchange="setTheme()">
+					<option value="black-theme">Black</option>
+					<option value="dark-theme">Dark</option>
+					<option value="light-theme">Light</option>
+				</select>
+			</li>
+		</ol>
 	</nav>
 </header>

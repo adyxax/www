@@ -2,7 +2,7 @@
 title: "Search"
 menu:
   main:
-    weight: 1
+    weight: 4
 layout: single
 ---
 
