@@ -8,7 +8,9 @@
 		const themeName = localStorage.getItem('theme');
 		if (themeName) {
 			document.documentElement.className = themeName;
-			document.getElementById('themes').value = themeName;
+			const elt = document.getElementById('themes');
+			elt.style.display = "block";
+			elt.value = themeName;
 		}
 	})();
 </script>

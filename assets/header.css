@@ -41,6 +41,7 @@ header nav ol li a:hover {
 	background-color: var(--bg-0);
 	border: none;
 	color: var(--fg-1);
+	display: none;
 	font-size: 1.25rem;
 	margin: 0;
 	padding: 0;
