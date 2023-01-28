@@ -1,5 +1,4 @@
 .black-theme {
-	/* Black mode */
 	--bg-0: #181818;
 	--bg-1: #252525;
 	--bg-2: #3b3b3b;
@@ -24,7 +23,6 @@
 	--br_violet: #b891f5;
 }
 .dark-theme {
-	/* Dark mode */
 	--bg-0: #103c48;
 	--bg-1: #184956;
 	--bg-2: #2d5b69;
@@ -49,7 +47,6 @@
 	--br_violet: #bd96fa;
 }
 .light-theme {
-	/* Light mode */
 	--bg-0: #fbf3db;
 	--bg-1: #ece3cc;
 	--bg-2: #d5cdb6;

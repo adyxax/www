@@ -14,12 +14,12 @@
 			{{- end -}}
 			{{- $url := urls.Parse .URL -}}
 			{{- $baseurl := urls.Parse $.Site.Params.Baseurl -}}
-			<li class="nav-menu-margins-left-and-right{{if $active }} nav-menu-active{{end}}">
+			<li{{if $active }} class="nav-menu-active"{{end}}>
 				<a href="{{ with .Page }}{{ .RelPermalink }}{{ else }}{{ .URL | relLangURL }}{{ end }}"{{ if ne $url.Host $baseurl.Host }}target="_blank" {{ end }}>{{ .Name }}</a>
 			</li>
 			{{ end }}
 			<li>
-				<select id="themes" class="nav-menu-magin-left" onchange="setTheme()">
+				<select id="themes" onchange="setTheme()">
 					<option value="black-theme">Black</option>
 					<option value="dark-theme">Dark</option>
 					<option value="light-theme">Light</option>

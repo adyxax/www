@@ -1,15 +1,15 @@
 <script>
 	function setTheme() {
 		const themeName = document.getElementById('themes').value;
-		localStorage.setItem('theme', themeName);
 		document.documentElement.className = themeName;
+		localStorage.setItem('theme', themeName);
 	}
 	(function () {  // Set the theme on page load
+		const elt = document.getElementById('themes');
+		elt.style.display = 'block';
 		const themeName = localStorage.getItem('theme');
 		if (themeName) {
 			document.documentElement.className = themeName;
-			const elt = document.getElementById('themes');
-			elt.style.display = "block";
 			elt.value = themeName;
 		}
 	})();
