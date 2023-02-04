@@ -1,3 +1,9 @@
+.SHELLFLAGS := -eu -o pipefail -c
+.ONESHELL:
+.DELETE_ON_ERROR:
+MAKEFLAGS += --warn-undefined-variables
+MAKEFLAGS += --no-builtin-rules
+
 CACHEDIR=/tmp/hugo-cache-$(USER)
 DESTDIR=public/
 HOSTNAME=$(shell hostname)
@@ -26,6 +32,10 @@ deploy: ## make deploy	# deploy the website the active kubernetes context
 	sed -i deploy/www.yaml -e 's/^\(\s*image:[^:]*:\).*$$/\1$(REVISION)/'
 	kubectl apply -f deploy/www.yaml
 
+.PHONY: help
+help:
+	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
+
 .PHONY: push
 push: ## make push		# push the built images to quay.io
 	buildah push adyxax/www quay.io/adyxax/www:$(REVISION)
@@ -34,8 +44,5 @@ push: ## make push		# push the built images to quay.io
 .PHONY: serve
 serve: ## make serve		# hugo web server development mode
 	hugo serve --disableFastRender --noHTTPCache --cacheDir $(CACHEDIR) --bind 0.0.0.0 --port 1313 -b http://$(HOSTNAME):1313/
-
-help:
-	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
 
 .DEFAULT_GOAL := help
