@@ -1,6 +1,7 @@
 ---
-title: Wireguard
+title: Wireguard on OpenBSD
 description: How to configure a wireguard endpoint on OpenBSD
+date: 2023-02-15
 tags:
 - OpenBSD
 - vpn
@@ -10,6 +11,8 @@ tags:
 ## Introduction
 
 This article explains how to configure wireguard on OpenBSD.
+
+I chose to kick off this wireguard series with OpenBSD because it is the cleanest and the better integrated of all operating systems that support wireguard.
 
 ## Installation
 
@@ -47,6 +50,7 @@ wgpeer 'LWZO5wmkmzFwohwtvZ2Df6WAvGchcyXpzNEq2m86sSE=' wgaip 10.1.2.2/32
 wgpeer 'SjqCIBpTjtkMvKtkgDFIPJsAmQEK/+H33euekrANJVc=' wgaip 10.1.2.4/32
 wgpeer '4CcAq3xqN496qg2JR/5nYTdJPABry4n2Kon96wz981I=' wgaip 10.1.2.8/32
 wgpeer 'vNNic3jvXfbBahF8XFKnAv9+Cef/iQ6nWxXeOBtehgc=' wgaip 10.1.2.6/32
+up
 ```
 
 Your private key goes on the first line as argument to `wgkey`, the other keys are public keys for each peer. As all other hostname interface files on OpenBSD, each line is a valid argument you could pass the `ifconfig` command.
