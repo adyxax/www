@@ -1,10 +1,6 @@
 ---
 title: Wireguard
 description: How to configure a wireguard endpoint on OpenBSD
-tags:
-- OpenBSD
-- vpn
-- wireguard
 ---
 
 ## Introduction
