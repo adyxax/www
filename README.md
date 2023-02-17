@@ -18,9 +18,9 @@ Have a good time!
 
 ## Dependencies
 
-go is required for the search feature. Only go version >= 1.17 on linux amd64 (Gentoo) is being regularly tested.
+go is required for the search feature. Only go version >= 1.19 on linux amd64 (Gentoo) is being regularly tested.
 
-hugo is required in order to build the website html pages. Only hugo >= 0.99.1 is being regularly tested.
+hugo is required in order to build the website html pages. Only hugo >= 0.106.0 is being regularly tested.
 
 buildah is optionally required in order to build the container images with my deploy script.
 
