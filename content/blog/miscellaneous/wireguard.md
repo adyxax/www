@@ -15,7 +15,7 @@ I have been using [a fast, modern and secure vpn technology named wireguard](htt
 
 Before wireguard, I built and managed my own overlay network using a combination of point to point [OpenVPN tunnels](https://openvpn.net/source-code/) (damn this site is ugly and has aged badly!) and [the bird routing daemon](https://www.wireguard.com/).
 
-My servers all had at least two connections to others and all clients too. Bird ran the OSPF protocol over the openvpn interfaces and announced the routes to the over servers. This allowed dynamic reconfiguration and some fun times with asymetric routing. I also had bird listen on my home network lan interfaces for some clever traffic optimisations.
+My servers all had at least two connections to others and all clients too. Bird ran the OSPF protocol over the openvpn interfaces and announced the routes to the other servers. This allowed dynamic reconfiguration and some fun times with asymetric routing. I also had bird listen on my home network lan interfaces for some clever traffic optimisations.
 
 At the time I made heavy use of linux container with LXC, and could expose them through OSPF too. Such an elegant use for dynamic routing!
 
