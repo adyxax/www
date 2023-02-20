@@ -1,19 +1,44 @@
 ---
-title: Wireguard
-description: How to configure a wireguard endpoint on Gentoo
+title: Wireguard on Linux
+description: Alpine, Debian, Ubuntu, Gentoo, RedHat, AlmaLinux, Rocky Linux, Oracle Linux
+date: 2023-02-20
+tags:
+- Alpine
+- Debian
+- Gentoo
+- Linux
+- vpn
+- wireguard
 ---
 
 ## Introduction
 
-This article explains how to configure wireguard on Gentoo.
+This article explains how to configure wireguard on Linux.
 
 ## Installation
 
+Alpine >= 3.17:
+```sh
+apk add wireguard-tools
+```
+
+Debian >= 11, Ubuntu >= 22.04:
+```sh
+apt update -qq
+apt install -y --no-install-recommends iproute2 wireguard
+```
+
+Gentoo:
 ```sh
 emerge net-vpn/wireguard-tools -q
 ```
 
-You will also need to set `CONFIG_WIREGUARD=y` in your kernel configuration.
+RedHat, AlmaLinux, Rocky Linux, Oracle Linux >= 9:
+```sh
+echo wireguard > /etc/modules-load.d/wireguard.conf
+modprobe wireguard
+dnf install wireguard-tools
+```
 
 ## Generating keys
 
@@ -27,7 +52,9 @@ echo public_key: $PUBLIC_KEY
 
 ## Configuration
 
-Here is a configuration example of my `/etc/wireguard/wg0.conf` that creates a tunnel listening on udp port 342 and has one remote peer:
+All linux distributions seem to have standardized on a single directory to hold wireguard's configuration file, we are lucky!
+
+Here is an example of my `/etc/wireguard/wg0.conf` that creates a tunnel listening on udp port 342 and has one remote peer:
 ```cfg
 [Interface]
 PrivateKey = MzrfXLmSfTaCpkJWKwNlCSD20eDq7fo18aJ3Dl1D0gA=
@@ -45,12 +72,27 @@ To implement this example you will need to generate two sets of keys. The config
 
 This example is from a machine that can be hidden behind nat therefore I configure a `PersistentKeepalive`. If your host has a public IP this line is not needed.
 
-To activate the interface configuration, use :
+## Enabling wireguard and starting the tunnel
+
+Alpine:
+```sh
+service wireguard enable
+echo 'wireguard_interfaces="wg0"' >> /etc/rc.conf
+service wireguard start
+```
+
+Gentoo:
 ```sh
 cd /etc/init.d
 ln -s wg-quick wg-quick.wg0
 rc-update add wg-quick.wg0 default
 /etc/init.d/wg-quick.wg0 start
+```
+
+All the other systemd based distributions:
+```sh
+systemctl enable wg-quick@wg0
+systemctl start wg-quick@wg0
 ```
 
 ## Administration
@@ -69,4 +111,14 @@ peer: R4A01RXXqRJSY9TiKQrZGR85HsFNSXxhRKKEu/bEdTQ=
   latest handshake: 57 seconds ago
   transfer: 1003.48 KiB received, 185.89 KiB sent
   persistent keepalive: every 1 minute
+```
+
+The ip configuration still relies on `ifconfig`:
+```sh
+root@hurricane:~# ifconfig wg0
+wg0: flags=80c1<UP,RUNNING,NOARP,MULTICAST> metric 0 mtu 1420
+        options=80000<LINKSTATE>
+        inet 10.1.2.7 netmask 0xffffff00
+        groups: wg
+        nd6 options=109<PERFORMNUD,IFDISABLED,NO_DAD>
 ```
