@@ -40,11 +40,11 @@ Then in the psql shell :
 
 ## Kubernetes manifests in terraform
 
-This app is part of an experiment of mine to migrate stuff from traditional hosting to kubernetes. I first wrote manifests by hand then imported them with terraform. I do not like it and find it too complex/overkill but that is managed this way for now.
+This app is part of an experiment of mine to migrate stuff from traditional hosting to kubernetes. I first wrote manifests by hand then imported them with terraform. I do not like it and find it too complex/overkill but everything is managed this way for now.
 
 ### DNS CNAME
 
-Since all configuration regarding this application is in terraform, so is the dns :
+Since all configuration regarding this application is in terraform, so is my dns :
 ```hcl
 resource "cloudflare_record" "pass-cname" {
   zone_id = lookup(data.cloudflare_zones.adyxax-org.zones[0], "id")
@@ -88,7 +88,7 @@ resource "kubernetes_secret" "myth-pass-secrets" {
 
 ### Deployment
 
-I could not write the deployment with the `kubernetes_deployment` terraform ressource, so it is a row manifest which imports a yaml syntax in hcl. It is horrible to look at but works. Change the image tag to the latest stable version of pass before deploying :
+At the time of writing I could not write the deployment with the `kubernetes_deployment` terraform ressource, so it is a raw manifest which imports a yaml syntax in hcl. It is horrible to look at but works. Change the image tag to the latest stable version of vaultwarden before deploying :
 ```hcl
 resource "kubernetes_manifest" "myth-deployment-pass" {
   provider = kubernetes.myth
