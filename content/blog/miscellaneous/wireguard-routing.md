@@ -79,7 +79,7 @@ A key takeaway is this: Even though with other vpn solutions (or traditional net
 
 ## Routing tables
 
-With this setup if Dalinar was a Linux, its routing table would looks like this with `ip -4 r`:
+With this setup if Dalinar was a Linux, its routing table would look like this with `ip -4 r`:
 ```
 10.1.2.2 dev wg0 scope link
 192.168.1.0/24 dev eth0 proto kernel scope link src 192.168.1.10 metric 600
