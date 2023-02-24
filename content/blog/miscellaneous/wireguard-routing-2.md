@@ -9,7 +9,7 @@ tage:
 
 ## Introduction
 
-Now that we learned how routing depends on the allowed IPs in the configuration of an host is what populate its routing table and the consequences of it, let's look at a more complex setup with two hosts on a home network and three servers somewhere in the cloud. The servers will all be connected together in a full mesh, but only one of the cloud server will behave like a hub and centralise the home clients' connections.
+Now that we learned how routing depends on the allowed IPs in the configuration of an host is what populate its routing table and the consequences of it, let's look at a more complex setup with two hosts on a home network and three servers somewhere in the cloud. The servers will all be connected together in a full mesh, but only one of the cloud server will behave like a hub and centralize the home clients' connections.
 
 ## Schematic
 
@@ -47,7 +47,7 @@ AllowedIPs = 10.1.2.0/24
 PersistentKeepalive = 60
 ```
 
-The first important thing to note is that I did not use the same ListenPort for my two hosts. This is because cheap routing firewall at home often do not nat outgoing udp traffic well with long live sessions and I had issues in the past because of this. You can use the same port for both your hosts, but being cautious with udp outgoing traffic is a habbit on I took on years ago.
+The first important thing to note is that I did not use the same ListenPort for my two hosts. This is because cheap routing firewall at home often do not nat outgoing udp traffic well with long live sessions and I had issues in the past because of this. You can use the same port for both your hosts, but being cautious with udp outgoing traffic is a habit on I took on years ago.
 
 Also I am using an AllowedIPs with a `/24` netmask in order to be able to reach every host in the network. If I wanted for the clients to only be able to reach the servers, I could have either listed all `/32` IPs or used another netmask like `10.1.2.0/29` (`sipcalc` is your friend). Another option would be to use different addressing schemes entirely.
 
