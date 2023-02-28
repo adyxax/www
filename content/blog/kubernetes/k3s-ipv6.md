@@ -3,6 +3,7 @@ title: Making dual stack ipv6 work with k3s
 date: 2021-07-27
 description: How to setup a working ipv4/ipv6 service on k3s
 tags:
+  - ipv6
   - k3s
   - kubernetes
 ---

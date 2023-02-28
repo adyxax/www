@@ -3,6 +3,7 @@ title: Calico and outgoing ipv6 traffic on k3s
 date: 2022-01-23
 description: By default calico does not nat outgoing ipv6 traffic
 tags:
+  - ipv6
   - k3s
   - kubernetes
 ---

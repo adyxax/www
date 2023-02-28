@@ -129,7 +129,7 @@ AllowedIPs = 10.1.2.3/32
 
 You might have feared this would be the most complicated configuration but it is the simplest: every peer has a `/32` netmask. The only thing to note is that we do not specify an endpoint for Adolin and Baon since they are behind a home network's NAT.
 
-The only additional thing we need is to enable routing on Elend so that it can forward traffic (firewalling is the subject of the next article). This can be done by setting the right sysctl value depending on your operating system:
+The only additional thing we need is to enable routing on Elend so that it can forward traffic (firewalling is the subject of a next article). This can be done by setting the right sysctl value depending on your operating system:
 - FreeBSD: set `gateway_enable="YES"` in your `/etc/rc.conf`
 - Linux: set `net.ipv4.ip_forward=1` in your `/etc/sysctl.conf`
 - OpenBSD: set `net.inet.ip.forwarding=1` in your `/etc/sysctl.conf`
