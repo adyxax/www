@@ -200,7 +200,7 @@ Backups are configured with borg on my host `lore.adyxax.org` and stored on `yen
 - { name: gotosocial-data, path: "/jails/fedi/root/home/fedi/storage" }
 - name: gotosocial-db
   path: "/tmp/gotosocial.db"
-  pre_command: "echo 'VACUUM INTO \"/tmp/gotosocial.db\"'|sqlite3 /jails/fedi/root/home/fedi/sqlite.db"
+  pre_command: "echo \"VACUUM INTO '/tmp/gotosocial.db'\"|sqlite3 /jails/fedi/root/home/fedi/sqlite.db"
   post_command: "rm -f /tmp/gotosocial.db"
 ```
 

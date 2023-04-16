@@ -11,6 +11,6 @@ There is only on jobs :
 ```yaml
 - name: ktistec-db
   path: "/tmp/ktistec.db"
-  pre_command: "echo 'VACUUM INTO \"/tmp/ktistec.db\"'|sqlite3 /srv/ktistec-db/ktistec.db"
+  pre_command: "echo \"VACUUM INTO '/tmp/ktistec.db'\"|sqlite3 /srv/ktistec-db/ktistec.db"
   post_command: "rm -f /tmp/ktistec.db"
 ```

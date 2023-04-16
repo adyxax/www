@@ -27,7 +27,7 @@ If by chance you are using my [borg ansible role]({{< ref "docs/adyxax.org/backu
 ```
 - name: srv-short-db
   path: "/tmp/short.db"
-  pre_command: "echo 'VACUUM INTO \"/tmp/short.db\"'|sqlite3 /srv/short-data/short.db"
+  pre_command: "echo \"VACUUM INTO '/tmp/short.db'\"|sqlite3 /srv/short-data/short.db"
   post_command: "rm -f /tmp/short.db"
 ```
 
