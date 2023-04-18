@@ -5,12 +5,12 @@ description: Backups of social.adyxax.org
 
 ## Documentation
 
-Backups are configured with borg on `myth.adyxax.org` to `yen.adyxax.org`.
+Backups are configured with borg on `lore.adyxax.org` to `yen.adyxax.org`.
 
-There is only on jobs :
+There is only one job :
 ```yaml
-- name: ktistec-db
-  path: "/tmp/ktistec.db"
-  pre_command: "echo \"VACUUM INTO '/tmp/ktistec.db'\"|sqlite3 /srv/ktistec-db/ktistec.db"
-  post_command: "rm -f /tmp/ktistec.db"
+- name: gotosocial-db
+  path: "/tmp/gotosocial.db"
+  pre_command: "echo \"VACUUM INTO '/tmp/gotosocial.db'\"|sqlite3 /jails/fedi/root/home/fedi/sqlite.db"
+  post_command: "rm -f /tmp/gotosocial.db"
 ```
