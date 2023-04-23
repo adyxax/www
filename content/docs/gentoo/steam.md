@@ -17,7 +17,7 @@ achieve that with containers but didn't quite made it work as well as this chroo
 Note that there is no way to provide a "most recent stage 3" installation link. You will have to browse http://distfiles.gentoo.org/releases/amd64/autobuilds/current-stage3-amd64/
 and adjust the download url manually bellow :
 
-{{< highlight sh >}}
+```sh
 mkdir /usr/local/steam
 cd /usr/local/steam
 wget http://distfiles.gentoo.org/releases/amd64/autobuilds/current-stage3-amd64/stage3-amd64-20190122T214501Z.tar.xz
@@ -74,13 +74,13 @@ wget -P /etc/portage/repos.conf/ https://raw.githubusercontent.com/anyc/steam-ov
 emaint sync --repo steam-overlay
 emerge games-util/steam-launcher -q
 useradd -m -G audio,video steam
-{{< /highlight >}}
+```
 
 ## Launch script
 
 Note that we use `su` and not `su -` since we need to preserve the environment. If you don't you won't get any sound in game. The pulseaudio socket is shared through the mount of
 /run inside the chroot :
-{{< highlight sh >}}
+```sh
 su
 cd /usr/local/steam
 mount -R /dev dev
@@ -93,4 +93,4 @@ chroot .
 env-update && source /etc/profile
 su steam
 steam
-{{< /highlight >}}
+```

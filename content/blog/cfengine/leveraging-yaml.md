@@ -17,7 +17,7 @@ The use case bellow lacks a bit or error control with argument validation, it wi
 
 In `cmdb/hosts/andromeda.yaml` we describe some properties of a host named andromeda:
 
-{{< highlight yaml >}}
+```yaml
 domain: adyxax.org
 host_interface: dummy0
 host_ip: "10.1.0.255"
@@ -35,13 +35,13 @@ tunnels:
         peer: "10.1.0.2"
         remote_host: legend.adyxax.org
         remote_port: 1195
-{{< /highlight >}}
+```
 
 ## Reading the yaml
 
 I am bundling the values in a common bundle, accessible globally. This is one of the first bundles processed in the order my policy files are loaded. This is just an extract, you can load multiple files and merge them to distribute common
 settings :
-{{< highlight yaml >}}
+```yaml
 bundle common g
 {
     vars:
@@ -51,14 +51,14 @@ bundle common g
         any::
             "has_host_data" expression => fileexists("$(sys.inputdir)/cmdb/hosts/$(sys.host).yaml");
 }
-{{< /highlight >}}
+```
 
 ## Using the data
 
 ### Cfengine agent bundle
 
 We access the data using the global g.host_data variable, here is a complete example :
-{{< highlight yaml >}}
+```yaml
 bundle agent openvpn
 {
     vars:
@@ -91,7 +91,7 @@ bundle agent openvpn
             "$(this.bundle): common.key repaired" ifvarclass => "openvpn_common_key_repaired";
             "$(this.bundle): $(tunnels) service repaired" ifvarclass => "tunnel_$(tunnels)_service_repaired";
 }
- 
+
 bundle agent openvpn_tunnel(tunnel)
 {
     classes:
@@ -117,12 +117,12 @@ bundle agent openvpn_tunnel(tunnel)
             "$(this.bundle): $(tunnel).conf repaired" ifvarclass => "openvpn_$(tunnel)_conf_repaired";
             "$(this.bundle): $(tunnel) service repaired" ifvarclass => "tunnel_$(tunnel)_service_repaired";
 }
-{{< /highlight >}}
+```
 
 ### Template file
 
 Templates can reference the g.host_data too, like in the following :
-{{< highlight cfg >}}
+```cfg
 [%CFEngine BEGIN %]
 proto udp
 port $(g.host_data[tunnels][$(openvpn_tunnel.tunnel)][port])
@@ -152,7 +152,7 @@ group nogroup
 remote $(g.host_data[tunnels][$(openvpn_tunnel.tunnel)][remote_host]) $(g.host_data[tunnels][$(openvpn_tunnel.tunnel)][remote_port])
 
 [%CFEngine END %]
-{{< /highlight >}}
+```
 
 ## References
 - https://docs.cfengine.com/docs/master/examples-tutorials-json-yaml-support-in-cfengine.html

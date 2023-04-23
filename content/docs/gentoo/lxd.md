@@ -12,18 +12,18 @@ I have used LXD for many years successfully, I was never satisfied with the dock
 
 ## Installation
 
-{{< highlight sh >}}
+```sh
 touch /etc{/subuid,/subgid}
 usermod --add-subuids 1000000-1065535 root
 usermod --add-subgids 1000000-1065535 root
 emerge -q app-emulation/lxd
 /etc/init.d/lxd start
 rc-update add lxd default
-{{< /highlight >}}
+```
 
 ## Initial configuration
 
-{{< highlight sh >}}
+```sh
 myth /etc/init.d # lxd init
 Would you like to use LXD clustering? (yes/no) [default=no]:
 Do you want to configure a new storage pool? (yes/no) [default=yes]:
@@ -43,4 +43,4 @@ Trust password for new clients:
 Again:
 Would you like stale cached images to be updated automatically? (yes/no) [default=yes]
 Would you like a YAML "lxd init" preseed to be printed? (yes/no) [default=no]:
-{{< /highlight >}}
+```

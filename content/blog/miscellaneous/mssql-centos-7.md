@@ -15,7 +15,7 @@ I had to do this in order to help a friend, I do not think I would ever willingl
 ## Procedure
 
 Here is how to setup mssql on a fresh centos 7
-{{< highlight sh >}}
+```sh
 vi /etc/sysconfig/network-scripts/ifcfg-eth0
 vi /etc/resolv.conf
 curl -o /etc/yum.repos.d/mssql-server.repo https://packages.microsoft.com/config/rhel/7/mssql-server-2017.repo
@@ -34,4 +34,4 @@ passwd
 rm -f /etc/localtime
 ln -s /usr/share/zoneinfo/Europe/Paris /etc/localtime
 /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -p
-{{< /highlight >}}
+```

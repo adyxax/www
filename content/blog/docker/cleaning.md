@@ -9,6 +9,6 @@ tags:
 ## The command
 
 Be careful that this will delete any stopped container and remove any locally unused images, volumes and tags :
-{{< highlight sh >}}
+```sh
 docker system prune -f -a
-{{< /highlight >}}
+```

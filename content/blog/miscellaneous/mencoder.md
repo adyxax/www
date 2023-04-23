@@ -9,14 +9,14 @@ tags:
 ## Aggregate png images into a video
 
 Example command :
-{{< highlight sh >}}
+```sh
 mencoder mf://*.png -mf w=1400:h=700:fps=1:type=png -ovc lavc -lavcopts vcodec=mpeg4:mbd=2:trell -oac copy -o output.avi
-{{< /highlight >}}
+```
 
 You should use the following to specify a list of files instead of `*.png`:
-{{< highlight sh >}}
+```sh
 mf://@list.txt
-{{< /highlight >}}
+```
 
 ## References
 

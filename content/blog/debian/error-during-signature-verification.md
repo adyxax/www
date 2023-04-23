@@ -9,9 +9,9 @@ tags:
 ## How to fix
 
 Here is how to fix the apt-get “Error occured during the signature verification” :
-{{< highlight sh >}}
+```sh
 cd /var/lib/apt
 mv lists lists.old
 mkdir -p lists/partial
 aptitude update
-{{< /highlight >}}
+```

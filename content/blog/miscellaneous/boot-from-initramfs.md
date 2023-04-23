@@ -14,9 +14,9 @@ Sometimes, your linux machine can get stuck while booting and drop you into an i
 
 All initramfs are potentially different, but almost always feature busybox and common mechanisms. Recently I had to finish booting from an initramfs shell, here is how I used `switch_root` to do so :
 
-{{< highlight sh >}}
+```sh
 lvm vgscan
 lvm vgchange -ay vg
 mount -t ext4 /dev/mapper/vg-root /root
 exec switch_root -c /dev/console /root /sbin/init
-{{< /highlight >}}
+```

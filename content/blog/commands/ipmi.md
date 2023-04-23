@@ -11,9 +11,9 @@ tags:
 - launch ipmi remote text console : `ipmitool -H XX.XX.XX.XX -C3 -I lanplus -U <ipmi_user> sol activate`
 - Show local ipmi lan configuration : `ipmitool lan print`
 - Update local ipmi lan configuration :
-{{< highlight sh >}}
+```sh
 ipmitool lan set 1 ipsrc static
 ipmitool lan set 1 ipaddr 10.31.149.39
 ipmitool lan set 1 netmask 255.255.255.0
 mc reset cold
-{{< /highlight >}}
+```

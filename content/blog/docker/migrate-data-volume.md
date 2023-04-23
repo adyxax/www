@@ -9,9 +9,9 @@ tags:
 ## The command
 
 Here is how to migrate a data volume between two of your hosts. A rsync of the proper `/var/lib/docker/volumes` subfolder would work just as well, but here is a fun way to do it with docker and pipes :
-{{< highlight sh >}}
+```sh
 export VOLUME=tiddlywiki
 export DEST=10.1.0.242
 docker run --rm -v $VOLUME:/from alpine ash -c "cd /from ; tar -cpf - . " \
 | ssh $DEST "docker run --rm -i -v $VOLUME:/to alpine ash -c 'cd /to ; tar -xfp - ' "
-{{< /highlight >}}
+```

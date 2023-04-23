@@ -13,6 +13,6 @@ Login is a permission on postgresql, that sometimes is not obvious it can cause 
 ## The solution
 
 Simply log in as postgres or another administrator account and run :
-{{< highlight sh >}}
+```sh
 ALTER ROLE "user" LOGIN;
-{{< /highlight >}}
+```

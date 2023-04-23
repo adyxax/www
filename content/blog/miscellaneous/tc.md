@@ -8,14 +8,14 @@ tags:
 
 ## How to
 
-{{< highlight sh >}}
+```sh
 tc qdisc show dev eth0
 tc qdisc add dev eth0 root netem delay 200ms
 tc qdisc show dev eth0
 
 tc qdisc delete dev eth0 root netem delay 200ms
 tc qdisc show dev eth0
-{{< /highlight >}}
+```
 
 ## References
 

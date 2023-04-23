@@ -9,6 +9,6 @@ tags:
 ## How to fix
 
 Here is how to fix the no public key available error :
-{{< highlight sh >}}
+```sh
 apt-key adv --keyserver keyserver.ubuntu.com --recv-keys KEYID
-{{< /highlight >}}
+```

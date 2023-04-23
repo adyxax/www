@@ -8,7 +8,7 @@ tags:
 
 ## The commands
 
-{{< highlight sh >}}
+```sh
 set adv
 system node show-memory-errors -node <cluster_node>
-{{< / highlight >}}
+```

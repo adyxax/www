@@ -14,7 +14,7 @@ The goal was to have a relayd configuration that would serve urls like `https://
 
 ## The httpd configuration
 
-{{< highlight txt >}}
+```nginx
 prefork 5
 
 server "example.com" {
@@ -35,11 +35,11 @@ server "example.com" {
             root "/htdocs/www/public/"
     }
 }
-{{< /highlight >}}
+```
 
 ## The relayd configuration
 
-{{< highlight txt >}}
+```cfg
 log state changes
 log connection errors
 prefork 5
@@ -93,4 +93,4 @@ relay "wwwsecure6" {
     forward to <httpd> port 8080
     forward to <synapse> port 8008
 }
-{{< /highlight >}}
+```

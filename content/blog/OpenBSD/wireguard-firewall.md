@@ -13,7 +13,7 @@ tage:
 Now that we covered wireguard configurations and routing, let's consider your firewall configuration in several scenarios. This first article will focus on OpenBSD.
 
 ## Template for this article
-```
+```cfg
 table <myself>   const { self }
 table <private>  const { 10/8, 172.16/12, 192.168/16, fd00::/8 fe80::/10 }
 table <internet> const { 0.0.0.0/0, !10/8, !172.16/12, !192.168/16, ::/0, fe80::/10, !fd00::/8 }
@@ -48,7 +48,7 @@ With our template, you can already use your wireguard vpn as a client without an
 ## Reachable client
 
 To make your client reachable over wireguard, add the following:
-```
+```cfg
 pass in on wg0 from <private> to <myself>
 ```
 
@@ -59,7 +59,7 @@ In this example I use the `<private>` pf table that I find both very convenient 
 ## Server
 
 A server's configuration just need to accept wireguard connections in addition of the previous rule:
-```
+```cfg
 pass in on egress proto udp from <internet> to <myself> port 342
 pass in on wg0 from <private> to <myself>
 ```
@@ -67,7 +67,7 @@ pass in on wg0 from <private> to <myself>
 ## Hub
 
 As seen in the previous routing article, a hub is a server that can route traffic to another one over wireguard:
-```
+```cfg
 pass in on egress proto udp from <internet> to <myself> port 342
 pass in on wg0 from <private> to <private>
 ```

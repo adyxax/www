@@ -12,13 +12,13 @@ The zoom video conderencing tool works on gentoo, but since it is not integrated
 
 ## Running the client
 
-{{< highlight yaml >}}
+```sh
 ./ZoomLauncher
-{{< /highlight >}}
+```
 
 ## Working around the "zoommtg address not understood" error
 
 When you try to authenticate you will have your web browser pop up with a link it cannot interpret. You need to get the `zoommtg://.*` thing and run it in another ZoomLauncher (do not close the zoom process that spawned this authentication link or the authentication will fail :
-{{< highlight yaml >}}
+```sh
 ./ZoomLauncher 'zoommtg://zoom.us/google?code=XXXXXXXX'
-{{< /highlight >}}
+```

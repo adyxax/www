@@ -12,8 +12,8 @@ tags:
 
 ## Other commands
 
-{{< highlight sh >}}
+```sh
 omreport storage vdisk
 omreport storage pdisk controller=0 vdisk=0
 omreport storage pdisk controller=0 pdisk=0:0:4
-{{< /highlight >}}
+```

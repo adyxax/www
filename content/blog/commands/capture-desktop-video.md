@@ -10,6 +10,6 @@ tags:
 
 You can capture a video of your linux desktop very easily with ffmpeg :
 
-{{< highlight sh >}}
+```sh
 ffmpeg -f x11grab -s xga -r 25 -i :0.0 -sameq /tmp/out.mpg
-{{< /highlight >}}
+```

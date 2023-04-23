@@ -10,6 +10,6 @@ tags:
 
 ## The command
 
-{{< highlight sh >}}
+```sh
 find . -samefile /path/to/file
-{{< /highlight >}}
+```

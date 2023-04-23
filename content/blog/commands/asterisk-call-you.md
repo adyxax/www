@@ -8,6 +8,6 @@ tags:
 
 ## Using the cli
 
-{{< highlight yaml >}}
+```sh
 watch -d -n1 'asterisk -rx “core show channels”'
-{{< /highlight >}}
+```

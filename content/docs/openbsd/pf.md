@@ -10,7 +10,7 @@ tags:
 
 The open ports list is refined depending on the usage obviously, and not all servers listen for wireguard... It is just a template :
 
-{{< highlight conf >}}
+```cfg
 vpns="{ wg0 }"
 
 table <myself>   const { self }
@@ -39,4 +39,4 @@ pass in on $vpns from <private> to <myself>
 block return in on ! lo0 proto tcp to port 6000:6010
 # Port build user does not need network
 block return out log proto {tcp udp} user _pbuild
-{{< /highlight >}}
+```

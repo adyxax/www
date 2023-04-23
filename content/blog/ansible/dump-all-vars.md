@@ -10,16 +10,16 @@ tags:
 
 Here is the task to use in order to achieve that :
 
-{{< highlight yaml >}}
+```yaml
 - name: Dump all vars
   action: template src=dumpall.j2 dest=ansible.all
-{{< /highlight >}}
+```
 
 ## Associated template
 
 And here is the template to use with it :
 
-{{< highlight jinja >}}
+```jinja
 Module Variables ("vars"):
 --------------------------------
 {{ vars | to_nice_json }}
@@ -39,7 +39,7 @@ GROUPS Variables ("groups"):
 HOST Variables ("hostvars"):
 --------------------------------
 {{ hostvars | to_nice_json }}
-{{< /highlight >}}
+```
 
 ## Output
 

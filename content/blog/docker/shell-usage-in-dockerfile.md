@@ -14,9 +14,9 @@ The default shell is `[“/bin/sh”, “-c”]`, which doesn't handle pipe fail
 
 To process errors when using pipes use this :
 
-{{< highlight sh >}}
+```sh
 SHELL ["/bin/bash", "-eux", "-o", "pipefail", "-c"]
-{{< /highlight >}}
+```
 
 ## References
 

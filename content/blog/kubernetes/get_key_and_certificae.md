@@ -14,7 +14,7 @@ My use case is to deploy a wildcard certificate that was previously handled by a
 ## The solution
 
 Assuming we are working with a secret named `wild.adyxax.org-cert` and our namespace is named `legacy` :
-{{< highlight sh >}}
+```sh
 kubectl -n legacy get secret wild.adyxax.org-cert -o json -o=jsonpath="{.data.tls\.crt}" | base64 -d > fullchain.cer
 kubectl -n legacy get secret wild.adyxax.org-cert -o json -o=jsonpath="{.data.tls\.key}" | base64 -d > adyxax.org.key
-{{< /highlight >}}
+```

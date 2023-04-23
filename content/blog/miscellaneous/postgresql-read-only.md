@@ -9,10 +9,10 @@ tags:
 ## The solution
 
 Here is the bare minimum a user need in order to have complete read only access on a postgresql database :
-{{< highlight sh >}}
+```sh
 GRANT CONNECT ON DATABASE "db" TO "user";
 \c db
 GRANT USAGE ON SCHEMA public TO "user";
 GRANT SELECT ON ALL TABLES IN SCHEMA public TO "user";
 ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT ON TABLES TO "user";
-{{< /highlight >}}
+```

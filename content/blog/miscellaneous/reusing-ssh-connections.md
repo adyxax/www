@@ -13,7 +13,7 @@ It is possible to share multiple sessions over a single connection. One of the a
 ## How to
 
 You need a directory to store the sockets for the opened sessions, I use the `~/.ssh/tmp` directory for it. Whatever you choose, make sure it exists by running `mkdir` now. Then add these two lines at the start of your `~/.ssh/config` :
-{{< highlight sh >}}
+```cfg
 ControlMaster auto
 ControlPath   ~/.ssh/tmp/%h_%p_%r
-{{< /highlight >}}
+```

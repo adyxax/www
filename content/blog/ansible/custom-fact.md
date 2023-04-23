@@ -21,12 +21,12 @@ The facts will be available to ansible at `hostvars.host.ansible_local.<fact_nam
 ## A simple example
 
 Here is the simplest example of a fact, let's suppose we make it `/etc/ansible/facts.d/mysql.fact` :
-{{< highlight sh >}}
+```sh
 #!/bin/sh
 set -eu
 
 echo '{"password": "xxxxxx"}'
-{{< /highlight >}}
+```
 
 This will give you the fact `hostvars.host.ansible_local.mysql.password` for this machine.
 
@@ -36,15 +36,15 @@ A more interesting example is something I use with small webapps. In the contain
 provision a database with a user that has access to it on a mysql server. This fact ensures that on subsequent runs we will stay idempotent.
 
 First the fact from before, only slightly modified :
-{{< highlight sh >}}
+```sh
 #!/bin/sh
 set -eu
 
 echo '{"password": "{{mysql_password}}"}'
-{{< /highlight >}}
+```
 
 This fact is deployed with the following tasks :
-{{< highlight yaml >}}
+```yaml
 - name: Generate a password for mysql database connections if there is none
   set_fact: mysql_password="{{ lookup('password', '/dev/null length=15 chars=ascii_letters') }}"
   when: (ansible_local.mysql_client|default({})).password is undefined
@@ -75,16 +75,16 @@ This fact is deployed with the following tasks :
     password: '{{ansible_local.mysql_client.password}}'
     state: present
   delegate_to: '{{mysql_server}}'
-{{< /highlight >}}
+```
 
 ## Caveat : a fact you deploy is not immediately available
 
 Note that installing a fact does not make it exist before the next inventory run on the host. This can be problematic especially if you rely on facts caching to speed up ansible. Here
 is how to make ansible reload facts using the setup tasks (If you paid attention you already saw me use it above).
-{{< highlight yaml >}}
+```yaml
 - name: reload ansible_local
   setup: filter=ansible_local
-{{< /highlight >}}
+```
 
 ## References
 

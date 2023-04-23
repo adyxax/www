@@ -11,15 +11,15 @@ tags:
 ## The problem
 
 At my current workplace there are die hard screen fanatics that refuse to upgrade to tmux. Sometimes I get the following error :
-{{< highlight sh >}}
+```sh
 Cannot open your terminal '/dev/pts/0' - please check.
-{{< /highlight >}}
+```
 
 ## The solution
 
 This error means that you did not open the shell with the user you logged in with. You can make screen happy by running : 
-{{< highlight sh >}}
+```sh
 script /dev/null
-{{< /highlight >}}
+```
 
 In this new environment your screen commands will work normally.

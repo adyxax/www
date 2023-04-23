@@ -8,9 +8,9 @@ tags:
 
 ## The solution
 In `~/.sqliterc` add the following :
-{{< highlight sh >}}
+```cfg
 .mode column
 .headers on
 .separator ROW "\n"
 .nullvalue NULL
-{{< /highlight >}}
+```

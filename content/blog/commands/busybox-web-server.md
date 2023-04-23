@@ -11,6 +11,6 @@ tags:
 
 If you have been using things like `python -m SimpleHTTPServer` to serve static files in a pinch, here is something even more simple and lightweight to use :
 
-{{< highlight sh >}}
+```sh
 busybox httpd -vfp 80
-{{< /highlight >}}
+```

@@ -9,7 +9,7 @@ tags:
 
 Here is my template for a simple smtp relay. The host names in the outbound action are to be customized obviously, and in my setups `yen` the relay destination is only reachable via wireguard. If not in such setup, smtps with authentication is to be configured :
 
-{{< highlight conf >}}
+```cfg
 table aliases file:/etc/mail/aliases
 
 listen on socket
@@ -20,13 +20,13 @@ action "outbound" relay host "smtp://yen" mail-from "root+phoenix@adyxax.org"
 
 match from local for local action "local_mail"
 match from local for any action "outbound"
-{{< /highlight >}}
+```
 
 ## Primary mx
 
 Here is my primary mx configuration as a sample :
 
-{{< highlight conf >}}
+```cfg
 pki adyxax.org cert "/etc/ssl/yen.adyxax.org.crt"
 pki adyxax.org key  "/etc/ssl/private/yen.adyxax.org.key"
 
@@ -59,7 +59,7 @@ match  from local   for local action "local_mail"
 
 match from any   auth  for any action "outbound"
 match from mail-from "root+phoenix@adyxax.org" for any action "outbound"  # if you need to relay emails from another machine to the internet like I do
-{{< /highlight >}}
+```
 
 ## Secondary mx
 

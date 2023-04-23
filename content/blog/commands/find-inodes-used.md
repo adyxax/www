@@ -10,6 +10,6 @@ tags:
 
 ## The command
 
-{{< highlight sh >}}
+```sh
 find . -xdev -printf '%h\n' | sort | uniq -c | sort -k 1 -n
-{{< /highlight >}}
+```

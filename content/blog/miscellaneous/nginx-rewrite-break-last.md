@@ -13,7 +13,7 @@ Today I was called in escalation to debug why a set of rewrites was suddenly mis
 ## Outside a location block
 
 When used outside a location block, these keywords stop the rules evaluation and then evaluate to a location. Consider the following example :
-{{< highlight nginx >}}
+```nginx
 server {
 	[...]
 	location / {
@@ -28,11 +28,11 @@ server {
 	rewrite ([^/]+\.txt)$ /texts/$1 last;
 	rewrite ([^/]+\.cfg)$ /configs/$1 break;
 }
-{{< /highlight >}}
+```
 
 If you run several curls you can see the behaviour illustrated :
 
-{{< highlight sh >}}
+```sh
 curl http://localhost/test
 root   # we hit the root handler without any redirect matching
 
@@ -41,14 +41,14 @@ texts  # we hit the rewrite to /texts/test.txt, which is then reevaluated and hi
 
 curl http://localhost/test.cfg
 configs  # we hit the rewrite to /configs/test.cfg, which is then reevaluated and hits the configs location
-{{< /highlight >}}
+```
 
 ## Inside a location block
 
 When used inside a location block a rewrite rule flagged last will eventually trigger a location change (it is reevaluated based on the new url) but this does not happen when break is used.
 
 Consider the following example :
-{{< highlight nginx >}}
+```nginx
 server {
 	[...]
 	location / {
@@ -63,11 +63,11 @@ server {
 		return 200 'configs';
 	}
 }
-{{< /highlight >}}
+```
 
 If you run several curls you can see the behaviour illustrated :
 
-{{< highlight sh >}}
+```sh
 curl http://localhost/test
 root   # we hit the root handler without any redirect matching
 
@@ -76,7 +76,7 @@ texts  # we hit the rewrite to /texts/test.txt, which is then reevaluated and hi
 
 curl http://localhost/test.cfg
 404 NOT FOUND     # or maybe a file if you had a test.cfg file in your root directory!
-{{< /highlight >}}
+```
 
 Can you see what happened for the last test? The break statement in a location stops all evaluation, and do not reevaluate the resulting path in any location. Nginx therefore tries to serve a file from the root directory specified for the server. That is the reason we do not get either `root` or `configs` as outputs.
 

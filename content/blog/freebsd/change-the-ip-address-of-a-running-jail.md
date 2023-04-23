@@ -11,6 +11,6 @@ tags:
 
 Here is how to change the ip address of a running jail :
 
-{{< highlight sh >}}
+```sh
 jail -m ip4.addr=“192.168.1.87,192.168.1.88” jid=1
-{{< /highlight >}}
+```

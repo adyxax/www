@@ -14,9 +14,9 @@ On the [about-me]({{< ref "about-me" >}}) page I had hardcoded my age. I wanted 
 
 Added a custom markdown shortcode in hugo in as simple as creating a `layouts/shortcodes/` directory. Each html file created inside will define a shortcode from the filename. In my example I want to calculate my age so I named the shortcode `age.html` and added the following simple template code :
 
-{{< highlight html >}}
+```html
 {{ div (sub now.Unix 493473600 ) 31556926 }}
-{{< / highlight >}}
+```
 
 The first number is the timestamp of my birthday, the second represents how many seconds there are in a year.
 
@@ -24,14 +24,14 @@ The first number is the timestamp of my birthday, the second represents how many
 
 With this `layouts/shortcodes/age.html` file I can just add the following in a page to add my age :
 
-{{< highlight html >}}
+```html
 {{< print "{{% age %}}" >}}
-{{< / highlight >}}
+```
 
 And if you are wondering how I am able to display a shortcode code inside this page without having it render, it is because I defined another shortcode that does exactly like this :
-{{< highlight html >}}
+```html
 {{< print "{{ index .Params 0 }}" >}}
-{{< / highlight >}}
+```
 
 You can find these examples [here](https://git.adyxax.org/adyxax/www/tree/layouts/shortcodes)! Hugo really is a powerful static website generator, it is amazing.
 

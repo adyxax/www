@@ -9,11 +9,11 @@ tags:
 
 ## Usage example
 
-{{< highlight sh >}}
+```sh
 modprobe nbd max_part=8
 qemu-nbd -c /dev/nbd0 image.img
 mount /dev/nbd0p1 /mnt   # or vgscan && vgchange -ay
 [...]
 umount /mnt
 qemu-nbd -d /dev/nbd0
-{{< /highlight >}}
+```

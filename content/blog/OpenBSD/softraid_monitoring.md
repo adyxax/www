@@ -13,32 +13,32 @@ I have reinstalled my nas recently from gentoo to OpenBSD and was amazed once ag
 ## Softraid monitoring
 
 I had a hard time figuring out how to properly monitor the state of the array without relying on parsing the output of `bioctl` but at last here it is in all its elegance :
-{{< highlight sh >}}
+```sh
 root@nas:~# sysctl hw.sensors.softraid0
 hw.sensors.softraid0.drive0=online (sd4), OK
-{{< /highlight >}}
+```
 
 I manually failed one drive (with `bioctl -O /dev/sd2a sd4`) then rebuilt it (with `bioctl -R /dev/sd2a sd4)`... then failed two drives in order to have examples of all possible outputs. Here they are if you are interested :
-{{< highlight sh >}}
+```sh
 root@nas:~# sysctl hw.sensors.softraid0
 hw.sensors.softraid0.drive0=degraded (sd4), WARNING
-{{< /highlight >}}
+```
 
-{{< highlight sh >}}
+```sh
 root@nas:~# sysctl hw.sensors.softraid0
 hw.sensors.softraid0.drive0=rebuilding (sd4), WARNING
-{{< /highlight >}}
+```
 
-{{< highlight sh >}}
+```sh
 root@nas:~# sysctl -a |grep -i softraid
 hw.sensors.softraid0.drive0=failed (sd4), CRITICAL
-{{< /highlight >}}
+```
 
 ## Nagios check
 
 I am still using nagios on my personal infrastructure, here is the check I wrote if you are interested :
 
-{{< highlight perl >}}
+```perl
 #!/usr/bin/env perl
 ###############################################################################
 #     \_o<     WARNING : This file is being managed by ansible!      >o_/     #
@@ -71,4 +71,4 @@ if (`uname` eq "OpenBSD\n") {
 
 print $output{status};
 exit $output{code};
-{{< /highlight >}}
+```

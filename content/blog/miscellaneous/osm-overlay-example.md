@@ -13,7 +13,7 @@ OpenStreetMap is a great resource and there is a lot more information stored the
 ## The solution
 
 Go to http://overpass-turbo.eu/ and enter a filter script similar to the following :
-{{< highlight html >}}
+```html
 <osm-script>
   <query type="node">
     <has-kv k="amenity" v="recycling"/>
@@ -22,6 +22,6 @@ Go to http://overpass-turbo.eu/ and enter a filter script similar to the followi
   <!-- print results -->
   <print mode="body"/>
 </osm-script>
-{{< /highlight >}}
+```
 
 This example will highlight the recycling points near a target location. From there you can build almost any filter you can think of!

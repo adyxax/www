@@ -9,6 +9,6 @@ tags:
 ## git filter-branch
 
 Here is how to rewrite a git commit history, for example to remove a file :
-{{< highlight sh >}}
+```sh
 git filter-branch –index-filter "git rm --cached --ignore-unmatch ${file}" --prune-empty --tag-name-filter cat - -all
-{{< /highlight >}}
+```

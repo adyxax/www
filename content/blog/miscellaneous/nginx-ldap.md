@@ -8,7 +8,7 @@ tags:
 
 ## How to
 
-{{< highlight nginx >}}
+```nginx
 ldap_server ldap {
     auth_ldap_cache_enabled on;
     auth_ldap_cache_expiration_time 10000;
@@ -23,4 +23,4 @@ ldap_server ldap {
     require valid_user;
     #require group "cn=admins,ou=groups,dc=adyxax,dc=org";
 }
-{{< /highlight >}}
+```

@@ -16,13 +16,13 @@ It turns out it is quite simple. First you will need to generate a [github acces
 
 Then you create a git hook with a script that looks like the following :
 
-{{< highlight sh >}}
+```sh
 #!/usr/bin/env bash
 set -eu
 
 git push --mirror --quiet https://adyxax:TOKEN@github.com/adyxax/www.git &> /dev/null
 echo 'github updated'
-{{< /highlight >}}
+```
 
 Just put your token there, adjust your username and the repository path then it will work. I am using this in `post-receive` hooks on my git server on several repositories without any issue.
 

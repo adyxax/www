@@ -12,7 +12,7 @@ This article is about my installation of pleroma in a standard alpine linux lxd 
 
 ## Installation notes
 
-{{< highlight sh >}}
+```sh
 apk add elixir nginx postgresql postgresql-contrib git sudo erlang-ssl erlang-xmerl erlang-parsetools \
   erlang-runtime-tools make gcc build-base vim vimdiff htop curl
 /etc/init.d/postgresql start
@@ -24,10 +24,10 @@ mix deps.get
 mix generate_config
 cp config/generated_config.exs config/prod.secret.exs
 cat config/setup_db.psql
-{{< /highlight >}}
+```
 
 At this stage you are supposed to execute these setup_db commands in your postgres. Instead of chmoding and stuff detailed in the official documentation I execute it manually from psql shell :
-{{< highlight sh >}}
+```sh
 su - postgres
 psql
 CREATE USER pleroma WITH ENCRYPTED PASSWORD 'XXXXXXXXXXXXXXXXXXX';
@@ -35,21 +35,21 @@ CREATE DATABASE pleroma_dev OWNER pleroma;
 \c pleroma_dev;
 CREATE EXTENSION IF NOT EXISTS citext;
 CREATE EXTENSION IF NOT EXISTS pg_trgm;
-{{< /highlight >}}
+```
 
 Now back to pleroma :
-{{< highlight sh >}}
+```sh
 MIX_ENV=prod mix ecto.migrate
 MIX_ENV=prod mix phx.server
-{{< /highlight >}}
+```
 
 If this last command runs without error your pleroma will be available and you can test it with : 
-{{< highlight sh >}}
+```sh
 curl http://localhost:4000/api/v1/instance
-{{< /highlight >}}
+```
 
 If this works, you can shut it down with two C-c and we can configure nginx. This article doesn't really cover my setup since my nginx doesn't run there, and I am using letsencrypt wildcard certificates fetched somewhere else unrelated, so to simplify I only paste the vhost part of the configuration :
-{{< highlight sh >}}
+```sh
 ### in nginx.conf inside the container ###
 # {{{ pleroma
 proxy_cache_path /tmp/pleroma-media-cache levels=1:2 keys_zone=pleroma_media_cache:10m max_size=500m
@@ -96,10 +96,10 @@ location /proxy {
 }
 
 client_max_body_size 20M;
-{{< /highlight >}}
+```
 
 Now add the phx.server on boot. I run pleroma has plemora user to completely limit the permissions of the server software. The official documentation has all files belong to the user running the server, I prefer that only the uploads directory does. Since I don't run nginx from this container I also edit this out :
-{{< highlight sh >}}
+```sh
 adduser -s /sbin/nologin -D -h /srv/pleroma pleroma
 cp -a /root/.hex/ /srv/pleroma/.
 cp -a /root/.mix /srv/pleroma/.
@@ -110,12 +110,12 @@ sed -i /etc/init.d/pleroma -e '/^command_user=/s/=.*/=nobody:nobody/'
 sed -i /etc/init.d/pleroma -e 's/nginx //'
 rc-update add pleroma default
 rc-update add pleroma start
-{{< /highlight >}}
+```
 
 You should be good to go and access your instance from any web browser. After creating your account in a web browser come back to the cli and set yourself as moderator : 
-{{< highlight sh >}}
+```sh
 mix set_moderator adyxax
-{{< /highlight >}}
+```
 
 ## References
 

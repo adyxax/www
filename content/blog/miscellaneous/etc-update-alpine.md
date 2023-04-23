@@ -10,7 +10,7 @@ tags:
 ## The script
 
 Alpine linux doesn't seem to have a tool to merge pending configuration changes, so I wrote one :
-{{< highlight sh >}}
+```sh
 #!/bin/sh
 set -eu
  
@@ -37,4 +37,4 @@ for new_file in $(find /etc -iname '*.apk-new'); do
         esac
     done
 done
-{{< /highlight >}}
+```

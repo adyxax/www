@@ -14,7 +14,7 @@ By default, docker-compose will create a network with a randomly named bridge. I
 
 For example if your bridge is named docbr1, you need to put your services in `network_mode: “bridge”` and add a custom `network` entry like :
 
-{{< highlight yaml >}}
+```yaml
 version: '3.0'
 
 services:
@@ -32,4 +32,4 @@ networks:
   default:
     external:
       name: docbr1
-{{< /highlight >}}
+```

@@ -11,6 +11,6 @@ tags:
 At alterway we sometimes have DTMF problems that prevent my mobile from joining a conference room. Here is something I use to have asterisk call me
 and place me inside the room :
 
-{{< highlight yaml >}}
+```
 channel originate SIP/numlog/06XXXXXXXX application MeetMe 85224,M,secret
-{{< /highlight >}}
+```
