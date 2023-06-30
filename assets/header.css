@@ -14,8 +14,7 @@ header nav ol {
 }
 header nav ol li a {
 	display: block;
-	font-size: 1.25rem;
-	padding: 4px 16px 14px 16px;
+	padding: 4px 12px 14px 12px;
 	text-align: center;
 	text-decoration: none;
 }
@@ -34,7 +33,7 @@ header nav ol li a:hover {
 	background-color: var(--bg-1);
 }
 #title {
-	font-weight: 700;
+	font-weight: bold;
 	text-transform: uppercase;
 }
 #themes {
@@ -42,7 +41,7 @@ header nav ol li a:hover {
 	border: none;
 	color: var(--fg-1);
 	display: none;
-	font-size: 1.25rem;
+	font-size: 100%;
 	margin: 0;
 	padding: 0;
 }
