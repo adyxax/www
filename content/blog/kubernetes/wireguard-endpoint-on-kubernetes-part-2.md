@@ -378,7 +378,7 @@ resource "kubernetes_network_policy" "wireguard-postgresql" {
 }
 ```
 
-If you are not using network policies (you really should) in a namespace, DO NOT create these objects or you will lose connectivity to these namespaces. Kubernetes behaviour when there are no network policies in place in to allow everything, but as soon as the a network policy is created and selects a pod then only traffic that matches it will be allowed. You have been warned!
+If you are not using network policies (you really should) in a namespace, DO NOT create these objects or you will lose connectivity to these namespaces. Kubernetes behaviour when there are no network policies in place in to allow everything, but as soon as a network policy is created then only traffic that matches it will be allowed. You have been warned!
 
 ## Exporting the connection information
 
