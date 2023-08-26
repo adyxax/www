@@ -1,0 +1,12 @@
+---
+# https://docs.github.com/en/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates
+version: 2
+updates:
+  - directory: "/"
+    package-ecosystem: "github-actions"
+    schedule:
+      interval: "daily"
+  - directory: "/search/"
+    package-ecosystem: "gomod"
+    schedule:
+      interval: "daily"
