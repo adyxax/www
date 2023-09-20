@@ -51,4 +51,4 @@ When I am not doing all the above, I like running, biking, hiking, skiing and re
 
 ## How to get in touch
 
-You can write me an email at `julien -DOT- dessaux -AT- adyxax -DOT- org`, I will answer. I will also respond on activity pub at `-AT- adyxax -AT- adyxax.org`.
+You can write me an email at `julien -DOT- dessaux -AT- adyxax -DOT- org`, I will answer. If you want us to have some privacy, [here is my public gpg key](/static/F92E51B86E07177E.pgp). I will also respond on activity pub at `-AT- adyxax -AT- adyxax.org`.
