@@ -47,9 +47,12 @@ nixos-generate-config --root /mnt
 ```
 
 This will generate a `/mnt/etc/nixos/hardware-configuration.nix` with the specifics of your machine along with a basic `/mnt/etc/nixos/configuration.nix` that I replaced with:
-```sh
+```nix
 { config, pkgs, ... }:
 {
+	imports = [
+		./hardware-configuration.nix
+	];
 	boot.kernelParams = [
 		"console=ttyS0"
 		"console=tty1"
@@ -93,7 +96,6 @@ This will generate a `/mnt/etc/nixos/hardware-configuration.nix` with the specif
 		sudo.enable = false;
 	};
 	services = {
-	services = {
 		openssh = {
 			enable = true;
 			settings.KbdInteractiveAuthentication = false;
@@ -107,9 +109,9 @@ This will generate a `/mnt/etc/nixos/hardware-configuration.nix` with the specif
 		adyxax = {
    			description = "Julien Dessaux";
    			extraGroups = [ "wheel" ];
-   			isNormalUser = true;
    			hashedPassword = "$y$j9T$Nne7Ad1nxNmluCKBzBG3//$h93j8xxfBUD98f/7nGQqXPeM3QdZatMbzZ0p/G2P/l1";
    			home = "/home/julien";
+   			isNormalUser = true;
    			openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILOJV391WFRYgCVA2plFB8W8sF9LfbzXZOrxqaOrrwco adyxax@yen" ];
    		};
    		root = {
