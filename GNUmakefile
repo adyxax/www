@@ -12,7 +12,7 @@ REVISION=$(shell git rev-parse HEAD)
 .PHONY: build
 build: ## make build		# builds an optimized version of the website in $(DESTDIR)
 	@echo "----- Generating site -----"
-	hugo --gc --minify --cleanDestinationDir -d $(DESTDIR) --cacheDir $(CACHEDIR)
+	hugo --gc --minify --cleanDestinationDir -d $(DESTDIR) --cacheDir $(CACHEDIR) --buildFuture
 	cp public/index.json search/
 	cp public/search/index.html search/
 	(cd search && CGO_ENABLED=0 go build -ldflags '-s -w -extldflags "-static"' ./search.go)
@@ -43,6 +43,6 @@ push: ## make push		# push the built images to quay.io
 
 .PHONY: serve
 serve: ## make serve		# hugo web server development mode
-	hugo serve --disableFastRender --noHTTPCache --cacheDir $(CACHEDIR) --bind 0.0.0.0 --port 1313 -b http://$(HOSTNAME):1313/
+	hugo serve --disableFastRender --noHTTPCache --cacheDir $(CACHEDIR) --bind 0.0.0.0 --port 1313 -b http://$(HOSTNAME):1313/ --buildFuture --navigateToChanged
 
 .DEFAULT_GOAL := help
