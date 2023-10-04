@@ -24,6 +24,7 @@ Install your vps or compute instance normally using a Linux distribution (or any
 
 We are going to remount the partitions as the running OS as read only. In order to do that, we are going to shutdown nearly everything! If at some point you lose access to your system, just force reboot it and try again. Our goal is for those commands to run without an error:
 ```sh
+swapoff -a
 mount -o remount,ro /boot
 mount -o remount,ro /
 ```
@@ -37,7 +38,13 @@ On most Linux you can list running services using `systemctl|grep running` and b
 - session-XX
 - user@0 (root) and any user@XX where XX is the uid you connected with
 
-Everything else should be fair game, here is a list of what I shutdown on an oracle cloud compute before I could remount / read only:
+Everything else should be fair game, what you are looking for are processus that keep files opened for writing. Those can be identified with:
+- `lsof / | awk '$4 ~ /[0-9].*w/'`
+- `fuser -v -m /`
+- `ps aux`
+- `systemctl|grep running`
+
+Here is a list of what I shutdown on an oracle cloud compute before I could remount / read only:
 ```sh
 systemctl stop smartd
 systemctl stop rpcbind
@@ -77,6 +84,7 @@ systemctl stop serial-getty@ttyS0.service
 
 Remember, your success condition is to be able to run this without errors:
 ```sh
+swapoff -a
 mount -o remount,ro /boot
 mount -o remount,ro /
 ```
