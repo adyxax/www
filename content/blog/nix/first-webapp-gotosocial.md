@@ -8,7 +8,7 @@ tags:
 
 ## Introduction
 
-Gotosocial is just a service that was running on one of my FreeBSD servers. Being a simple web application it is a good candidate to showcase what I like most about nixos and its declarative configurations!
+Gotosocial is a service that was running on one of my FreeBSD servers. Being a simple web application it is a good candidate to showcase what I like most about nixos and its declarative configurations!
 
 ## A bit about the nix language
 
@@ -17,7 +17,7 @@ I recommend you read [the official documentation](https://nixos.wiki/wiki/Overvi
 - The basic block structures are in fact Sets, meaning lists of key-value pairs where the keys are unique.
 - The `{...}: { }` that structure the whole file is a module definition. In the first curly braces are arguments.
 - The `let ...; in { }` construct is a way to define local variables for usage in the block following the `in`.
-- You can write strings with double quotes or double single quotes. This makes it so that you almost never need to escape characters! The double single quote also allows to write multi line strings that will smartly strip the starting white spaces.
+- You can write strings with double quotes or double single quotes. This makes it so that you almost never need to escape characters! The double single quotes also allow to write multi line strings that will smartly strip the starting white spaces.
 - file system paths are not strings!
 - list elements are separated by white spaces.
 - You can merge the keys in two sets with `//`, often used in conjunction with `let` local variables.
@@ -50,11 +50,13 @@ environment.systemPackages = [ pkgs.sqlite ];
 
 ## Configuration
 
-The following configuration defines in order:
-- gotosocial's YAML configuration file
-- Borg backup jobs for the SQLite database and the local storage
-- Nginx virtual host
-- gotosocial container
+The following configuration does in order:
+- Imports the Nginx.nix module defined in the next section.
+- Deploys Gotosocial's YAML configuration file.
+- Installs `sqlite`, necessary for our database backup preHook.
+- Defines two Borg backup jobs: one for the SQLite database and one for the local storage.
+- Configures an Nginx virtual host.
+- Deploys the Gotosocial container.
 
 ```nix
 { config, pkgs, ... }:
@@ -148,4 +150,4 @@ nixos-rebuild  switch
 
 ## Conclusion
 
-I hope you find this way of declaratively configuring a whole operating system as elegant as I do. The nix configuration language is a bit rough, but I find it is not hard to wrap your head around the basics.
+I hope you find this way of declaratively configuring a whole operating system as elegant as I do. The nix configuration language is a bit rough, but I find it is not so hard to wrap your head around the basics. When it all clicks it is nice to know that you can reproduce this deployment anywhere just from this configuration!
