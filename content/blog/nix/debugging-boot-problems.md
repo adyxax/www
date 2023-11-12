@@ -1,7 +1,7 @@
 ---
 title: Recovering a nixos installation from a Linux rescue image
 description: How to chroot into a broken nixos system and fix it
-date: 2023-11-12
+date: 2023-11-13
 tags:
 - nix
 ---
