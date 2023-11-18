@@ -28,7 +28,13 @@ clean: ## make clean		# removed all $(DESTDIR) contents
 	rm -rf $(DESTDIR)
 
 .PHONY: deploy
-deploy: ## make deploy	# deploy the website the active kubernetes context
+deploy: ## make deploy	# deploy the website to myth.adyxax.org
+	rsync -a $(DESTDIR) root@myth.adyxax.org:/srv/www/
+	rsync search/search root@myth.adyxax.org:/srv/www/search/search
+	ssh root@myth.adyxax.org "systemctl restart www-search"
+
+.PHONY: deploy-kube
+deploy-kube: ## make deploy-kube	# deploy the website to the active kubernetes context
 	sed -i deploy/www.yaml -e 's/^\(\s*image:[^:]*:\).*$$/\1$(REVISION)/'
 	kubectl apply -f deploy/www.yaml
 
