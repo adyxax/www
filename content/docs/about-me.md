@@ -20,9 +20,9 @@ Intersec gave me the opportunity of working as the head of IT for about 5 years 
 * Emails with Postfix, Dovecot, Dspam, Postgrey, ClamAV and OpenLDAP.
 * Backups with Bacula then Bareos.
 * Monitoring with Nagios.
-* Automating everything with Cfengine3 and bash and perl scripting.
+* Automating everything with Cfengine3, bash and perl scripting, from servers to developers workstations.
 * Issue tracking with Redmine, git hosting with gitolite3 and code review with gerrit.
-* Linux (Debian and Centos/RedHat), virtualization with Ganeti, containerization with LXC.
+* Linux (Debian and Centos/RedHat), virtualization with Ganeti, containerization with LXC then LXD and docker.
 * NFS and Samba file servers.
 * OpenBSD firewalls and routers.
 * Juniper and cisco switches, Juniper Wifi hardware with 802.1x security.
@@ -31,7 +31,7 @@ Besides this IT role, I also designed the high availability platforms we deploye
 
 As a manager I also recruited and managed a small team of 2 people for a few years, 3 the last year.
 
-I left Intersec in june 2016 after seven years, looking for new challenges and for a new life away from the capital. Paris is a great city, but I needed a change and left for Lyon.
+I left Intersec in june 2016 after seven years, looking for new challenges and a new life away from the capital. Paris is a great city, but I needed a change and left for Lyon.
 
 ### System and Network Architect at alter way (2016 - 2021)
 
@@ -39,15 +39,15 @@ alter way is a web hosting company.
 
 I joined alter way in October 2016 for a purely technical role and a bit of a career shift towards networking and infrastructure. There I had the opportunity to rework many core systems and processes that helped the company grow in many ways.
 
-On the networking side I helped put in production and operate our anti-ddos systems and reworked then maintained our bgp routers configurations for that purpose. I also lead the one year long upgrade project of our core network to 100G technologies based on Arista hardware. The core switches relied on OSPF as underlay and VxLAN as overlay. The routers also used OSPF as IGP.
+On the networking side I helped put in production and operate our anti-ddos systems and reworked then maintained our bgp routers configurations for that purpose. I also lead the one year long upgrade project of our core network to 100G technologies based on Arista hardware. The core switches relied on OSPF as underlay and VxLAN as overlay. The routers were from Juniper and also used OSPF as IGP.
 
-I implemented a virtualized pre-production of all the core devices in gns3 in order to automate the configuration management and test protocol interactions. Automation was first implemented with ansible but was soon replaced with a perl tool for generating and deploying the configurations. Ansible was too slow and we went from a dozen minutes to redeploy the entire backbone configurations down to a few seconds.
+I implemented a virtualized pre-production of all the core devices in gns3 in order to automate the configuration management and test protocols interactions. Automation was first implemented with ansible but was soon replaced with a perl tool for generating and deploying the configurations because Ansible was too slow: we went from a dozen minutes to redeploy the entire backbone configurations down to a few seconds.
 
-I also maintained and improved the way we operate our netapp storage clusters by automating processes and standardizing configurations. This allowed to rework the way we operate our PRA to reduce downtimes and allow for proper testing of the PRA before we need it. I also handled the hardware refreshes and the storage migrations.
+I also maintained and improved the way we operate our netapp storage clusters by automating processes and standardizing configurations. I reworked the way we operate our PRA to reduce downtimes and allow for proper testing of the PRA before we need it. I also handled the upgrades, hardware refreshes and the storage migrations.
 
 On the systems side I redesigned the backup platform from the ground up with a mix of bareos and docker on debian. The platform's usage was of about 120TB and managed to backup everything incrementaly every night on just two big storage servers.
 
-On a final note I had the opportunity to work on the redesign of how we deploy and operate alter way's public cloud offering (networking, storage and compute). I worked on a mix of hardware virtualization and kubernetes and automated most things ansible and terraform. I also had my first experiences with cloud system administration while helping clients moving to hybrid architecture (a balanced mix of on premise and in the cloud).
+On a final note I had the opportunity to redesign how we deploy and operate alter way's public cloud offering (networking, storage and compute). I worked on a mix of hardware virtualization and kubernetes and automated most things with ansible and terraform. I also had my first experiences with cloud system administration while helping clients moving to hybrid architecture (a balanced mix of on premise and in the cloud).
 
 It has been a great and diversified experience, but after five years I felt my future was not necessarily in an architect role with purely on premise hardware and decided to move on.
 
