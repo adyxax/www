@@ -147,7 +147,7 @@ run: mandatory-host-param ## make  run  host=<hostname>
 
 .PHONY: update
 update: ## make  update
-	nixos-channel --update
+	nix-channel --update
 
 ##### UTILS ####################################################################
 .PHONY: help
@@ -157,10 +157,11 @@ help:
 .PHONY: mandatory-host-param
 mandatory-host-param:
 ifndef host
-	$(error host is not set)
-endif
+	@echo "Error: host parameter is not set"; exit 1
+else
 ifeq ($(wildcard hosts/$(host)), )
-	$(error host has no configuration in hosts/$(host))
+	@echo "Error: host has no configuration in ./hosts/$(host)"; exit 1
+endif
 endif
 ```
 
