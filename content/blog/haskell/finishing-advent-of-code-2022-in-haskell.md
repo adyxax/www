@@ -8,7 +8,7 @@ tags:
 
 ## Introduction
 
-I wrote about doing the [advent of code 2022 in zig]({{< ref "advent-of-code-2022-in-zig.md" >}}), but I did not complete the year. I stopped on using zig on day 15 when I hit a bug when using hashmaps that I could not solve in time and continued in JavaScript until [day 2022](https://adventofcode.com/2022/day/22). On day 22 part 2, you need to fold a cube and move on it keeping track of your orientation... It was hard!
+I wrote about doing the [advent of code 2022 in zig]({{< ref "advent-of-code-2022-in-zig.md" >}}), but I did not complete the year. I stopped on using zig on day 15 when I hit a bug when using hashmaps that I could not solve in time and continued in JavaScript until [day 22](https://adventofcode.com/2022/day/22). On day 22 part 2, you need to fold a cube and move on it keeping track of your orientation... It was hard!
 
 Last week I wanted to warm up for the current advent of code and therefore took it up again... it was (almost) easy with Haskell!
 
