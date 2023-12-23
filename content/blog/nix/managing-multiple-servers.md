@@ -25,7 +25,7 @@ Here are the directories inside my nixos repository:
 │   └── vaultwarden
 ├── hosts
 │   ├── dalinar.adyxax.org
-│   ├── lumapps-jde.adyxax.org
+│   ├── gcp.adyxax.org
 │   └── myth.adyxax.org
 └── lib
     └── common
