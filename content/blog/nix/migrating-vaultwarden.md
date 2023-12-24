@@ -189,11 +189,11 @@ mv srv/vaultwarden /srv/
 export BORG_RSH="ssh -i /etc/borg-vaultwarden-db.key"
 borg list ssh://borg@gcp.adyxax.org/srv/borg/vaultwarden-db
 borg extract ssh://borg@gcp.adyxax.org/srv/borg/vaultwarden-db::dalinar-vaultwarden-db-2023-11-19T00:00:01
+psql -h localhost -U postgres -d vaultwarden
 ```
 
 Restoring the data itself is done with the psql shell:
-```sh
-psql -h localhost -U postgres -d vaultwarden
+```sql
 ALTER USER vaultwarden WITH PASSWORD 'XXXXX';
 \i tmp/vaultwarden.sql
 ```
