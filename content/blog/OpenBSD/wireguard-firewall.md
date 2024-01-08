@@ -2,7 +2,7 @@
 title: Wireguard firewalling on OpenBSD
 description: How to configure pf for wireguard on OpenBSD
 date: 2023-03-04
-tage:
+tags:
 - pf
 - vpn
 - wireguard

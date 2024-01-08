@@ -2,7 +2,7 @@
 title: Wireguard firewalling on FreeBSD
 description: How to configure pf for wireguard on FreeBSD
 date: 2023-03-15
-tage:
+tags:
 - pf
 - vpn
 - wireguard

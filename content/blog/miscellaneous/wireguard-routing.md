@@ -2,7 +2,7 @@
 title: Wireguard routing part one
 description: The basics to know about wireguard routing
 date: 2023-02-21
-tage:
+tags:
 - vpn
 - wireguard
 ---

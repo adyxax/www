@@ -2,7 +2,7 @@
 title: Wireguard routing part two
 description: An advanced example
 date: 2023-02-23
-tage:
+tags:
 - vpn
 - wireguard
 ---
