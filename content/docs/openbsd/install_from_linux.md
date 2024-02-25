@@ -3,6 +3,7 @@ title: Install OpenBSD from linux
 description: How to install OpenBSD at hosting providers that do not support it
 tags:
 - OpenBSD
+- UpdateNeeded
 ---
 
 ## Introduction

@@ -1,6 +1,8 @@
 ---
 title: "nethack"
 description: nethack.adyxax.org game server
+tags:
+- UpdateNeeded
 ---
 
 ## Introduction

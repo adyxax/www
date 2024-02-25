@@ -1,6 +1,8 @@
 ---
 title: "Installation"
 description: Installation notes of www on k3s
+tags:
+- UpdateNeeded
 ---
 
 ## Introduction

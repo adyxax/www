@@ -4,6 +4,7 @@ description: How to install Alpine Linux at hosting providers that do not suppor
 tags:
 - Alpine
 - linux
+- UpdateNeeded
 ---
 
 ## Introduction

@@ -1,6 +1,8 @@
 ---
 title: Container images
 description: How container images are built, where they are stored and how they are deployed
+tags:
+- UpdateNeeded
 ---
 
 ## Building

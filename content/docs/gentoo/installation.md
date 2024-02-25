@@ -4,6 +4,7 @@ description: Installation of a gentoo system
 tags:
 - gentoo
 - linux
+- UpdateNeeded
 ---
 
 ## Introduction

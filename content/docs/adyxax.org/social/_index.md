@@ -9,6 +9,7 @@ social.adyxax.org is the server hosting my [gotosocial]({{< ref "going-social-2.
 
 ## Captain's log
 
+- 2023-10-26 : migrated to nixos on dalinar.adyxax.org
 - 2022-11-20 : switched to gotosocial on lore.adyxax.org
 - 2022-11-11 : Initial setup of ktistec on myth.adyxax.org
 

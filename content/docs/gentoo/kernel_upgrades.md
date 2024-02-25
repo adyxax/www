@@ -4,6 +4,7 @@ description: Gentoo kernel upgrades on adyxax.org
 tags:
 - gentoo
 - linux
+- UpdateNeeded
 ---
 
 ## Introduction

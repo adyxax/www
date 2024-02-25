@@ -1,6 +1,8 @@
 ---
 title: "irc"
 description: irc.adyxax.org private chat server
+tags:
+- UpdateNeeded
 ---
 
 ## Introduction
@@ -11,7 +13,7 @@ There is a Server to Server configuration commented bellow that I use when migra
 
 ## Captain's log
 
-- 2020-10-00 : migrated to yen on OpenBSD
+- 2020-10-01 : migrated to yen on OpenBSD
 
 ## Configuration
 

@@ -3,6 +3,7 @@ title: Install FreeBSD from linux
 description: How to install FreeBSD at hosting providers that do not support it
 tags:
 - FreeBSD
+- UpdateNeeded
 ---
 
 ## Introduction

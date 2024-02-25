@@ -5,6 +5,7 @@ tags:
 - k3s
 - kubernetes
 - postgresql
+- UpdateNeeded
 - vaultwarden
 ---
 

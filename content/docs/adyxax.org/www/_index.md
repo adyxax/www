@@ -13,6 +13,8 @@ For a log of how I made the initial setup, see [this blog article.]({{< ref "swi
 
 ## Captain's log
 
+- 2023-10-31: Migrated to nixos on myth.adyxax.org
+- 2023-10-20: Migrated to nixos on dalinar.adyxax.org
 - 2023-01-28: [Website makeover]({{< ref "selenized.md" >}})
 - 2021-09-12: [Added the search feature]({{< ref "blog/hugo/search.md" >}})
 - 2021-07-28: Migrated to k3s setup on myth.adyxax.org
