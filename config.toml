@@ -7,6 +7,11 @@ enableGitInfo = true
 paginate = 32
 rssLimit = 16
 
+[frontmatter]
+date = ['date', 'lastmod', ':git']
+lastmod = [':git', 'lastmod', 'date']
+publishDate = ['date', 'lastmod']
+
 [markup]
 [markup.highlight]
 anchorLineNos = false

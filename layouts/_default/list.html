@@ -12,14 +12,23 @@
 {{$.Scratch.Set "blog-pages" .Pages }}
 {{ end }}
 
-{{ $pag := .Paginate (( $.Scratch.Get "blog-pages").GroupByDate "2006")}}
+{{ $pag := .Paginate (( $.Scratch.Get "blog-pages").GroupByPublishDate "2006")}}
 {{ range $pag.PageGroups }}
+{{ if ne .Key "0001" }}
 <h2>{{ T "post_posts_in" }} {{ .Key }}</h2>
 <ul>
 	{{ range .Pages }}
 	<li>{{ .PublishDate.Format "2006-01-02" }} - <a href="{{ .RelPermalink }}">{{ .Title }}</a> : {{ .Description }}</li>
 	{{ end }}
 </ul>
+{{ else }}
+<h2>Docs</h2>
+<ul>
+	{{ range .Pages }}
+	<li><a href="{{ .RelPermalink }}">{{ .Title }}</a> : {{ .Description }}</li>
+	{{ end }}
+</ul>
+{{ end }}
 {{ end }}
 {{ partial "pagination.html" . }}
 {{ end }}
