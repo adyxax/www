@@ -7,7 +7,7 @@ MAKEFLAGS += --no-builtin-rules
 
 CACHEDIR=/tmp/hugo-cache-$(USER)
 DESTDIR=public/
-HOSTNAME=$(shell hostname)
+HOSTNAME=$(shell hostname -f)
 REVISION=$(shell git rev-parse HEAD)
 
 .PHONY: build
