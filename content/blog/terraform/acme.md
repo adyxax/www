@@ -10,13 +10,13 @@ tags:
 
 ## Introduction
 
-In this article, I will explain how I handle the management and automatic renewal of SSL certificates on my personal infrastructure using opentofu (the fork of terraform) and reventline](https://www.exograd.com/products/eventline/). I chose to centralise the renewal on my single host running eventline and to generate a single wildcard certificate for each domain I manage.
+In this article, I will explain how I handle the management and automatic renewal of SSL certificates on my personal infrastructure using opentofu (the fork of terraform) and [eventline](https://www.exograd.com/products/eventline/). I chose to centralise the renewal on my single host running eventline and to generate a single wildcard certificate for each domain I manage.
 
 ## Wildcard certificates
 
-Many guides all over the internet advocate for one certificate per domain, and event more guides advocate for handling certificates with certbot or an acme aware server like caddy. That's is fine for some usage but I favor generating a single wildcard certificate and deploying it where needed.
+Many guides all over the internet advocate for one certificate per domain, and even more guides advocate for handling certificates with certbot or an acme aware server like caddy. That's is fine for some usage but I favor generating a single wildcard certificate and deploying it where needed.
 
-My main reason is that I have a lot of sub-domains for various applications and services (about 45) which would really be flirting with the various limits in place for lets-encrypt if I used a different certificate for each one. This could turn bad if had to perform a migration (or a disaster recovery) and therefore regenerate the certificates: I could hit a daily quota and be stuck with a downtime.
+My main reason is that I have a lot of sub-domains for various applications and services (about 45) which would really be flirting with the various limits in place for lets-encrypt if I used a different certificate for each one. This would be bad in case of migrations (or a disaster recovery) that would renew many certificates all at the same time: I could hit a daily quota and be stuck with a downtime.
 
 The main consequence of this choice is that since it is a wildcard certificate, I have to answer a DNS challenge when generating the certificate. I answer this DNS challenge thanks to the cloudflare integration of the provider.
 
@@ -31,7 +31,7 @@ terraform {
     acme = {
       source = "vancluever/acme"
     }
-	eventline = {
+    eventline = {
       source = "adyxax/eventline"
     }
     tls = {
