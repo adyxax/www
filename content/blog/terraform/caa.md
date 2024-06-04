@@ -11,7 +11,7 @@ tags:
 
 Certification Authority Authorization (CAA) are a type of DNS records that allows the owner of a domain to restrict which Certificate Authority (CA) can emit a certificate for the domain. This is a protection mechanism that is easy to setup and that has absolutely no drawbacks.
 
-One good reason to use CAA records in our modern world of servers running in the cloud is that when you decomission or change a server you very often lose access to its IP address and get a new one. If you mess up cleaning the old IP address from your DNS records and have no CAA records, someone who grabs it could then start issuing certificates for your domain.
+One good reason to use CAA records in our modern world of servers running in the cloud is that when you decommission or change a server you very often lose access to its IP address and get a new one. If you mess up cleaning the old IP address from your DNS records and have no CAA records, someone who grabs it could then start issuing certificates for your domain.
 
 # CAA records
 
@@ -28,7 +28,7 @@ In this example, letsencrypt is authorized to issue both standard and wildcard c
 
 ## Getting notified of wrongful attempts
 
-There are severeal bits of syntax in the RFC that can be of interest, especially if you want to be notified when someone tries to issue a certificate from an unauthorized CA:
+There are several bits of syntax in the RFC that can be of interest, especially if you want to be notified when someone tries to issue a certificate from an unauthorized CA:
 
 ```
 $ dig +short CAA adyxax.org
@@ -51,11 +51,11 @@ With this configuration, I can be pretty sure only I will be able to generate a 
 
 ## Caveat
 
-Note that some DNS providers that offer hosting services will sometimes provision invisible CAA records on your behalf and it might not be obvious this is happening. For example if your domain is hosted on cloudflare and you use their `pages` service, they will add CAA records to issue their certificates. You will be able to see these records using your lookup tool, but not if you look at your cloudflare dashboard.
+Note that some DNS providers that offer hosting services will sometimes provision invisible CAA records on your behalf and it might not be obvious this is happening. For example if your domain is hosted on Cloudflare and you use their `pages` service, they will add CAA records to issue their certificates. You will be able to see these records using your lookup tool, but not if you look at your Cloudflare dashboard.
 
 # Opentofu code
 
-The following code examples will first feature a standard version (suitable for AWS, GCP and other providers), and one for cloudflare. Cloudflare records are built different than other providers I know of because the Cloudflare terraform provider does some validation by itself while others simply rely on their APIs. Another important difference is that terraform resources use a list of records as input, while cloudflare forces you to create one resource per value you need for a record. Yes this will clutter your terraform states!
+The following code examples will first feature a standard version (suitable for AWS, GCP and other providers), and one for Cloudflare. Cloudflare records are built different than other providers I know of because the Cloudflare terraform provider does some validation by itself while others simply rely on their APIs. Another important difference is that terraform resources use a list of records as input, while Cloudflare forces you to create one resource per value you need for a record. Yes this will clutter your terraform states!
 
 ## Basic
 
@@ -238,4 +238,4 @@ resource "cloudflare_record" "caa" {
 
 # Conclusion
 
-I hope I showed you that CAA records are both useful and accessible. Please start propecting your domains with CAA records now!
+I hope I showed you that CAA records are both useful and accessible. Please start protecting your domains with CAA records now!
