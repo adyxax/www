@@ -1,6 +1,6 @@
 module git.adyxax.org/adyxax/www/search
 
-go 1.22.3
+go 1.22.5
 
 require github.com/stretchr/testify v1.9.0
 
