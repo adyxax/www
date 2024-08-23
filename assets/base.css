@@ -147,7 +147,9 @@ body header nav ul li a,
 body header nav ul li a:visited,
 a:hover {
 	color: var(--red);
+    text-wrap: balance;
 }
 h2, h3, h4, h5, h6 {
 	color: var(--green);
+    text-wrap: balance;
 }
