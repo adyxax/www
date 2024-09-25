@@ -208,6 +208,23 @@ Finally I start and activate the factorio service on boot:
     state: 'started'
 ```
 
+### Backups
+
+I invoke a personal borg role to configure my backups. I will detail the workings of this role in a next article:
+``` yaml
+- include_role:
+    name: 'borg'
+    tasks_from: 'client'
+  vars:
+    client:
+      jobs:
+        - name: 'save'
+          paths:
+            - '/srv/factorio/factorio/saves/game.zip'
+      name: 'factorio'
+      server: '{{ factorio.borg }}'
+```
+
 ## Handlers
 
 I have these two handlers:
