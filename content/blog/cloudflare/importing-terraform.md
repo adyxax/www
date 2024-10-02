@@ -1,16 +1,16 @@
 ---
-title: Importing cloudflare DNS records in terraform/opentofu
+title: Importing cloudflare DNS records in terraform/OpenTofu
 description: a way to get the records IDs
 date: 2024-07-16
 tags:
 - cloudflare
-- opentofu
+- OpenTofu
 - terraform
 ---
 
 ## Introduction
 
-Managing cloudflare DNS records using terraform/opentofu is easy enough, but importing existing records into your automation is not straightforward.
+Managing cloudflare DNS records using terraform/OpenTofu is easy enough, but importing existing records into your automation is not straightforward.
 
 ## The problem
 

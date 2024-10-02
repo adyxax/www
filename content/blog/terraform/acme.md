@@ -1,16 +1,16 @@
 ---
-title: Certificate management with opentofu and eventline
+title: Certificate management with OpenTofu and eventline
 description: How I manage for my personal infrastructure
 date: 2024-03-06
 tags:
 - Eventline
-- opentofu
+- OpenTofu
 - terraform
 ---
 
 ## Introduction
 
-In this article, I will explain how I handle the management and automatic renewal of SSL certificates on my personal infrastructure using opentofu (the fork of terraform) and [eventline](https://www.exograd.com/products/eventline/). I chose to centralise the renewal on my single host running eventline and to generate a single wildcard certificate for each domain I manage.
+In this article, I will explain how I handle the management and automatic renewal of SSL certificates on my personal infrastructure using OpenTofu (the fork of terraform) and [eventline](https://www.exograd.com/products/eventline/). I chose to centralise the renewal on my single host running eventline and to generate a single wildcard certificate for each domain I manage.
 
 ## Wildcard certificates
 

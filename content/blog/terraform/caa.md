@@ -3,7 +3,7 @@ title: CAA DNS records with OpenTofu
 description: How I manage which acme CA can issue certificates for me
 date: 2024-05-27
 tags:
-- opentofu
+- OpenTofu
 - terraform
 ---
 

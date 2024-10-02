@@ -1,10 +1,10 @@
 ---
 title: Securing AWS default VPCs
-description: With terraform/opentofu
+description: With terraform/OpenTofu
 date: 2024-09-10
 tags:
 - aws
-- opentofu
+- OpenTofu
 - terraform
 ---
 

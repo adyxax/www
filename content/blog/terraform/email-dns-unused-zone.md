@@ -1,11 +1,11 @@
 ---
 title: Email DNS records for zones that do not send emails
-description: Automated with terraform/opentofu
+description: Automated with terraform/OpenTofu
 date: 2024-09-03
 tags:
 - cloudflare
 - DNS
-- opentofu
+- OpenTofu
 - terraform
 ---
 

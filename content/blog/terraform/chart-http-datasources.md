@@ -1,18 +1,18 @@
 ---
-title: Manage helm charts extras with opentofu
+title: Manage helm charts extras with OpenTofu
 description: a use case for the http datasource
 date: 2024-04-25
 tags:
 - aws
-- opentofu
+- OpenTofu
 - terraform
 ---
 
 ## Introduction
 
-When managing helm charts with opentofu (terraform), you often have to hard code correlated settings for versioning (like app version and chart version). Sometimes it goes even further and you need to fetch a policy or a manifest with some CRDs that the chart will depend on.
+When managing helm charts with OpenTofu (terraform), you often have to hard code correlated settings for versioning (like app version and chart version). Sometimes it goes even further and you need to fetch a policy or a manifest with some CRDs that the chart will depend on.
 
-Here is an example of how to manage that with opentofu and an http datasource for the AWS load balancer controller.
+Here is an example of how to manage that with OpenTofu and an http datasource for the AWS load balancer controller.
 
 ## A word about the AWS load balancer controller
 
