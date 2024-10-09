@@ -269,8 +269,10 @@ Finally the `jobs.timer` systemd timer file contains:
 Description=BorgBackup job {{ client.name }} timer
 
 [Timer]
+FixedRandomDelay=true
 OnCalendar=daily
 Persistent=false
+RandomizedDelaySec=3600
 
 [Install]
 WantedBy=timers.target
