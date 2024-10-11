@@ -271,7 +271,7 @@ Description=BorgBackup job {{ client.name }} timer
 [Timer]
 FixedRandomDelay=true
 OnCalendar=daily
-Persistent=false
+Persistent=true
 RandomizedDelaySec=3600
 
 [Install]
