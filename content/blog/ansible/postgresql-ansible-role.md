@@ -224,7 +224,7 @@ I do not call the role from a playbook, I prefer running the setup from an appli
 ``` yaml
 ---
 dependencies:
-  - role: 'borg
+  - role: 'borg'
   - role: 'postgresql'
 ```
 
