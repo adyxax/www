@@ -21,14 +21,13 @@ spec:
     spec:
       container:
         volume_mount:
-          mount_path        = "/dev/shm"
-          name              = "dev-shm"
-          read_only         = false
+          mount_path: "/dev/shm"
+          name: "dev-shm"
       volume:
         empty_dir:
-          medium     = "Memory"
-          size_limit = "1Gi"
-        name = "dev-shm"
+          medium: "Memory"
+          size_limit: "1Gi"
+        name: "dev-shm"
 ```
 
 ## Conclusion
