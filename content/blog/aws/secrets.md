@@ -3,7 +3,7 @@ title: Managing AWS secrets
 description: with the CLI and with terraform/OpenTofu
 date: 2024-08-13
 tags:
-- aws
+- AWS
 - OpenTofu
 - terraform
 ---

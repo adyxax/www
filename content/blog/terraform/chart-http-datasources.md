@@ -3,7 +3,7 @@ title: Manage helm charts extras with OpenTofu
 description: a use case for the http datasource
 date: 2024-04-25
 tags:
-- aws
+- AWS
 - OpenTofu
 - terraform
 ---

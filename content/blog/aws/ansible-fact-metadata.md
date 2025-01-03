@@ -4,7 +4,7 @@ description: 'An ansible fact I wrote'
 date: '2024-10-12'
 tags:
 - ansible
-- aws
+- AWS
 ---
 
 ## Introduction
