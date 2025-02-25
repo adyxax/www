@@ -1,9 +1,8 @@
 package main
 
 import (
+	"slices"
 	"testing"
-
-	"github.com/stretchr/testify/require"
 )
 
 func TestNormalizeWords(t *testing.T) {
@@ -18,7 +17,9 @@ func TestNormalizeWords(t *testing.T) {
 	for _, tc := range testCases {
 		t.Run(tc.name, func(t *testing.T) {
 			valid := normalizeWords(tc.input)
-			require.Equal(t, tc.expected, valid)
+			if slices.Compare(valid, tc.expected) != 0 {
+				t.Errorf("got %v, want %v", valid, tc.expected)
+			}
 		})
 	}
 }
@@ -37,7 +38,9 @@ func TestScoreIndex(t *testing.T) {
 	for _, tc := range testCases {
 		t.Run(tc.name, func(t *testing.T) {
 			valid := scoreIndex(tc.input, tc.index)
-			require.Equal(t, tc.expected, valid)
+			if valid != tc.expected {
+				t.Errorf("got %v, want %v", valid, tc.expected)
+			}
 		})
 	}
 }
