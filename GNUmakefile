@@ -8,7 +8,6 @@ SHELL := bash
 
 ##### Variables ################################################################
 CACHEDIR := /tmp/hugo-cache-$(USER)
-DESTDIR := public/
 HOSTNAME := $(shell hostname -f)
 REVISION := $(shell git rev-parse HEAD)
 
@@ -17,7 +16,7 @@ REVISION := $(shell git rev-parse HEAD)
 build: ## make build
 	# TODO make sure to stash everything in content/ ?
 	@echo "----- Generating site -----"
-	hugo --gc --minify --cleanDestinationDir -d $(DESTDIR) \
+	hugo --gc --minify --cleanDestinationDir -d public/ \
 	     --cacheDir $(CACHEDIR) --buildFuture
 	cp public/index.json search/
 	cp public/search/index.html search/
@@ -28,7 +27,7 @@ build: ## make build
 clean: ## make clean
 	@echo "----- Cleaning old build -----"
 	rm -f search/index.html search/index.json search/search
-	rm -rf $(DESTDIR)
+	rm -rf public
 
 .PHONY: serve
 serve: ## make serve		# hugo web server development mode
@@ -39,9 +38,10 @@ serve: ## make serve		# hugo web server development mode
 ##### Operations ###############################################################
 .PHONY: deploy
 deploy: ## make deploy
-	rsync -a $(DESTDIR) root@www.adyxax.org:/srv/www/
-	rsync search/search root@www.adyxax.org:/usr/local/bin/www-search
-	ssh root@www.adyxax.org "systemctl restart www-search"
+	# TODO change to www@www.adyxax.org
+	rsync -a --delete public/ www@www.adyxax.org:/srv/www/public/
+	rsync search/search www@www.adyxax.org:/srv/www/
+	ssh www@www.adyxax.org "systemctl --user restart www-search"
 
 ##### Quality ##################################################################
 .PHONY: check

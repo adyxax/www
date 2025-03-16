@@ -1,5 +1,5 @@
 ---
-title: 'Migrating gotosocial from nixos to Debian'
+title: 'Migrating gotosocial from NixOS to Debian'
 description: 'How I am deploying gotosocial with ansible'
 date: '2025-03-16'
 tags:

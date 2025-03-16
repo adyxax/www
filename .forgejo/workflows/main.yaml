@@ -1,0 +1,34 @@
+---
+on:
+  push:
+    branches:
+      - 'main'
+  workflow_dispatch:
+
+jobs:
+  all:
+    runs-on: 'self-hosted'
+    steps:
+      - uses: 'actions/checkout@v4'
+      - uses: 'actions/setup-go@v5'
+        with:
+          go-version-file: 'search/go.mod'
+      - name: 'fmt'
+        run: |
+          make tidy no-dirty
+      - name: 'check'
+        run: |
+          make check no-dirty
+      - name: 'build'
+        run: |
+          make build
+      - name: 'deploy'
+        run: |
+          umask 077
+          printf '%s' "$SSH_PRIVATE_KEY" | base64 -d > private_key
+          SSHOPTS="-i private_key -o StrictHostKeyChecking=accept-new"
+          rsync -a --delete -e "ssh ${SSHOPTS}" public/ www@www.adyxax.org:/srv/www/public/
+          rsync -e "ssh ${SSHOPTS}" search/search www@www.adyxax.org:/srv/www/
+          ssh ${SSHOPTS} www@www.adyxax.org "chmod +x search; systemctl --user restart www-search"
+        env:
+          SSH_PRIVATE_KEY: '${{ secrets.SSH_PRIVATE_KEY }}'
