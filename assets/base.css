@@ -1,3 +1,11 @@
+:root {
+    /* Set sans-serif & mono fonts */
+    --sans-font: -apple-system, BlinkMacSystemFont, "Avenir Next", Avenir,
+                 "Nimbus Sans L", Roboto, "Noto Sans", "Segoe UI", Arial, Helvetica,
+                 "Helvetica Neue", sans-serif;
+    --mono-font: Consolas, Menlo, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+    --standard-border-radius: 5px;
+}
 .black-theme {
 	--bg-0: #181818;
 	--bg-1: #252525;
@@ -71,43 +79,132 @@
 	--br_violet: #825dc0;
 }
 
-* {
-	box-sizing: border-box;
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    border:0;
+    font:inherit;
+    font-size:100%;
+    margin:0;
+    padding:0;
+    vertical-align:baseline;
 }
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+textarea,
+select,
+input,
+progress {
+    width: fit-content;
+}
+
 html {
-	background-color: var(--bg-0);
-	color: var(--fg-0);
-	font-size: 150%;
+    font-family: var(--sans-font);
+    scroll-behavior: smooth;
 }
 body {
-	background-color: var(--bg-1);
+	background-color: var(--bg-0);
+	color: var(--fg-0);
 	display: grid;
-	grid-template-rows: auto 1fr auto;
-
-	font-family: -apple-system, BlinkMacSystemFont,
-		     "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
-		     "Fira Sans", "Droid Sans", "Helvetica Neue",
-		     system-ui, sans-serif;
-
-	font-feature-settings: "kern" 1;
-	font-kerning: normal;
+    font-feature-settings: "kern" 1;
+    font-kerning: normal;
+    font-size:   16px;
+    grid-template-rows: auto 1fr auto;
+    margin: 0;
 }
 main {
-	background-color: var(--bg-1);
-	padding-left:1em;
-	padding-right:1em;
-	scrollbar-gutter: stable both-edges;
+    background-color: var(--bg-1);
+    margin-left:   auto;
+    margin-right:  auto;
+	overflow-wrap: anywhere;
+    padding: 8px 16px;
+    scrollbar-gutter: stable both-edges;
+    width: 960px;
 }
+h1,  h2,  h3,  h4,  h5,  h6 {
+	font-family: open, serif;
+    font-weight: 700;
+    line-height: 1.2em;
+}
+h1 {
+    font-size: 33px;
+}
+h2 {
+    font-size: 28px;
+}
+h3 {
+    font-size: 24px;
+}
+h4 {
+    font-size: 21px;
+}
+h5 {
+    font-size: 19px;
+}
+h6 {
+    font-size: 16px;
+}
+h1:not(:first-child) {
+    margin-top: 28px;
+}
+h2:not(:first-child) {
+    margin-top: 24px;
+}
+h3:not(:first-child) {
+    margin-top: 21px;
+}
+h4:not(:first-child) {
+    margin-top: 19px;
+}
+h5:not(:first-child) {
+    margin-top: 16px;
+}
+h6:not(:first-child) {
+    margin-top: 14px;
+}
+h1:not(:last-child) {
+    margin-bottom: 21px;
+}
+h2:not(:last-child) {
+    margin-bottom: 19px;
+}
+h3:not(:last-child) {
+    margin-bottom: 16px;
+}
+h4:not(:last-child) {
+    margin-bottom: 14px;
+}
+h5:not(:last-child) {
+    margin-bottom: 13px;
+}
+h6:not(:last-child) {
+    margin-bottom: 12px;
+}
+aside:not(:first-child) {
+    margin-top: 12px;
+}
+
 p {
 	text-align: justify;
 	hyphens: auto;
 	text-justify: inter-character;
-	overflow-wrap: anywhere;
+}
+p:not(:last-child) {
+  margin-bottom: 8px;
 }
 pre,code {
 	background-color: var(--bg-0);
 	color: var(--fg-0);
-	white-space: pre-wrap;
+    font-family: monospace;
+    margin: 0;
+    overflow-x: scroll;
 }
 nav#TableOfContents ul {
 	padding: 0;
@@ -122,11 +219,11 @@ nav#TableOfContents ul li ul li ul {
 nav#TableOfContents ul li ul li ul li ul {
 	padding-left:3em;
 }
+ul {
+    padding-left: 32px;
+}
 ul li {
 	margin-bottom: 4px;
-}
-h1, h2, h3, h4, h5 {
-	font-family: open, serif;
 }
 .fullwidth {
 	width: 100%;

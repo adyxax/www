@@ -1,5 +1,8 @@
 header {
 	background-color: var(--bg-0);
+    margin-left:   auto;
+    margin-right:  auto;
+    width: 960px;
 }
 header nav {
 	align-items: center;

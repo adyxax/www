@@ -41,4 +41,4 @@ copyright = "Julien (Adyxax) Dessaux"
 github_repo = "https://git.adyxax.org/adyxax/www"
 
 [taxonomies]
-  tag = "tags"
+tag = "tags"
