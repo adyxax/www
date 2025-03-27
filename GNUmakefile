@@ -9,12 +9,10 @@ SHELL := bash
 ##### Variables ################################################################
 CACHEDIR := /tmp/hugo-cache-$(USER)
 HOSTNAME := $(shell hostname -f)
-REVISION := $(shell git rev-parse HEAD)
 
 ##### Development ##############################################################
 .PHONY: build
-build: ## make build
-	# TODO make sure to stash everything in content/ ?
+build: no-dirty ## make build
 	@echo "----- Generating site -----"
 	hugo --gc --minify --cleanDestinationDir -d public/ \
 	     --cacheDir $(CACHEDIR) --buildFuture
@@ -38,7 +36,6 @@ serve: ## make serve		# hugo web server development mode
 ##### Operations ###############################################################
 .PHONY: deploy
 deploy: ## make deploy
-	# TODO change to www@www.adyxax.org
 	rsync -a --delete public/ www@www.adyxax.org:/srv/www/public/
 	rsync search/search www@www.adyxax.org:/srv/www/
 	ssh www@www.adyxax.org "systemctl --user restart www-search"
@@ -59,7 +56,9 @@ confirm:
 
 .PHONY: help
 help:
-	@grep -E '^[a-zA-Z\/_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}' | sort
+	@grep -E '^[a-zA-Z\/_-]+:.*?## .*$$' $(MAKEFILE_LIST) \
+	| awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}' \
+	| sort
 
 .PHONY: no-dirty
 no-dirty:
