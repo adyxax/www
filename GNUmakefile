@@ -36,9 +36,18 @@ serve: ## make serve		# hugo web server development mode
 ##### Operations ###############################################################
 .PHONY: deploy
 deploy: ## make deploy
-	rsync -a --delete public/ www@www.adyxax.org:/srv/www/public/
-	rsync search/search www@www.adyxax.org:/srv/www/
-	ssh www@www.adyxax.org "systemctl --user restart www-search"
+	umask 077
+	if [ -n "$${SSH_PRIVATE_KEY:-}" ]; then
+	    cleanup() {
+	        rm -f private_key
+	    }
+	    trap cleanup EXIT
+	    printf '%s' "$$SSH_PRIVATE_KEY" | base64 -d > private_key
+	    SSHOPTS="-i private_key -o StrictHostKeyChecking=accept-new"
+	fi
+	rsync -a --delete -e "ssh $${SSHOPTS:-}" public/ www@www.adyxax.org:/srv/www/public/
+	rsync -e "ssh $${SSHOPTS:-}" search/search www@www.adyxax.org:/srv/www/
+	ssh $${SSHOPTS:-} www@www.adyxax.org "chmod +x search; systemctl --user restart www-search"
 
 ##### Quality ##################################################################
 .PHONY: check
