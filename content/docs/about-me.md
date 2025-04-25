@@ -53,7 +53,11 @@ On a final note I had the opportunity to redesign how we deploy and operate alte
 
 It has been a great and diversified experience, but after five years I felt my future was not necessarily in an architect role with purely on premise hardware and decided to move on.
 
-### Devops Engineering Manager at Lumapps (2021 - present)
+### Senior DevOps Engineering Manager at Lumapps (2021 - 2024)
+
+TODO
+
+### Senior DevOps at Normal Computing (2024 - present)
 
 TODO
 
