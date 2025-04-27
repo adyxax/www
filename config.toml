@@ -3,13 +3,13 @@ languageCode = "en-us"
 title = "Yet Another SysAdmin Website"
 description = "The personal space of yet another sysadmin"
 enableRobotsTXT = true
-enableGitInfo = true
+enableGitInfo = false
 paginate = 32
 rssLimit = 16
 
 [frontmatter]
-date = ['date', 'lastmod', ':git']
-lastmod = [':git', 'lastmod', 'date']
+date = ['date', 'lastmod']
+lastmod = ['lastmod', 'date']
 publishDate = ['date', 'lastmod']
 
 [markup]
