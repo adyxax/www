@@ -1,16 +1,16 @@
 ---
-title: 'Deploying a forgejo runner with ansible'
+title: 'Deploying a Forgejo runner with ansible'
 description: 'Some ansible code and a golden rule'
 date: '2025-04-08'
 tags:
 - 'ansible'
-- 'forgejo'
+- 'Forgejo'
 ---
 
 ## Introduction
 
-After [migrating my git.adyxax.org to forgejo]({{< ref "forgejo.md" >}}) a few
-weeks back, I started experimenting with their CI offering: forgejo actions. It
+After [migrating my git.adyxax.org to Forgejo]({{< ref "forgejo.md" >}}) a few
+weeks back, I started experimenting with their CI offering: Forgejo Actions. It
 is mostly a clone of GitHub actions, which means it is a mixed bag.
 
 I am still relying on [eventline](https://www.exograd.com/products/eventline)
@@ -19,9 +19,9 @@ integration for some simple and non consequential CI jobs.
 
 ## The good and the bad
 
-The good part is obviously the tight integration with forgejo's UI. Forgejo (or
-gitea which forgejo forked from) developers also made the great decision of
-adding runners dedicated to individual users, which allows me to open my forgejo
+The good part is obviously the tight integration with Forgejo's UI. Forgejo (or
+gitea which Forgejo forked from) developers also made the great decision of
+adding runners dedicated to individual users, which allows me to open my Forgejo
 instance to other people without offering them access to a runner.
 
 The bad part all has to do with trying to be a GitHub actions clone:
@@ -46,7 +46,7 @@ workflows.
 
 ## Making do without the runner containers
 
-I greatly dislike the default forgejo runner containers: They package everything
+I greatly dislike the default Forgejo runner containers: They package everything
 and the kitchen sink, which is necessary given how clunky the whole nodejs
 ecosystem is (which the actions rely on).
 
@@ -55,7 +55,7 @@ warn about its dangers and I caution you too if you plan to follow in my
 footsteps: You need to manage the proper isolation yourself and take care of not
 making a mess of the host operating system!
 
-Managing the proper isolation is not hard: instead of letting forgejo runner
+Managing the proper isolation is not hard: instead of letting Forgejo runner
 spawn its own containers, I myself run it constrained inside either a container
 or a jail.
 
@@ -68,7 +68,7 @@ with some discipline and experience I make it work.
 
 ### Tasks
 
-Here is an example `tasks.yaml` that deploys the forgejo runner on a Debian
+Here is an example `tasks.yaml` that deploys the Forgejo runner on a Debian
 system. It does not configure the runner itself, that I do manually once after
 the first deployment.
 
