@@ -10,10 +10,10 @@ tags:
 
 ## Introduction
 
-Last month I started writing an OpenTofu/terraform for
+Last month I started writing an OpenTofu/terraform provider for
 [Forgejo](https://forgejo.org/). I wanted to automate this forge the same as I
 automate github already: create and manage repositories, provision actions
-secrets and variables, configure issue labels, managing mirrors, etc.
+secrets and variables, configure issue labels, manage mirrors, etc.
 
 A community provider already existed but it is really barebones and missing
 almost all the resources I need. I could have tried to contribute to it, but
