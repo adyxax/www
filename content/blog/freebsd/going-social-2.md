@@ -3,7 +3,7 @@ title: Going Social take two
 description: another ActivityPub server experiment
 date: 2022-11-29
 tags:
-- freebsd
+- FreeBSD
 - jail
 ---
 
