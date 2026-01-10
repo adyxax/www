@@ -34,8 +34,8 @@ is being regularly tested.
 
 ## Quick Start
 
-There is a makefile with everything you need, just type `make help` (or `gmake
-help` if running BSD).
+There is a script with everything you need, just type `./make.sh` and follow the
+usage message.
 
 ## Hugo
 
