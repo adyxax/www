@@ -38,9 +38,10 @@ main_deploy() {
         assert_no_dirty
     fi
 	umask 077
-    private_key="$PWD/private_key"
     local SSHOPTS=()
 	if [ -n "${SSH_PRIVATE_KEY:-}" ]; then
+        # CI relies on this
+        private_key="$PWD/private_key"
 	    cleanup() {
 	        rm -f "$private_key"
 	    }
@@ -51,10 +52,6 @@ main_deploy() {
 	rsync -a --delete -e "ssh ${SSHOPTS[*]}" "$destination" www@www.adyxax.org:/srv/www/public/
 	rsync -e "ssh ${SSHOPTS[*]}" search/search www@www.adyxax.org:/srv/www/
 	ssh "${SSHOPTS[@]}" www@www.adyxax.org "chmod +x search; systemctl --user restart www-search"
-}
-
-main_update() {
-    (cd search && go get -t -u ./... && go mod tidy)
 }
 
 main_serve() {
@@ -68,6 +65,10 @@ main_tidy() {
     if [ "${fail_if_dirty:-false}" != false ]; then
         assert_no_dirty
     fi
+}
+
+main_update() {
+    (cd search && go get -t -u ./... && go mod tidy)
 }
 
 usage() {
