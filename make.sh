@@ -7,7 +7,7 @@ cache_dir="/tmp/hugo-cache-$USER"
 destination="$PWD/public"
 
 assert_no_dirty() {
-	git diff --exit-code || fatal "Error: dirty repository"
+    git diff --exit-code || fatal "Error: dirty repository"
 }
 
 fatal() {
@@ -16,52 +16,52 @@ fatal() {
 }
 
 main_build() {
-	hugo --gc --minify --cleanDestinationDir -d "$destination" \
-	     --cacheDir "$cache_dir" --buildFuture
-	cp "$destination/index.json" search/
-	cp "$destination/search/index.html" search/
-	(cd search; CGO_ENABLED=0 go build -ldflags '-s -w -extldflags "-static"' ./search.go)
+    hugo --gc --minify --cleanDestinationDir -d "$destination" \
+         --cacheDir "$cache_dir" --buildFuture
+    cp "$destination/index.json" search/
+    cp "$destination/search/index.html" search/
+    (cd search; CGO_ENABLED=0 go build -ldflags '-s -w -extldflags "-static"' ./search.go)
 }
 
 main_check() {
     shellcheck -s bash -- make.sh
-	(cd search && go mod verify && go vet ./...)
+    (cd search && go mod verify && go vet ./...)
 }
 
 main_clean() {
-	rm -f search/index.html search/index.json search/search
-	rm -rf "$destination"
+    rm -f search/index.html search/index.json search/search
+    rm -rf "$destination"
 }
 
 main_deploy() {
     if [ "${fail_if_dirty:-true}" != false ]; then
         assert_no_dirty
     fi
-	umask 077
+    umask 077
     local SSHOPTS=()
-	if [ -n "${SSH_PRIVATE_KEY:-}" ]; then
+    if [ -n "${SSH_PRIVATE_KEY:-}" ]; then
         # CI relies on this
         private_key="$PWD/private_key"
-	    cleanup() {
-	        rm -f "$private_key"
-	    }
-	    trap cleanup EXIT
-	    printf '%s' "$SSH_PRIVATE_KEY" | base64 -d > "$private_key"
-	    SSHOPTS=("-i" "$private_key" "-o" "StrictHostKeyChecking=accept-new")
-	fi
+        cleanup() {
+            rm -f "$private_key"
+        }
+        trap cleanup EXIT
+        printf '%s' "$SSH_PRIVATE_KEY" | base64 -d > "$private_key"
+        SSHOPTS=("-i" "$private_key" "-o" "StrictHostKeyChecking=accept-new")
+    fi
     rsync -a --delete -e "ssh ${SSHOPTS[*]}" "$destination/" www@www.adyxax.org:/srv/www/public/
     rsync -e "ssh ${SSHOPTS[*]}" search/search www@www.adyxax.org:/srv/www/
     ssh "${SSHOPTS[@]}" www@www.adyxax.org "chmod +x search; systemctl --user restart www-search"
 }
 
 main_serve() {
-	hugo serve --disableFastRender --noHTTPCache \
-	     --cacheDir "$cache_dir" --bind 0.0.0.0 --port 1313 \
-	     -b "http://$HOSTNAME:1313/" --buildFuture --navigateToChanged
+    hugo serve --disableFastRender --noHTTPCache \
+         --cacheDir "$cache_dir" --bind 0.0.0.0 --port 1313 \
+         -b "http://$HOSTNAME:1313/" --buildFuture --navigateToChanged
 }
 
 main_tidy() {
-	(cd search && go fmt ./... && go mod tidy -v)
+    (cd search && go fmt ./... && go mod tidy -v)
     if [ "${fail_if_dirty:-false}" != false ]; then
         assert_no_dirty
     fi
@@ -101,17 +101,17 @@ RED='\033[0;31m'
 RESET='\033[0m'
 
 while true; do
-  case "$1" in
-    --fail-if-dirty) fail_if_dirty="$2"; shift 2 ;;
-    -h|--help) usage ;;
-    -n|--no-colors)
-        RED=''
-        RESET=''
-        shift ;;
-    -v|--verbose) verbose=1; shift ;;
-    --) shift; break ;;
-    *) break ;;
-  esac
+    case "$1" in
+        --fail-if-dirty) fail_if_dirty="$2"; shift 2 ;;
+        -h|--help) usage ;;
+        -n|--no-colors)
+            RED=''
+            RESET=''
+            shift ;;
+        -v|--verbose) verbose=1; shift ;;
+        --) shift; break ;;
+        *) break ;;
+    esac
 done
 
 if [[ -z "${*}" ]]; then
