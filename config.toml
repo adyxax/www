@@ -4,7 +4,6 @@ title = "Yet Another SysAdmin Website"
 description = "The personal space of yet another sysadmin"
 enableRobotsTXT = true
 enableGitInfo = false
-paginate = 32
 rssLimit = 16
 
 [frontmatter]
@@ -12,7 +11,11 @@ date = ['date', 'lastmod']
 lastmod = ['lastmod', 'date']
 publishDate = ['date', 'lastmod']
 
-[markup]
+[imaging]
+resampleFilter = "CatmullRom"
+quality = 75
+anchor = "smart"
+
 [markup.highlight]
 anchorLineNos = false
 codeFences = true
@@ -28,10 +31,8 @@ tabWidth = 2
 [permalinks]
 blog = "/:section/:year/:month/:day/:slug/"
 
-[imaging]
-resampleFilter = "CatmullRom"
-quality = 75
-anchor = "smart"
+[pagination]
+pagerSize = 32
 
 [outputs]
 home = ["HTML", "RSS", "JSON"]

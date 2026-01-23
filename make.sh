@@ -80,9 +80,9 @@ usage() {
     echo "    $0  check                          # run static checks" >&2
     echo "    $0  clean                          # clean build artifacts" >&2
     echo "    $0  deploy [--fail-if-dirty=true]  # deploy the website" >&2
-    echo "    $0  update                         # update dependencies" >&2
     echo "    $0  serve                          #run a development web server" >&2
     echo "    $0  tidy [--fail-if-dirty=false]   # tidy up the code" >&2
+    echo "    $0  update                         # update dependencies" >&2
     echo "Global options:" >&2
     echo "    -h, --help     # show this help message" >&2
     echo "    --no-colors    # disable colored output" >&2
