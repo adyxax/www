@@ -68,7 +68,19 @@ main_tidy() {
 }
 
 main_update() {
-    (cd search && go get -t -u ./... && go mod tidy)
+    (cd search
+     local new_golang_version
+     if ! new_golang_version=$(curl -fsSL 'https://go.dev/dl/?mode=json' | \
+                                   jq -r '[.[] | select(.stable == true)][0].version' | \
+                                   sed -e 's/^go//'); then
+         echo "failed to get new golang version from go.dev" >&2; exit 1
+     fi
+     if [[ -z "$new_golang_version" ]]; then
+         echo "failed to get a non empty golang version number" >&2; exit 2
+     fi
+     sed -e "s/^go [0-9\\.]\+\$/go $new_golang_version/" -i go.mod
+     go get -t -u ./... && go mod tidy
+    )
 }
 
 usage() {
