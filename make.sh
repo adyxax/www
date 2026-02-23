@@ -80,6 +80,7 @@ main_update() {
      fi
      sed -e "s/^go [0-9\\.]\+\$/go $new_golang_version/" -i go.mod
      go get -t -u ./... && go mod tidy
+     go fix ./...
     )
 }
 

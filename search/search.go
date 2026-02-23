@@ -55,7 +55,7 @@ var validWord = regexp.MustCompile(`([a-zA-Z0-9]+)`)
 func normalizeWords(words []string) (result []string) {
 	sort.Strings(words) // to easily remove duplicates
 	lastword := ""
-	for i := 0; i < len(words); i++ {
+	for i := range words {
 		word := strings.ToLower(validWord.FindString(words[i])) // Get rid of punctuation, would not work well for french apostrophes
 		if word == lastword || len(word) < 3 {                  // we remove duplicates and words less than 3 characters
 			continue
@@ -68,8 +68,8 @@ func normalizeWords(words []string) (result []string) {
 
 // The scoring function used by the index
 func scoreIndex(words []string, indexWords []string) (score int) {
-	for i := 0; i < len(indexWords); i++ {
-		for j := 0; j < len(words); j++ {
+	for i := range indexWords {
+		for j := range words {
 			if strings.Contains(indexWords[i], words[j]) {
 				score++
 			}
