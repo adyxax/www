@@ -1,3 +1,3 @@
 module git.adyxax.org/adyxax/www/search
 
-go 1.26.5
+go 1.26.7
