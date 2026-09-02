@@ -123,7 +123,7 @@ zfs create -o mountpoint=legacy zroot/system/var-tmp
 zfs create zroot/data
 zfs create -o mountpoint=legacy zroot/data/home
 zfs create -o mountpoint=legacy zroot/data/home/julien
-zfs create -o mountpoint=legacy -o quota=1M zroot/data/home/root
+zfs create -o mountpoint=legacy zroot/data/home/root
 zfs create -o mountpoint=legacy zroot/data/var
 zfs create -o mountpoint=legacy zroot/data/var/log
 ```
