@@ -34,7 +34,7 @@ is being regularly tested.
 
 ## Quick Start
 
-There is a script with everything you need, just type `./make.sh` and follow the
+There is a script with everything you need, just type `./make.pl` and follow the
 usage message.
 
 ## Hugo
