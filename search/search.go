@@ -7,6 +7,7 @@ import (
 	"log"
 	"net/http"
 	"regexp"
+	"slices"
 	"sort"
 	"strings"
 )
@@ -135,8 +136,8 @@ func searchHandler(w http.ResponseWriter, r *http.Request) error {
 		}
 		// we sort highest scores first
 		sort.Sort(scores)
-		for i := len(scores) - 1; i >= 0; i-- {
-			p.Results = append(p.Results, jsonIndex[scores[i].Id])
+		for _, score := range slices.Backward(scores) {
+			p.Results = append(p.Results, jsonIndex[score.Id])
 		}
 	} else {
 		// default checkbox values
