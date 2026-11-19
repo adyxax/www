@@ -7,12 +7,12 @@
 {{ end }}
 
 {{ if .Parent.IsHome }}
-{{ $.Scratch.Set "blog-pages" (where .Site.RegularPages "Section" .Section) }}
+{{ $.Store.Set "blog-pages" (where .Site.RegularPages "Section" .Section) }}
 {{ else }}
-{{$.Scratch.Set "blog-pages" .Pages }}
+{{ $.Store.Set "blog-pages" .Pages }}
 {{ end }}
 
-{{ $pag := .Paginate (( $.Scratch.Get "blog-pages").GroupByPublishDate "2006")}}
+{{ $pag := .Paginate (( $.Store.Get "blog-pages").GroupByPublishDate "2006")}}
 {{ range $pag.PageGroups }}
 {{ if ne .Key "0001" }}
 <h2>{{ T "post_posts_in" }} {{ .Key }}</h2>

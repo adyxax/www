@@ -1,10 +1,9 @@
 baseURL = "/"
-languageCode = "en-us"
+locale = "en-us"
 title = "Yet Another SysAdmin Website"
 description = "The personal space of yet another sysadmin"
 enableRobotsTXT = true
 enableGitInfo = false
-rssLimit = 16
 
 [frontmatter]
 date = ['date', 'lastmod']
@@ -38,8 +37,12 @@ pagerSize = 32
 home = ["HTML", "RSS", "JSON"]
 
 [params]
+author = { name = "Julien Dessaux", email = "julien.dessaux+rss@adyxax.org" }
 copyright = "Julien (Adyxax) Dessaux"
 github_repo = "https://git.adyxax.org/adyxax/www"
+
+[services.rss]
+limit = 16
 
 [taxonomies]
 tag = "tags"
