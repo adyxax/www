@@ -1,0 +1,30 @@
+---
+- name: 'Bootstrap the server'
+  hosts: 'hosts'
+
+  tasks:
+    - name: 'Bootstrap the website'
+      ansible.builtin.import_role:
+        name: 'www'
+    - name: 'Install and configure nginx'
+      ansible.builtin.import_role:
+        name: 'nginx'
+        tasks_from: 'create'
+    - name: 'Deploy the www vhost'
+      ansible.builtin.import_role:
+        name: 'nginx'
+        tasks_from: 'create_vhost'
+      vars:
+        nginx_vhost:
+          name: 'www'
+          server_names: ['www.adyxax.org']
+          certificate: 'adyxax.org'
+          headers: 'unsafe_inline_csp'
+          locations:
+            - path: '/'
+              root: '/srv/www/public'
+            - path: '/search'
+              proxy_pass: 'http://127.0.0.1:8080'
+            - headers: 'static'
+              path: '/static'
+              root: '/srv/www/public'

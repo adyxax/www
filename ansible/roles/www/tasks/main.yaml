@@ -1,0 +1,77 @@
+---
+- name: 'Create the www_adyxax_org group'
+  ansible.builtin.group:
+    name: 'www_adyxax_org'
+    state: 'present'
+
+- name: 'Create the www_adyxax_org user'
+  ansible.builtin.user:
+    name: 'www_adyxax_org'
+    comment: 'www.adyxax.org deployment'
+    group: 'www_adyxax_org'
+    home: '/srv/www'
+    shell: '/bin/sh'
+    create_home: false
+    state: 'present'
+
+- name: 'Create the website directories'
+  ansible.builtin.file:
+    path: '{{ item.path }}'
+    state: 'directory'
+    owner: 'www_adyxax_org'
+    group: 'www_adyxax_org'
+    mode: '{{ item.mode }}'
+  loop:
+    - { path: '/srv/www', mode: '0755' }
+    - { path: '/srv/www/.ssh', mode: '0700' }
+    - { path: '/srv/www/public', mode: '0755' }
+
+- name: 'Deploy the authorized keys'
+  ansible.builtin.copy:
+    src: 'authorized_keys'
+    dest: '/srv/www/.ssh/authorized_keys'
+    owner: 'www_adyxax_org'
+    group: 'www_adyxax_org'
+    mode: '0600'
+
+# This command must stay in sync with $START in www's make.pl.
+- name: 'Start the search service at boot'
+  ansible.builtin.cron:
+    name: 'www-search'
+    user: 'www_adyxax_org'
+    special_time: 'reboot'
+    job: >-
+      cd /srv/www && daemon -f -H -r -t www-search
+      -P /srv/www/www-search.daemon.pid -p /srv/www/www-search.pid
+      -o /srv/www/www-search.log /srv/www/search
+    state: 'present'
+
+- name: 'Create the newsyslog include directory'
+  ansible.builtin.file:
+    path: '/usr/local/etc/newsyslog.conf.d'
+    state: 'directory'
+    owner: 'root'
+    group: 'wheel'
+    mode: '0755'
+
+- name: 'Rotate the search service log'
+  ansible.builtin.copy:
+    dest: '/usr/local/etc/newsyslog.conf.d/www-search.conf'
+    content: |
+      /srv/www/www-search.log  www_adyxax_org:www_adyxax_org  640  7  *  @T00  JC  /srv/www/www-search.daemon.pid
+    owner: 'root'
+    group: 'wheel'
+    mode: '0644'
+
+- name: 'Set the www.adyxax.org records'
+  community.general.cloudflare_dns:
+    api_token: "{{ lookup('ansible.builtin.env', 'CLOUDFLARE_API_TOKEN') }}"
+    zone: 'adyxax.org'
+    record: 'www'
+    type: 'CNAME'
+    value: '{{ inventory_hostname }}'
+    proxied: false
+    solo: true
+    comment: 'managed-by: ansible, repository: www'
+    state: 'present'
+  delegate_to: 'localhost'

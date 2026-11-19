@@ -1,0 +1,10 @@
+---
+collections:
+  - name: 'amazon.aws'
+  - name: 'ansible.posix'
+  - name: 'ansible.utils'
+  - name: 'community.general'
+roles:
+  - name: 'nginx'
+    scm: 'git'
+    src: 'https://git.adyxax.org/adyxax.org/ansible-role-nginx'
