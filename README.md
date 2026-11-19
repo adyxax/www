@@ -1,4 +1,4 @@
-# www : My personal website
+# www: My personal website
 
 My name is Julien Dessaux, also known by my pseudonym Adyxax: welcome to my
 personal website!
@@ -22,14 +22,13 @@ Have a good time!
 - [Quick Start](#Quick-Start)
 - [Hugo](#Hugo)
 - [Search](#Search)
-- [Kubernetes](#Kubernetes)
 
 ## Dependencies
 
-go is required for the search feature. Only go version >= 1.22 on linux amd64
-(Gentoo) is being regularly tested.
+Go is required for the search feature. Only go version >= 1.27 on Linux amd64
+(Gentoo) and FreeBSD amd64 are being regularly tested.
 
-hugo is required in order to build the website html pages. Only hugo >= 0.111.3
+Hugo is required in order to build the website html pages. Only hugo >= 0.163.0
 is being regularly tested.
 
 ## Quick Start

@@ -30,11 +30,21 @@ use AdyxaxOrg::Shell qw(run);
 
 my $CACHE_DIR   = '/tmp/hugo-cache-' . ($ENV{USER} // scalar(getpwuid $<) // $<);
 my $DESTINATION = "$RealBin/public";
-my $HOST        = 'www@myth.adyxax.org';
+my $HOST        = 'www_adyxax_org@myth.adyxax.org';
 my $PORT        = 1313;
 my $REMOTE_DIR  = '/srv/www';
 my $SEARCH      = 'search';
 my $SERVICE     = 'www-search';
+my $DAEMON_PID  = "$REMOTE_DIR/$SERVICE.daemon.pid";
+my $SEARCH_PID  = "$REMOTE_DIR/$SERVICE.pid";
+my $START       = "cd $REMOTE_DIR && daemon -f -H -r -t $SERVICE -P $DAEMON_PID"
+    . " -p $SEARCH_PID -o $REMOTE_DIR/$SERVICE.log $REMOTE_DIR/$SEARCH";
+my $STOP        = "{ if [ -f $DAEMON_PID ]; then kill \$(cat $DAEMON_PID) 2>/dev/null; fi;"
+    . " i=0; for f in $DAEMON_PID $SEARCH_PID; do"
+    . " [ -f \$f ] || continue; pid=\$(cat \$f);"
+    . " while kill -0 \$pid 2>/dev/null; do"
+    . " i=\$((i + 1)); if [ \$i -gt 30 ]; then echo '$SERVICE did not stop' >&2; exit 1; fi;"
+    . " sleep 1; done; done; }";
 my %SEARCH_FILES = (
     'index.json' => 'index.json',
     'search/index.html' => 'index.html'
@@ -60,7 +70,11 @@ sub build() {
         copy("$DESTINATION/$file", "$SEARCH/$SEARCH_FILES{$file}")
             or die "failed to copy $DESTINATION/$file to $SEARCH/$SEARCH_FILES{$file}: $!\n";
     }
-    go_build_static($SEARCH, $SEARCH);
+    {
+        local $ENV{GOOS}   = 'freebsd';
+        local $ENV{GOARCH} = 'amd64';
+        go_build_static($SEARCH, $SEARCH);
+    }
     return;
 }
 
@@ -88,7 +102,7 @@ sub deploy($fail_if_dirty) {
 
     run(qw(rsync -a --delete -e), $rsh, "$DESTINATION/", "$HOST:$REMOTE_DIR/public/");
     run('rsync', '-e', $rsh, "$SEARCH/$SEARCH", "$HOST:$REMOTE_DIR/");
-    run(@ssh, $HOST, "chmod +x $REMOTE_DIR/$SEARCH && systemctl --user restart $SERVICE");
+    run(@ssh, $HOST, "chmod +x $REMOTE_DIR/$SEARCH && $STOP && $START");
     return;
 }
 
